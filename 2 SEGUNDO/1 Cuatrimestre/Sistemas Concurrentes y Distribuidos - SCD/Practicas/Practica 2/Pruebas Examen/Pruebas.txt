@@ -1,0 +1,13 @@
+Prueba 1:
+	Barbero: Clientes esperan en la calle
+	Fumadores: 6 + 2 + Ing Especial
+	
+Prueba 2:
+	Examen G.A 1º:
+		- Fumadores doble ingrediente
+		- Monitor + hebras*2 tipo1 hebras*3 tipo2
+
+Prueba 3:
+	Examen G.A 2º:
+		- Barbero cada 3 clientes + Sala espera limitada
+		- Monitor coches + peaje
