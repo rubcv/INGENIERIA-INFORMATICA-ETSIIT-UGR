@@ -1,0 +1,17 @@
+﻿filtrar no zombis o que el hijo termina inesperadamente:
+
+crear señal con sigaction + sigchld y una funcion al handler que sea un wait, si hay error en el hijo, se llama a ese wait directamente
+
+
+PARA VER SI HA TERMINADO CORRECTAMENTE:
+en los exit poner valores positivos
+en el wait: int satus;
+			wait(&status);
+se guarda en status
+
+
+
+SIGPIPE:
+
+	Cuando vas a escribir y no hay lectores
+	(Cuando no te has creado el hijo lector)

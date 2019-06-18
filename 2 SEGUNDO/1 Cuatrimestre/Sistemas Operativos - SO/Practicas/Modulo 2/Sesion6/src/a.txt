@@ -1,0 +1,10 @@
+a.txt
+ej1
+ej1.c
+programa1-Tarea13-prac6.c
+programa2-Tarea14-prac6.c
+programa3-Tarea15-prac6.c
+programa4-Tarea16-prac6.c
+programa5-Tarea17-prac6.c
+programa6-Tarea18-prac6.c
+programa7-Tarea19-prac6.c

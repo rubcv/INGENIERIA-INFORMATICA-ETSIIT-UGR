@@ -1,0 +1,12 @@
+AÑADIR SIN MODIFICAR LO QUE TIENE:
+
+
+struct stat attr;
+stat(..)
+mode_t perm = attr.st_mode;
+
+perm = perm | I...; // una or para añadir
+
+para quitar:
+
+perm = perm & ~I...; // Una and de la negacion para quitar sin cambiar lo que hay

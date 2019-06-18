@@ -1,0 +1,70 @@
+Se establece un bloqueo (lock) al inicio del programa, de forma que si se ejecuta una segunda vez, daria error porque tiene el bloqueo que se pone la primera vez. 
+
+Ej:
+
+ #include <stdlib.h>
+           #include <unistd.h>
+           #include <fcntl.h>
+           #include <errno.h>
+           #include <stdio.h>
+
+           int
+           main(int argc, char *argv[])
+           {
+               int fd;
+               struct flock fl;
+
+               fd = open("testfile", O_RDWR);
+               if (fd == -1)
+                   /* Handle error */;
+
+               /* Make a non-blocking request to place a write lock
+                  on bytes 100-109 of testfile */
+
+               fl.l_type = F_WRLCK;
+               fl.l_whence = SEEK_SET;
+               fl.l_start = 100;
+               fl.l_len = 10;
+
+               if (fcntl(fd, F_SETLK, &fl) == −1) {
+                   if (errno == EACCES || errno == EAGAIN) {
+                       printf("Already locked by another process\n"); //<<<<<<<----- Si no se puede es que ya se ha ejecutado 
+
+                       /* We can't get the lock at the moment */
+                        } else {
+                       /* Handle unexpected error */;
+                   }
+               } else { /* Lock was granted... */
+
+                   /* Perform I/O on bytes 100 to 109 of file */
+
+                   /* Unlock the locked bytes */
+
+                   fl.l_type = F_UNLCK;
+                   fl.l_whence = SEEK_SET;
+                   fl.l_start = 100;
+                   fl.l_len = 10;
+                   if (fcntl(fd, F_SETLK, &fl) == −1)
+                       /* Handle error */;
+               }
+               exit(EXIT_SUCCESS);
+           } /* main */
+
+
+// --------------------------------------------------------------------------------------------------------------
+#include <sys/file.h>
+#include <errno.h>
+
+int pid_file = open("/var/run/whatever.pid", O_CREAT | O_RDWR, 0666);
+int rc = flock(pid_file, LOCK_EX | LOCK_NB);
+if(rc) {
+    if(EWOULDBLOCK == errno)
+        ; // another instance is running
+}
+else {
+    // this is the first instance
+}
+
+
+
+
