@@ -1,0 +1,18 @@
+Polimorfismo:
+
+Animal <- Gato
+^ Perro
+
+JAVA:
+			 				TIPO ESTATICO DE BICHO | TIPO DINAMICO DE BICHO
+Animal bicho; 					Animal						X
+bicho = new Gato();			    Animal					Gato
+bicho = new Perro(); 			Animal					Perro
+
+
+Tipo dinamico: Segun la ultima asignacion
+
+Asignar objetos a la variable segun su tipo estatico(subclases). A bicho solo se le asignan animales, no string por ejemplo.
+
+INTERFAZ: Clases que la implementen y sus subclases.
+No se pueden crear objetos ni de interfaces ni de clases abstractas, puesto que no tienen metodos implementados y el objeto no sabria responder

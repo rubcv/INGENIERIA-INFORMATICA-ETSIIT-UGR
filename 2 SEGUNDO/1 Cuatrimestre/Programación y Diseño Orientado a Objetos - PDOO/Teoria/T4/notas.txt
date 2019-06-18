@@ -1,0 +1,2 @@
+En java, con == comparas identidad
+con equals segun lo implementes, identidad o estado
