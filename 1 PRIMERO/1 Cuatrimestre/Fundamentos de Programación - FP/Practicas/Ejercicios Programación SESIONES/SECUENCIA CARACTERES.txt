@@ -1,0 +1,23 @@
+- const int TAMANIO
+- char vector_privado[TAMANIO]
+- int total_utilizados
+- void IntercambiaComponentes_en_Posiciones (int pos_izda, int pos_dcha)
+
+
++ SecuenciaCaracteres()
++ int TotalUtilizados()
++ int Capacidad()
++ void Aniade(char nuevo)
++ char Elemento(int indice)
++ void EliminaTodos()
++ string ToString()
++ int PrimeraOcurrenciaEntre(int pos_izda, int pos_dcha, char buscado)
++ int PrimeraOcurrencia(char buscado)
++ int BusqedaBinaria(char buscado)
++ int PosicionMinimoEntre(int izda, int dcha)
++ int PosicionMinimo()
++ void Inserta(int pos_insercion, char valor_nuevo)
++ void Ordena_por_Seleccion()
++ void Ordena_por_Insercion()
++ void Ordena_por_Burbuja()
++ void Ordena_por_BurbujaMejorado()
