@@ -1,0 +1,1 @@
+1º - Como gestiona linux los cambios de proceso dinamicos 
