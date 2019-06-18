@@ -1,2 +1,0 @@
-mkdir /home/micuenta
-mount none /home/micuenta -t hostfs -o  /fenix/alum/d4/rubencav
