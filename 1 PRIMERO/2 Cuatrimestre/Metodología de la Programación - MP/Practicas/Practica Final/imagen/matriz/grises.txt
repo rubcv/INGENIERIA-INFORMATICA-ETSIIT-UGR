@@ -1,0 +1,6 @@
+Ejemplos de conjutos de caracteres para usar con arte ASCII
+4
+#$:.
+@mQt]?' 
+@%#*+=-:. 
+$@B%8&WM#*oahkbdp\qwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+<>i!lI;:,"^'`. 
