@@ -1,0 +1,99 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 15.08.2 ] */
+
+/* [wxMaxima: hide output   ] */
+/* [wxMaxima: input   start ] */
+wxplot2d([sin(x),cos(x)], [x,,5], [y,-2*%pi,2*%pi])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([sin(x),cos(x)], [x,-5,5], [y,-2*%pi,2*%pi])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([sin(x),cos(x)], [x,-2*%pi,2*%pi])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([cos(x),cos(-x)], [x,-5,5])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxdraw color=green;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([cos(x)^2-x*sin(x)^2], [x,-%pi,%pi],[y,-%pi,%pi])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+lbfgs(cos(x)^2-x*sin(x)^2, [x], [1.0], 1e-4, [-1,0]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x):= cos(x)^2-x*sin(x)^2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([cos(x)^2-x*sin(x)^2], [x,-%pi,%pi],[y,-%pi,%pi])$
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+point([[1,2]]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+point([[1,2],[-1,0]]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxdraw2d(
+explicit(cos(x)^2-x*sin(x)^2,x,-%pi,%pi),
+point_size=3,
+points([[0,f(0)],[-1,f(-1)],[2,f(2)]])
+);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+wxdraw2d(
+explicit(cos(x)^2-x*sin(x)^2,x,-%pi,%pi),
+point_size=5,
+color=red,
+points(listax,listay)
+);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: subsect start ]
+Numero aleatorio
+   [wxMaxima: subsect end   ] */
+
+/* [wxMaxima: hide output   ] */
+/* [wxMaxima: input   start ] */
+random(float(%pi));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: hide output   ] */
+/* [wxMaxima: input   start ] */
+random(3.14);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: hide output   ] */
+/* [wxMaxima: input   start ] */
+makelist(i^2,i,1,10);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: subsect start ]
+Hacer lista
+   [wxMaxima: subsect end   ] */
+
+/* [wxMaxima: input   start ] */
+listax:makelist(random(6.28)-3.14,i,1,8);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: hide output   ] */
+/* [wxMaxima: input   start ] */
+listay:f(listax);
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

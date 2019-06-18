@@ -1,0 +1,170 @@
+
+
+
+
+fpprec : 100;
+
+
+
+
+%e;
+
+
+
+
+fpprec : 101;
+
+
+
+
+set_display('none)$
+
+
+
+
+%e;
+
+
+
+bfloat(%e);
+
+
+
+%pi-cosh(3)/3,numer;
+
+
+
+p:sin(5*x)*cos(3*x);
+
+
+
+expand(%);
+
+
+
+trigexpand(%);
+
+
+
+plot2d(funcion,[x,a,b]);
+plot2d([funcion1,funcion2,...],[a,b,c])
+
+prefijo wx
+
+
+
+wxplot2d([cosh(x),sinh(x)))], [x,-5,5])$
+
+
+
+wxplot2d([cosh(x),sinh(x)], [x,-5,5])$
+
+
+
+wxplot3d(cos(x*y)/(1+x^2+y^2), [x,-5,5], [y,-5,5])$
+
+
+
+
+
+wxplot2d([log(x),exp(x),x^2], [x,-5,5])$
+
+
+
+
+set_plot_option(['plot_format, 'xmaxima])$
+
+
+
+
+%;
+
+
+
+
+set_plot_option(['plot_format, 'mgnuplot])$
+
+
+
+set_plot_option(['plot_format, 'xmaxima])$
+
+
+
+wxplot3d(x^3, [x,-5,5], [y,-5,5])$
+
+
+
+
+%;
+
+
+
+wxplot3d(x^2, [x,-5,5], [y,-5,5])$
+
+
+
+set_display('xml)$
+
+
+
+%;
+
+
+
+%i20;
+
+
+
+wxplot2d([x^2], [x,-5,5])$
+
+
+
+load(draw);
+
+
+
+
+explicit(funcion,x,a,b), grafica de lafuncion en [a,b]
+
+   [wxMaxima: title   end   ] */
+
+
+draw2d(
+opciones,
+dibujo1,
+opciones,
+dibujo2,
+...,
+
+
+   [wxMaxima: section end   ] */
+
+
+wxdraw2d(
+line_width = 3,
+explicit(cos(x),x,-2,6),
+color = red,
+explicit(sin(x),x,0,8)
+
+);
+
+
+
+wxdraw2s(
+explicit (sqrt(1-x^2,)x,-1,1);
+explicit (-sqrt(1-x^2),x,-1,1);
+);
+
+
+
+implicit (ecuacion,x,a,b,c,d)
+
+
+   [wxMaxima: subsect end   ] */
+
+
+wxdraw2d()
+
+
+
+"Created with wxMaxima"$
