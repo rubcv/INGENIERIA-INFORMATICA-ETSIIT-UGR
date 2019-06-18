@@ -1,0 +1,8 @@
+DOS PROGRAMAS
+1º lee de entrada estandar en modo binario un numero
+  - abre el directorio actual
+  - busca la entrada correspondiente al numero leido
+  muestra la entrada con ese numero
+2º - recibe un argumento en la linea de ordenes, entero
+  - crea un hijo, crea un cauce y le dice al hijo a traves del cauce el entero recibido por argumento
+  para que muestre por pantalla la entrada
