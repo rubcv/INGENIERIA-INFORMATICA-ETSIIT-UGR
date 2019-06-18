@@ -1,0 +1,121 @@
+Asignatura: Fundamentos del Software       |
+1º Grado en Ingeniería Informática         |
+Depto. Lenguajes y Sistemas Informáticos   |
+Universidad de Granada                     |
+--------------------------------------------
+
+Este archivo complementa la sesión 5 de prácticas y contiene instrucciones para obtener un nuevo
+archivo sobre el que se practicará el uso de patrones con la orden grep.
+
+En primer lugar, debe ejecutar en una shell la orden siguiente:
+
+  tail –-lines=37 s5_Complementos.txt > s5_datos
+
+A continuación ejecute los siguien
+tes ejemplos y anote una descripción del resultado que obtenga:
+
+grep    .           s5_datos (Aparezca un punto)
+grep    \.          s5_datos (Punto)
+grep  p.p.          s5_datos (Tenga 'P' lo que sea 'P')
+grep  P.p.          s5_datos '^P.p.$' (' ' <-Interpreta grep no bash)
+Si quieres buscar la palabra pipa: '\<pipa\>'
+Buscar: Pepe. -> 'Pepe\.'
+grep  pi            s5_datos
+grep  pi\.          s5_datos
+grep  'l?'          s5_datos   # en este caso y en los tres siguientes se usa la letra ele
+grep  l?            s5_datos
+grep  l\?           s5_datos
+grep  “\(ll\)\?”    s5_datos
+grep  'pa\?'        s5_datos (Con ? puede aparecer o no) ['pa\\?' sale pa\?] '\(p[ae]\)+' <- o una a o una e: '\(p[^ae]\)+' <- Ni a ni e
+
+
+
+grep  'pa\?p'       s5_datos 
+grep  '\(pa\)+'     s5_datos
+grep  pa*p          s5_datos ('\(pa\)\+) [p y todas las veces que sean a]
+
+
+grep  'pa\{2\}p'    s5_datos
+grep  [1-6]         s5_datos
+grep  [6-0]         s5_datos   # ¿qué pasa con este rango?
+grep  [q-t]         s5_datos
+grep  [Q-T]         s5_datos
+grep  [q-sy]        s5_datos
+grep  [^QT]         s5_datos
+grep  ^P            s5_datos
+grep  -v  ^[^p]     s5_datos
+grep  ^[^p]         s5_datos
+grep  e$            s5_datos
+grep  'e\b'         s5_datos
+grep  “e\>”         s5_datos
+grep  'e\B'         s5_datos
+grep  '\<e'         s5_datos
+grep  -E 'e$|s$'    s5_datos   # en este caso y en el siguiente se usa la opción -E para indicar que se trata de
+                               # una expresión extendida; también se usa  el mecanismo de cauces
+grep  -E 'e$ | s$'  s5_datos   # hay un hueco en blanco a cada lado del símbolo de cauce, ¿qué sucederá?
+
+
+
+
+Seguidamente se proponen diferentes ejercicios que deben resolverse haciendo uso de la orden grep
+sobre el archivo s5_datos. Obtenga las líneas que contienen:
+
+1.-  Algún punto ( . ).
+2.-  El carácter de la barra de escape ( \ ).
+3.-  "pi"  seguido de cualquier otro carácter.
+4.-  Palabras con la letra “p” seguida de otros tres caracteres.
+5.-  Palabras con “pe.”.
+6.-  Palabras que incluyen la letra ele al menos una vez.
+7.-  Palabras que incluyen una o varias letras “a” entre dos letras “p”.
+8.-  Palabras con “pa?”.
+9.-  Palabras con “pa\?p”.
+10.- Palabras que incluyen “pa” al menos una vez.
+11.- Palabras que incluyen de dos a cinco letras “a” entre dos letras “p”.
+12.- Palabras que incluyen las letras “q” o “t”.
+13.- Palabras que incluyen las letras “q” o “t” o una coma.
+14.- Palabras que incluyen la letra “s” o un guion (-).
+15.- El carácter de comentario o un asterisco como primer carácter de línea.
+16.- Palabras de cinco letras que comiencen con la letra “b” y terminen con la letra “o”.
+17.- Palabras de cualquier longitud que comiencen con la letra “p” y terminen con la letra “a”.
+18.- La comilla simple ( ' ). ¿Y si se quieren omitir estas líneas?
+19.- La comilla doble ( “ ).
+20.- La letra “e” y la letra “i” en cualquier orden o posición.
+
+----- Las líneas siguientes deben formar parte del archivo s5_datos (incluyendo una línea en blanco al final)------
+# Este archivo es para probar con grep
+papá
+Pepa
+Pepe
+pepinillo
+pi
+pi es 3'1416
+pipa
+popa
+proa
+pupa
+pus
+loco
+ll?
+papanata
+espapanata
+papa+
+paapa
+paaapa
+paaaaapa
+ppa
+pa\?p
+¿Eres Pepa?
+¿Tiene un delantal?
+La pipa es de Pepe.
+Quien come, paga.
+Yo no pago.
+En la popa del barco pone "L'amour c'est la musique.".
+Después de esto, si no hay nada urgente, descansa.
+Cuando lo vea -dijo ella-.
+* A partir de aquí­ hay números:
+0.- El cero.
+1.- El uno.
+3.- El tres.
+6.- El seis.
+9.- El nueve.
+

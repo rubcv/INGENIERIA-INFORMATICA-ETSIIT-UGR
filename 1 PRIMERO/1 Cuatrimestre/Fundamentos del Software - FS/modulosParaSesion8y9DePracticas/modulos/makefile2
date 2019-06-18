@@ -1,0 +1,23 @@
+# Nombre archivo: makefile2
+# Uso: make -f makefile2
+# Descripción: Mantiene todas las dependencias entre los módulos que utiliza el
+# programa1.
+
+
+CC=g++
+CFLAGS=-c -Wall
+LDFLAGS=
+SOURCE_MODULES=main.cpp factorial.cpp hello.cpp 
+OBJECT_MODULES=$(SOURCE_MODULES:.cpp=.o)
+EXECUTABLE=programa1
+
+
+all: $(OBJECT_MODULES) $(EXECUTABLE)
+	
+$(EXECUTABLE): $(OBJECT_MODULES)
+	$(CC) $(LDFLAGS) $^ -o $@
+
+.o: .cpp
+	$(CC) $(CFLAGS) $< -o $@
+
+
