@@ -1,0 +1,9 @@
+# fichero cadenamusSimple.srl
+# adn = GAATTCTTGTTGAGAAGGAATTGGGCTCAATGAAGTTCGGGGATATTCCAAGTGAATTATTCCAGTGAGTGTTATTCAGCAATGGACGTGACTGTCGTTTGCCAGATCAGCAGAAGCCGAAAGGAAAACCTGGTGATTGTCTGCCACCACTTGGCCCTTGGGGCAGGGCGGGGCGGGGCGGGGGGCGTGGTGATTAAATGTGGATTGGTATTTTGTGGCTTTGTAAGTCCCAGTGCTGGA
+# kmer_length = 3
+# delim = ;
+# null = x -1
+# genes = A,G,C,T
+# primera linea de datos es kmer_length y la sugunda corresponde a la serializacion
+3
+- 0;A 4;G 3;C 2;T 5;x -1;x -1;C 1;T 3;x -1;G 1;x -1;T 1;A 2;x -1;x -1;x -1;A 1;G 2;C 1;T 1;A 1;x -1;x -1;x -1;A 1;x -1;C 1;T 1;x -1;x -1;x -1;x -1;x -1;G 1;x -1;x -1;x -1;x -1;x -1;T 2;x -1;x -1;C 1;x -1;x -1;G 1;x -1;T 1;A 1;x -1;x -1;x -1;x -1;G 1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;x -1;

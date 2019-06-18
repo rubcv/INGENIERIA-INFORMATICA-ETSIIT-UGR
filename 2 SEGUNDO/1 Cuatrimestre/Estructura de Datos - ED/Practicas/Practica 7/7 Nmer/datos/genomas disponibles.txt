@@ -1,0 +1,14 @@
+Los genomas de los ficheros 1-10.txt se corresponden con las siguientes especies: 
+1.txt - Extracto 10.000 bases Genoma Humano - http://genome.ucsc.edu/cgi-bin/das/hg38/dna?segment=chr9:133255001,133265000
+2.txt - Extracto 10.000 bases Genoma Humano - http://genome.ucsc.edu/cgi-bin/das/hg38/dna?segment=chr6:133200001,133210000
+3.txt - Extracto 10.000 bases Genoma Mus Musculus (ratón) - http://genome.ucsc.edu/cgi-bin/das/mm10/dna?segment=chr12:56694976,56704975
+4.txt - Extracto 10.000 bases Genoma Mus Musculus (ratón) - http://genome.ucsc.edu/cgi-bin/das/mm10/dna?segment=chr2:56694976,56704975
+5.txt - Extracto 10.000 bases Genoma C. Elegans (gusano) - http://genome.ucsc.edu/cgi-bin/das/ce11/dna?segment=chrII:14646376,14656375
+6.txt - Extracto 10.000 bases Genoma C. Elegans (gusano) - http://genome.ucsc.edu/cgi-bin/das/ce11/dna?segment=chrI:14646376,14656375
+7.txt - Extracto 10.000 bases Genoma D. Melanogaster (mosca de la fruta) - http://genome.ucsc.edu/cgi-bin/das/dm6/dna?segment=chr2L:830001,840000
+8.txt - Extracto 10.000 bases Genoma D. Melanogaster (mosca de la fruta) - http://genome.ucsc.edu/cgi-bin/das/dm6/dna?segment=chr2L:810001,820000
+9.txt - Extracto 10.000 bases Genoma Virus Ébola - http://genome.ucsc.edu/cgi-bin/das/eboVir3/dna?segment=KM034562v1:1,10000
+10.txt - Extracto 10.000 bases Genoma Pez Cebra - http://genome.ucsc.edu/cgi-bin/das/danRer10/dna?segment=chr10:33930892,33940891
+
+Puedes navegar por el genoma de cualquiera de estas especies y otros más en: 
+https://genome-euro.ucsc.edu/cgi-bin/hgGateway
