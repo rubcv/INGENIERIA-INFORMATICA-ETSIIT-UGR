@@ -1,0 +1,279 @@
+----------------------- Medición 1º - Optimización -O2 -----------------------
+
+resultado = 32768	parity1: :     2214 us
+resultado = 32768	parity2: :     1977 us
+resultado = 32768	parity3: :     1044 us
+resultado = 32768	parity4: :      508 us
+resultado = 32768	parity5: :      376 us
+resultado = 32768	parity6: :       71 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 2º - Optimización -O2 -----------------------
+resultado = 32768	parity1: :     2117 us
+resultado = 32768	parity2: :      748 us
+resultado = 32768	parity3: :      520 us
+resultado = 32768	parity4: :      437 us
+resultado = 32768	parity5: :      350 us
+resultado = 32768	parity6: :       88 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 3º - Optimización -O2 -----------------------
+resultado = 32768	parity1: :     2055 us
+resultado = 32768	parity2: :      750 us
+resultado = 32768	parity3: :      498 us
+resultado = 32768	parity4: :      436 us
+resultado = 32768	parity5: :      349 us
+resultado = 32768	parity6: :       89 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 4º - Optimización -O2 -----------------------
+resultado = 32768	parity1: :     2078 us
+resultado = 32768	parity2: :      752 us
+resultado = 32768	parity3: :      497 us
+resultado = 32768	parity4: :      441 us
+resultado = 32768	parity5: :      347 us
+resultado = 32768	parity6: :       88 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 5º - Optimización -O2 -----------------------
+resultado = 32768	parity1: :     2045 us
+resultado = 32768	parity2: :      753 us
+resultado = 32768	parity3: :      486 us
+resultado = 32768	parity4: :      459 us
+resultado = 32768	parity5: :      377 us
+resultado = 32768	parity6: :      118 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 6º - Optimización -O2 -----------------------
+resultado = 32768	parity1: :     2201 us
+resultado = 32768	parity2: :      589 us
+resultado = 32768	parity3: :      504 us
+resultado = 32768	parity4: :      446 us
+resultado = 32768	parity5: :      355 us
+resultado = 32768	parity6: :       92 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 7º - Optimización -O2 -----------------------
+resultado = 32768	parity1: :     2095 us
+resultado = 32768	parity2: :      750 us
+resultado = 32768	parity3: :      493 us
+resultado = 32768	parity4: :      437 us
+resultado = 32768	parity5: :      351 us
+resultado = 32768	parity6: :       97 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 8º - Optimización -O2 -----------------------
+resultado = 32768	parity1: :     2051 us
+resultado = 32768	parity2: :      755 us
+resultado = 32768	parity3: :      581 us
+resultado = 32768	parity4: :      451 us
+resultado = 32768	parity5: :      357 us
+resultado = 32768	parity6: :       94 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 9º - Optimización -O2 -----------------------
+resultado = 32768	parity1: :     2057 us
+resultado = 32768	parity2: :      652 us
+resultado = 32768	parity3: :      497 us
+resultado = 32768	parity4: :      437 us
+resultado = 32768	parity5: :      351 us
+resultado = 32768	parity6: :       89 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 10º - Optimización -O2 -----------------------
+resultado = 32768	parity1: :     2076 us
+resultado = 32768	parity2: :      687 us
+resultado = 32768	parity3: :      499 us
+resultado = 32768	parity4: :      438 us
+resultado = 32768	parity5: :      351 us
+resultado = 32768	parity6: :       88 us
+N*(N+1)/2=2147450880
+
+
+--------------------------------------------------------------------------------
+********************************************************************************
+
+----------------------- Medición 1º - Optimización -O1 -----------------------
+resultado = 32768	parity1: :     2560 us
+resultado = 32768	parity2: :      591 us
+resultado = 32768	parity3: :      440 us
+resultado = 32768	parity4: :      439 us
+resultado = 32768	parity5: :      442 us
+resultado = 32768	parity6: :       90 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 2º - Optimización -O1 -----------------------
+resultado = 32768	parity1: :     2412 us
+resultado = 32768	parity2: :      588 us
+resultado = 32768	parity3: :      442 us
+resultado = 32768	parity4: :      907 us
+resultado = 32768	parity5: :     1488 us
+resultado = 32768	parity6: :      227 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 3º - Optimización -O1 -----------------------
+resultado = 32768	parity1: :     3368 us
+resultado = 32768	parity2: :      622 us
+resultado = 32768	parity3: :      480 us
+resultado = 32768	parity4: :      447 us
+resultado = 32768	parity5: :      502 us
+resultado = 32768	parity6: :       96 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 4º - Optimización -O1 -----------------------
+resultado = 32768	parity1: :     2436 us
+resultado = 32768	parity2: :      614 us
+resultado = 32768	parity3: :      449 us
+resultado = 32768	parity4: :      441 us
+resultado = 32768	parity5: :      440 us
+resultado = 32768	parity6: :       90 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 5º - Optimización -O1 -----------------------
+resultado = 32768	parity1: :     2389 us
+resultado = 32768	parity2: :      621 us
+resultado = 32768	parity3: :      456 us
+resultado = 32768	parity4: :      441 us
+resultado = 32768	parity5: :      463 us
+resultado = 32768	parity6: :       88 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 6º - Optimización -O1 -----------------------
+resultado = 32768	parity1: :     2542 us
+resultado = 32768	parity2: :      696 us
+resultado = 32768	parity3: :      457 us
+resultado = 32768	parity4: :      447 us
+resultado = 32768	parity5: :      468 us
+resultado = 32768	parity6: :       96 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 7º - Optimización -O1 -----------------------
+resultado = 32768	parity1: :     2431 us
+resultado = 32768	parity2: :      734 us
+resultado = 32768	parity3: :      501 us
+resultado = 32768	parity4: :      483 us
+resultado = 32768	parity5: :      503 us
+resultado = 32768	parity6: :      147 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 8º - Optimización -O1 -----------------------
+resultado = 32768	parity1: :     2453 us
+resultado = 32768	parity2: :      621 us
+resultado = 32768	parity3: :      459 us
+resultado = 32768	parity4: :      448 us
+resultado = 32768	parity5: :      470 us
+resultado = 32768	parity6: :       97 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 9º - Optimización -O1 -----------------------
+resultado = 32768	parity1: :     2430 us
+resultado = 32768	parity2: :      613 us
+resultado = 32768	parity3: :      452 us
+resultado = 32768	parity4: :      440 us
+resultado = 32768	parity5: :      463 us
+resultado = 32768	parity6: :       90 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 10º - Optimización -O1 -----------------------
+resultado = 32768	parity1: :     2387 us
+resultado = 32768	parity2: :      613 us
+resultado = 32768	parity3: :      441 us
+resultado = 32768	parity4: :      491 us
+resultado = 32768	parity5: :      464 us
+resultado = 32768	parity6: :       92 us
+N*(N+1)/2=2147450880
+
+
+--------------------------------------------------------------------------------
+********************************************************************************
+
+
+----------------------- Medición 1º - Optimización -O0 -----------------------
+resultado = 32768	parity1: :    13741 us
+resultado = 32768	parity2: :     2553 us
+resultado = 32768	parity3: :     2370 us
+resultado = 32768	parity4: :      753 us
+resultado = 32768	parity5: :      955 us
+resultado = 32768	parity6: :      247 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 2º - Optimización -O0 -----------------------
+resultado = 32768	parity1: :     6752 us
+resultado = 32768	parity2: :     2553 us
+resultado = 32768	parity3: :     2361 us
+resultado = 32768	parity4: :      919 us
+resultado = 32768	parity5: :      977 us
+resultado = 32768	parity6: :      265 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 3º - Optimización -O0 -----------------------
+resultado = 32768	parity1: :     6613 us
+resultado = 32768	parity2: :     2581 us
+resultado = 32768	parity3: :     2403 us
+resultado = 32768	parity4: :      754 us
+resultado = 32768	parity5: :      955 us
+resultado = 32768	parity6: :      248 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 4º - Optimización -O0 -----------------------
+resultado = 32768	parity1: :     6574 us
+resultado = 32768	parity2: :     2620 us
+resultado = 32768	parity3: :     2478 us
+resultado = 32768	parity4: :      872 us
+resultado = 32768	parity5: :      986 us
+resultado = 32768	parity6: :      248 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 5º - Optimización -O0 -----------------------
+resultado = 32768	parity1: :     6611 us
+resultado = 32768	parity2: :     2514 us
+resultado = 32768	parity3: :     2382 us
+resultado = 32768	parity4: :      854 us
+resultado = 32768	parity5: :      959 us
+resultado = 32768	parity6: :      249 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 6º - Optimización -O0 -----------------------
+resultado = 32768	parity1: :     6531 us
+resultado = 32768	parity2: :     2526 us
+resultado = 32768	parity3: :     2360 us
+resultado = 32768	parity4: :      923 us
+resultado = 32768	parity5: :      965 us
+resultado = 32768	parity6: :      328 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 7º - Optimización -O0 -----------------------
+resultado = 32768	parity1: :     7439 us
+resultado = 32768	parity2: :     2557 us
+resultado = 32768	parity3: :     2412 us
+resultado = 32768	parity4: :      754 us
+resultado = 32768	parity5: :      958 us
+resultado = 32768	parity6: :      249 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 8º - Optimización -O0 -----------------------
+resultado = 32768	parity1: :     6532 us
+resultado = 32768	parity2: :     2516 us
+resultado = 32768	parity3: :     2382 us
+resultado = 32768	parity4: :      855 us
+resultado = 32768	parity5: :      957 us
+resultado = 32768	parity6: :      249 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 9º - Optimización -O0 -----------------------
+resultado = 32768	parity1: :     6751 us
+resultado = 32768	parity2: :     2562 us
+resultado = 32768	parity3: :     2406 us
+resultado = 32768	parity4: :      764 us
+resultado = 32768	parity5: :      974 us
+resultado = 32768	parity6: :      274 us
+N*(N+1)/2=2147450880
+
+----------------------- Medición 10º - Optimización -O0 -----------------------
+resultado = 32768	parity1: :     6624 us
+resultado = 32768	parity2: :     2516 us
+resultado = 32768	parity3: :     2361 us
+resultado = 32768	parity4: :      809 us
+resultado = 32768	parity5: :      957 us
+resultado = 32768	parity6: :      249 us
+N*(N+1)/2=2147450880

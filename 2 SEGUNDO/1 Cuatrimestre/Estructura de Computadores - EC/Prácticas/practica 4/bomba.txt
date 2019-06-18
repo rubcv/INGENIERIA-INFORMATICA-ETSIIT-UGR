@@ -1,0 +1,9 @@
+set write on
+file bomba
+info line main
+set *(char*)0x080486ef=0xeb
+set *(char*)0x0804874f=0xeb
+set write off
+file popcount
+quit
+

@@ -1,0 +1,215 @@
+strings [ejecutable] <- Ver el contenido del ejecutable
+vm [ejecutable] <- Ver flags del programa
+ltrace
+
+
+--------------------- GDB ---------------------
+BOMBA 1:
+   0x0804846d <+0>:	push   %ebp
+   0x0804846e <+1>:	mov    %esp,%ebp
+=> 0x08048470 <+3>:	and    $0xfffffff0,%esp
+   0x08048473 <+6>:	sub    $0x20,%esp
+   0x08048476 <+9>:	lea    0x1c(%esp),%eax
+   0x0804847a <+13>:	mov    %eax,0x4(%esp)
+   0x0804847e <+17>:	movl   $0x8048540,(%esp)
+   0x08048485 <+24>:	call   0x8048360 <__isoc99_scanf@plt>
+   0x0804848a <+29>:	mov    0x1c(%esp),%eax
+   0x0804848e <+33>:	cmp    $0x3,%eax
+   0x08048491 <+36>:	jne    0x80484a1 <main+52>
+   0x08048493 <+38>:	movl   $0x8048543,(%esp)
+   0x0804849a <+45>:	call   0x8048330 <puts@plt>
+   0x0804849f <+50>:	jmp    0x80484ad <main+64>
+   0x080484a1 <+52>:	movl   $0x8048558,(%esp)
+   0x080484a8 <+59>:	call   0x8048330 <puts@plt>
+   0x080484ad <+64>:	leave  
+   0x080484ae <+65>:	ret  
+   
+   
+--quiet <- pa que no muestre morralla
+breakpoint <- parar ejecucion
+break main <- breakpoint en main
+run + disas <- Desensamblar 
+FLECHA: =>  <- Siguiente instruccion
+
+VER VALOR EN HEX:
+	python
+	a = 0x20
+	print(a)
+	
+	
+Guardas en pila los parametros del scanf antes de llamar al scanf
+
+
+2º PARAMETRO: 
+	Dir del dato que vas a leer lo guardas en %eax tras hacer la reserva en pila
+
+----> Despues compara con 3
+
+IMPRIMIR DIR MEMORIA:
+print (char*)0x8048540
+   -> %d <- Primer parametro del scanf: Vas a leer un entero
+   
+   
+   
+   
+------------------------BOMBA 2 ------------------------------
+
+
+0x080484ed <+0>:	push   %ebp
+   0x080484ee <+1>:	mov    %esp,%ebp
+   0x080484f0 <+3>:	push   %ebx
+=> 0x080484f1 <+4>:	and    $0xfffffff0,%esp
+   0x080484f4 <+7>:	sub    $0x420,%esp
+   0x080484fa <+13>:	mov    0xc(%ebp),%eax
+   0x080484fd <+16>:	mov    %eax,0xc(%esp)
+   0x08048501 <+20>:	mov    %gs:0x14,%eax
+   0x08048507 <+26>:	mov    %eax,0x41c(%esp)
+   0x0804850e <+33>:	xor    %eax,%eax
+   0x08048510 <+35>:	movl   $0x8048640,0x18(%esp)
+   0x08048518 <+43>:	lea    0x1c(%esp),%eax
+   0x0804851c <+47>:	mov    %eax,0x4(%esp)
+   0x08048520 <+51>:	movl   $0x804864b,(%esp)
+   0x08048527 <+58>:	call   0x80483e0 <__isoc99_scanf@plt>
+   0x0804852c <+63>:	movl   $0x0,0x14(%esp)
+   0x08048534 <+71>:	jmp    0x8048571 <main+132>
+   0x08048536 <+73>:	mov    0x14(%esp),%edx
+   0x0804853a <+77>:	mov    0x18(%esp),%eax
+   0x0804853e <+81>:	add    %edx,%eax
+   0x08048540 <+83>:	movzbl (%eax),%edx
+   0x08048543 <+86>:	lea    0x1c(%esp),%ecx
+   0x08048547 <+90>:	mov    0x14(%esp),%eax
+   0x0804854b <+94>:	add    %ecx,%eax
+   0x0804854d <+96>:	movzbl (%eax),%eax
+   0x08048550 <+99>:	cmp    %al,%dl
+   0x08048552 <+101>:	je     0x804856c <main+127>
+   0x08048554 <+103>:	movl   $0x804864e,(%esp)
+   0x0804855b <+110>:	call   0x80483a0 <puts@plt>
+   0x08048560 <+115>:	movl   $0x1,(%esp)
+   0x08048567 <+122>:	call   0x80483c0 <exit@plt>
+   0x0804856c <+127>:	addl   $0x1,0x14(%esp)
+   0x08048571 <+132>:	cmpl   $0xa,0x14(%esp)
+   0x08048576 <+137>:	jle    0x8048536 <main+73>
+   0x08048578 <+139>:	movl   $0x8048654,(%esp)
+   0x0804857f <+146>:	call   0x80483a0 <puts@plt>
+   0x08048584 <+151>:	mov    $0x0,%eax
+   0x08048589 <+156>:	mov    0x41c(%esp),%ebx
+   0x08048590 <+163>:	xor    %gs:0x14,%ebx
+   0x08048597 <+170>:	je     0x804859e <main+177>
+   0x08048599 <+172>:	call   0x8048390 <__stack_chk_fail@plt>
+   0x0804859e <+177>:	mov    -0x4(%ebp),%ebx
+   0x080485a1 <+180>:	leave  
+   0x080485a2 <+181>:	ret    
+
+
+
+
+
+
+--- LOS NUMEROS:
+<+0> <--- Donde esta la instruccion a partir del main
+<+1>
+
+Imprimir direccion antes de llamar al puts (printf)
+(gdb) print (char*) 0x804864e
+$1 = 0x804864e "Bomb!"
+
+
+(gdb) print (char*) 0x8048654
+$2 = 0x8048654 "Academia T-Formacion"
+
+
+Evitar entrar en el puts de  BOOM haciendo el salto de antes
+-> Ver antes del jump, la comparacion:
+movzbl (%eax),%eax
+   0x08048550 <+99>:	cmp    %al,%dl
+   0x08048552 <+101>:	je     0x804856c <main+127>
+
+
+
+Ver el jmp obligatorio que te salta a la comparacion de +132:
+
+En esa direccion salta hacia arriba luego es un bucle que hace incremento, compara
+
+
+PONER BREAK EN DIR DE MEMORIA:
+break *0x08048540
+
+CONTINUAR CON LA EJECUCION:
+continue
+
+
+disas Para volver a ver que es lo siguiente
+
+
+
+FLECHA: esp
+nexti <- Siguiente instruccion
+
+IMPRIMIR DIRECCION:
+	print $edx
+$7 = 84
+
+
+(gdb) print (char) 84
+$8 = 84 'T'
+
+
+Haces 4 nexti para ver las siguientes 4 instrucciones que se han ejecutado
+
+Con disas ves que instruccion es la siguiente
+-> TE SITUAS ANTES DE LA COMPARACION Y VES LO QUE COMPARAS
+Haces: 
+(gdb) print (char)$eax
+$9 = 97 'a'
+
+En eax esta la contraseña que tu has puesto y en %edx se encuentra el valor real de la clave
+
+
+Es un for luego vuelves a ejecutar y seguir viendo la comparacion con una cadena que tu conozcas
+
+INFO BREAK
+
+Ver los breakpoints
+
+Pones 1 breakpoint en la comparacion para no estar todo el rato nexti
+
+Vas haciendo cont para que el bucle itere, y comparas $edx que es donde esta la comparacion con la contraseña
+
+Poner punto ruptura:
+	break *dir
+
+
+Ver antes de entrar al for, donde se guarda la contraseña (eax) y imprimirlo
+
+(gdb) print (char*)$eax
+$1 = 0x8048640 "TFormacion"
+
+
+   ------------------ LTRACE ------------------
+   
+   
+ Ejecuta el programa siguiendo las llamadas al sistema
+ ltrace -i -s (para las llamadas al sistema)
+ 
+ 
+ -----------------------------------------------------
+ 
+ Imprimir registro + incremento
+ 
+
+ 
+  -------------------OBJDUMP------------------------
+ 
+ 
+ objdump -d ./bomba1 > bomba.disas
+ 
+ Buscar en el main el salto que te hace explotar la bomba y ver su codigo en hex (75)set
+ 
+  -----------------------------------------------------
+  
+  CAMBIAR EL SALTO:
+  Ver donde se hace el salto, cambiarlo con el codigo del contrario
+  set {unsigned char}0x08048491=0x74 (Solo te ponga un caracter)
+  
+ 
+ 

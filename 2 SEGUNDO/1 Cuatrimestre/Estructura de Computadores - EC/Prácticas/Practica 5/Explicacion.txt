@@ -1,0 +1,13 @@
+En las graficas podemos ver como se diferencia segun la complejidad de los calculos los distintos niveles de cache que hay en el procesador.
+
+En line.png se puede ver como decrece (1 nivel), despues se mantiene y luego decrece de nuevo.
+
+Realizando en el line.c la siguiente operación dentro del bucle:
+bytes [i] ^= 1;
+
+En size.png se puede ver como la grafica es creciente.
+Al principio se mantiene, despues crece, luego crece más lentamente y vuelve a crecer hasta finalmente mantenerse. Se puede ver que hay 3 niveles de cache.
+
+En size.c realizamos el siguiente calculo dentro del bucle:
+bytes[(i * 64) & (bytes.size() - 1) & (size - 1)] ^= 1;
+

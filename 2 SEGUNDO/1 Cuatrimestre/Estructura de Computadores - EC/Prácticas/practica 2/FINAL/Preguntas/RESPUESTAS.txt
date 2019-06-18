@@ -1,0 +1,199 @@
+﻿   	      
+
+
+Código de los programas:
+	
+suma.s
+
+	.section .data
+lista:		.int 1,2,10,  1,2,0b10,  1,2,0x10
+longlista:	.int (.-lista)/4
+resultado:	.int -1
+
+.section .text
+_start:	.global _start
+
+	mov  $lista, %ebx
+	mov  longlista, %ecx
+	call suma
+	mov  %eax, resultado
+
+	mov  $1, %eax
+	mov  $0, %ebx
+	int  $0x80
+
+suma:
+	push %edx
+	mov  $0, %eax
+	mov  $0, %edx
+
+bucle:
+	add  (%ebx,%edx,4), %eax
+	inc  %edx
+	cmp  %edx,%ecx
+	jne  bucle
+	pop  %edx
+	ret
+
+suma64unsigned.s
+
+.section .data
+lista:   .int  4294967295, 4294967295, 1, 2, 3, 4, 5, 6
+         .int  0b111, 0b1000, 0b1001, 0b1010, 0b1011, 0b1100, 0b1101, 0b1110
+         .int  017, 020, 021, 022, 023, 024, 025, 026
+         .int  0x17, 0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E
+
+
+longlista:  .int    (.-lista)/4
+resultado:  .quad   -1
+
+.section .text
+_start: .global _start
+    mov     $lista, %ebx
+    mov     $0, %edx
+    mov     longlista, %ecx
+    call    suma
+    mov     %eax, resultado
+    mov     %edx, resultado+4
+    mov     $1, %eax
+    mov     $0, %ebx
+    int     $0x80
+
+suma:
+  push    %esi
+  mov     $0, %eax
+  mov     $0, %esi
+
+bucle:
+  add     (%ebx, %esi, 4), %eax
+  jnc     acarreo
+  inc     %edx
+
+acarreo:
+  inc     %esi
+  cmp     %esi,%ecx
+  jne     bucle
+  pop     %esi
+  ret
+
+
+media.s
+
+.section .data
+.macro linea
+	#	.int 1,-2, 1,-2
+	#	.int 1,2,-3,-4
+	#	.int 0x7FFFFFFF, 0x7FFFFFFF, 0x7FFFFFFF, 0x7FFFFFFF
+	#	.int 0x80000000, 0x80000000, 0x80000000, 0x80000000
+	# 	.int 0xF0000000, 0xE0000000, 0xE0000000, 0xD0000000
+		.int -1,-1,-1,-1
+	.endm
+
+.macro linea0
+	#	.int 0,-1,-1,-1
+	#	.int 0,-2,-1,-1
+	#	.int 1,-2,-1,-1
+	#	.int 32, -2, -1, -1
+	#	.int 63, -2, -1, -1
+	#	.int 64, -2, -1, -1
+	#	.int 95, -2, -1, -1
+	#	.int -31, -2, -1, -1
+		.int 0, -2, -1, -1
+.endm
+
+
+lista:	linea
+	.irpc i,1234567
+		linea
+	.endr
+
+longlista:
+	.int (.-lista)/4
+
+media: .int 0x89ABCDEF
+resto: .int 0x01234567
+
+resultado:
+	.quad 0x0123456789ABCDEF
+
+formato:
+	.ascii	"media \t = %8d \t resto \t = %8d \n"
+	.ascii	"hexadecimal = 0x%08x \t resto  = 0x%08x \n"
+
+
+.section .text
+#_start:	.global _start
+main:	.global main
+	mov    $lista, %ebx
+	mov longlista, %ecx
+	call suma
+	mov %eax, media
+	mov %edx, resto
+
+	push resto
+	push media
+	push resto
+	push media
+	push $formato
+	call printf
+	add $20, %esp
+
+	mov $1, %eax
+	mov $0, %ebx
+	int $0x80
+
+	
+
+
+1º.-	¿Qué contiene EDX tras ejecutar mov longsaludo, %edx? ¿Para qué necesitamos esa instrucción, o ese valor? Responder no sólo el valor concreto (en decimal y hex) sino también el significado del mismo (¿de dónde sale?). Comprobar que se corresponden los valores hexadecimal y decimal mostrados en la ventana Status‐>Registers.
+
+Al ejecutar mov longsaludo, %edx como edx contiene el valor de longsaludo, contiene 0x1C (28 en decimal).
+Longsaludo es una variable entera que almacena saludo, la instruccion es necesaria para indicar que se van a escribir 28 bytes.
+
+
+
+
+
+
+
+2º.- ¿Qué contiene ECX tras ejecutar mov $saludo, %ecx? Indicar el valor en hexadecimal, y el significado del mismo. Realizar un dibujo a escala de la memoria del programa, indicando dónde empieza el programa (_start, .text), dónde empieza saludo (.data), y dónde está el tope de pila (%esp).
+
+Al ejecutar mov $saludo, %ecx como hemos movido la dirección de la variable saludo al registro ecx, contiene el valor hexadecimal de la direccion de memoria del contenido de saludo..
+
+3º.- ¿Qué sucede si se elimina el símbolo de dato inmediato ($) de la instrucción anterior? (mov saludo, %ecx). Realizar la modificación, indicar el contenido de ECX en hexadecimal, explicar por qué no es lo mismo en ambos casos. Concretar de dónde viene el nuevo valor (obtenido sin usar $).
+
+Si se elimina el símbolo de dato inmediato ($), en vez de mover la dirección de memoria de saludo al registro ecx, movemos el contenido de saludo. El valor hexadecimal del registro ecx pasa a ser 0x616c6f48, que es la representación hexadecimal de la cadena de texto almacenada en saludo.
+
+6º.- ¿Qué registros modifica la instrucción CALL? Explicar por qué necesita CALL modificar esos registros.
+
+La instrucción CALL modifica los registros EAX, EDX, ESP y EIP: EAX es modificado porque funciona como acumulador para ir guardando el resultado de las sumas, EDX es modificado porque funciona como índice para conocer la siguiente dirección de memoria a leer, ESP es modificado porque almacena la dirección a la que retornar cuando se ejecute la instrucción RET, y EIP es modificado porque almacena la dirección de la próxima instrucción a ser ejecutada.
+
+
+
+
+
+
+7º.- ¿Qué registros modifica la instrucción RET? Explicar por qué necesita RET modificar esos registros.
+
+La instrucción RET modifica los registros ESP y EIP porque los punteros deberán cambiar para que el programa pueda continuar con su ejecución al punto donde estaba antes de llamar a la subrutina.
+
+10º.-  ¿Qué ocurriría si se eliminara la instrucción RET? Razonar la respuesta. Comprobarlo usando ddd.
+
+Produciria un error en la ejecucion puesto que esta instruccion es la que se encarga de devolver la ejecucion al programa que llama a la subrutina, y sin ella se desbordaria al acabar la subrutina, como se ve en la ejecucion con gdb
+(gdb) run
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00400637 in ?? ()#
+
+
+
+
+Cuestiones sobre suma64unsigned.s
+1º.- Para N≈32, ¿cuántos bits adicionales pueden llegar a necesitarse para almacenar el resultado? Dicho resultado se alcanzaría cuando todos los elementos tomaran el valor máximo sin signo. ¿Cómo se escribe ese valor en hexadecimal? ¿Cuántos acarreos se producen? ¿Cuánto vale la suma (indicarla en hexadecimal)? Comprobarlo usando ddd.
+
+Para almacenar la suma de 32 enteros de 32 bits, si todos tomaran el valor máximo sin signo (0xFFFFFFFF en hexadecimal, 4294967295 en decimal), necesitaríamos un entero de mínimo 37 bits, porque la suma de esos 32 enteros, generaría 32 acarreos, dando como resultado de la suma el valor 0x1FFFFFFFE0 o 137438953440 en decimal, cuya representación binaria es 1111111111111111111111111111111100000, pero ese número no se podría almacenar en un entero de 32 bits sin signo, harían falta 5 bits extras.
+2º.- Si nos proponemos obtener sólo 1 acarreo con una lista de 32 elementos iguales, el objetivo es que la suma alcance 232 (que ya no cabe en 32bits). Cada elemento debe valer por tanto 2^32/32 = 2^32/2? = ?. ¿Cómo se escribe ese valor en hexadecimal? Inicializar los 32 elementos de la lista con ese valor y comprobar cuándo se produce el acarreo.
+Para que se produzca sólo 1 acarreo con una lista de 32 elementos iguales todos tienen que tener el valor hexadecimal 0x8000000, este valor es el resultado de 2^32 = 4294967296 (máximo valor para un entero sin signo) / 32, esto es así porque queremos que el resultado de la suma se pueda almacenar sin producir acarreo, luego todos los elementos deben tener el mismo valor y además la suma de todos no debe pasar el valor máximo posible. Si realizamos la suma podemos ver que el acarreo se produce en la última suma, dando como resultado 0x100000000.
+3º.- Por probar valores intermedios: si la lista se inicializara con los valores 0x10000000, 0x20000000, 0x40000000, 0x80000000, repetidos cíclicamente, ¿qué valor tomaría la suma de los 32 elementos? ¿Cuándo se producirían los acarreos? Comprobarlo con ddd.
+La suma de los 32 elementos tomaría el valor hexadecimal 0x780000000, los acarreos se producirían al sumarse todos los elementos de un ciclo, cuando no se puede almacenar el valor generado.
+

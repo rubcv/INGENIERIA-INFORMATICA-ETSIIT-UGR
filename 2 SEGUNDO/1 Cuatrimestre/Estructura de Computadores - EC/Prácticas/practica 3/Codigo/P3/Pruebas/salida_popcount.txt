@@ -1,0 +1,309 @@
+----------------------- Medición 1º - Optimización -O2 -----------------------
+
+resultultado = 524288	popcount1: :     2527 us
+resultultado = 524288	popcount2: :      829 us
+resultultado = 524288	popcount3: :      636 us
+resultultado = 524288	popcount4: :      111 us
+resultultado = 524288	popcount5: :       46 us
+resultultado = 524288	popcount6: :       49 us
+resultultado = 524288	popcount7: :       71 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 2º - Optimización -O2 -----------------------
+resultultado = 524288	popcount1: :     2409 us
+resultultado = 524288	popcount2: :      804 us
+resultultado = 524288	popcount3: :      639 us
+resultultado = 524288	popcount4: :      110 us
+resultultado = 524288	popcount5: :       46 us
+resultultado = 524288	popcount6: :       50 us
+resultultado = 524288	popcount7: :       70 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 3º - Optimización -O2 -----------------------
+resultultado = 524288	popcount1: :     2505 us
+resultultado = 524288	popcount2: :      877 us
+resultultado = 524288	popcount3: :      641 us
+resultultado = 524288	popcount4: :      125 us
+resultultado = 524288	popcount5: :       50 us
+resultultado = 524288	popcount6: :       52 us
+resultultado = 524288	popcount7: :       78 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 4º - Optimización -O2 -----------------------
+resultultado = 524288	popcount1: :     2401 us
+resultultado = 524288	popcount2: :      834 us
+resultultado = 524288	popcount3: :      637 us
+resultultado = 524288	popcount4: :      111 us
+resultultado = 524288	popcount5: :       45 us
+resultultado = 524288	popcount6: :       49 us
+resultultado = 524288	popcount7: :       72 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 5º - Optimización -O2 -----------------------
+resultultado = 524288	popcount1: :     2487 us
+resultultado = 524288	popcount2: :      804 us
+resultultado = 524288	popcount3: :      639 us
+resultultado = 524288	popcount4: :      110 us
+resultultado = 524288	popcount5: :       46 us
+resultultado = 524288	popcount6: :       50 us
+resultultado = 524288	popcount7: :       72 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 6º - Optimización -O2 -----------------------
+resultultado = 524288	popcount1: :     2388 us
+resultultado = 524288	popcount2: :      803 us
+resultultado = 524288	popcount3: :      639 us
+resultultado = 524288	popcount4: :      101 us
+resultultado = 524288	popcount5: :       35 us
+resultultado = 524288	popcount6: :       41 us
+resultultado = 524288	popcount7: :       53 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 7º - Optimización -O2 -----------------------
+resultultado = 524288	popcount1: :     2531 us
+resultultado = 524288	popcount2: :      814 us
+resultultado = 524288	popcount3: :      680 us
+resultultado = 524288	popcount4: :      117 us
+resultultado = 524288	popcount5: :       50 us
+resultultado = 524288	popcount6: :       52 us
+resultultado = 524288	popcount7: :       77 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 8º - Optimización -O2 -----------------------
+resultultado = 524288	popcount1: :     2402 us
+resultultado = 524288	popcount2: :      806 us
+resultultado = 524288	popcount3: :      637 us
+resultultado = 524288	popcount4: :      110 us
+resultultado = 524288	popcount5: :       45 us
+resultultado = 524288	popcount6: :       49 us
+resultultado = 524288	popcount7: :       72 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 9º - Optimización -O2 -----------------------
+resultultado = 524288	popcount1: :     2501 us
+resultultado = 524288	popcount2: :      846 us
+resultultado = 524288	popcount3: :      654 us
+resultultado = 524288	popcount4: :      134 us
+resultultado = 524288	popcount5: :       67 us
+resultultado = 524288	popcount6: :       69 us
+resultultado = 524288	popcount7: :       80 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 10º - Optimización -O2 -----------------------
+resultultado = 524288	popcount1: :     2410 us
+resultultado = 524288	popcount2: :      801 us
+resultultado = 524288	popcount3: :      635 us
+resultultado = 524288	popcount4: :      110 us
+resultultado = 524288	popcount5: :       46 us
+resultultado = 524288	popcount6: :       50 us
+resultultado = 524288	popcount7: :       63 us
+N*(N+1)/2 = 2147450880
+
+
+--------------------------------------------------------------------------------
+********************************************************************************
+
+----------------------- Medición 1º - Optimización -O1 -----------------------
+resultultado = 524288	popcount1: :     2793 us
+resultultado = 524288	popcount2: :      573 us
+resultultado = 524288	popcount3: :      647 us
+resultultado = 524288	popcount4: :      360 us
+resultultado = 524288	popcount5: :       61 us
+resultultado = 524288	popcount6: :       63 us
+resultultado = 524288	popcount7: :       63 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 2º - Optimización -O1 -----------------------
+resultultado = 524288	popcount1: :     2388 us
+resultultado = 524288	popcount2: :      754 us
+resultultado = 524288	popcount3: :      647 us
+resultultado = 524288	popcount4: :      360 us
+resultultado = 524288	popcount5: :       60 us
+resultultado = 524288	popcount6: :       63 us
+resultultado = 524288	popcount7: :       62 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 3º - Optimización -O1 -----------------------
+resultultado = 524288	popcount1: :     2720 us
+resultultado = 524288	popcount2: :      697 us
+resultultado = 524288	popcount3: :      655 us
+resultultado = 524288	popcount4: :      358 us
+resultultado = 524288	popcount5: :       64 us
+resultultado = 524288	popcount6: :       68 us
+resultultado = 524288	popcount7: :       68 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 4º - Optimización -O1 -----------------------
+resultultado = 524288	popcount1: :     2531 us
+resultultado = 524288	popcount2: :      753 us
+resultultado = 524288	popcount3: :      647 us
+resultultado = 524288	popcount4: :      352 us
+resultultado = 524288	popcount5: :       59 us
+resultultado = 524288	popcount6: :       63 us
+resultultado = 524288	popcount7: :       63 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 5º - Optimización -O1 -----------------------
+resultultado = 524288	popcount1: :     2391 us
+resultultado = 524288	popcount2: :      754 us
+resultultado = 524288	popcount3: :      670 us
+resultultado = 524288	popcount4: :      353 us
+resultultado = 524288	popcount5: :       59 us
+resultultado = 524288	popcount6: :       62 us
+resultultado = 524288	popcount7: :       63 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 6º - Optimización -O1 -----------------------
+resultultado = 524288	popcount1: :     2424 us
+resultultado = 524288	popcount2: :      780 us
+resultultado = 524288	popcount3: :      864 us
+resultultado = 524288	popcount4: :      508 us
+resultultado = 524288	popcount5: :       47 us
+resultultado = 524288	popcount6: :       57 us
+resultultado = 524288	popcount7: :       88 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 7º - Optimización -O1 -----------------------
+resultultado = 524288	popcount1: :     2430 us
+resultultado = 524288	popcount2: :      762 us
+resultultado = 524288	popcount3: :      654 us
+resultultado = 524288	popcount4: :      357 us
+resultultado = 524288	popcount5: :       65 us
+resultultado = 524288	popcount6: :       69 us
+resultultado = 524288	popcount7: :       68 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 8º - Optimización -O1 -----------------------
+resultultado = 524288	popcount1: :     2444 us
+resultultado = 524288	popcount2: :      766 us
+resultultado = 524288	popcount3: :      670 us
+resultultado = 524288	popcount4: :      358 us
+resultultado = 524288	popcount5: :       65 us
+resultultado = 524288	popcount6: :       68 us
+resultultado = 524288	popcount7: :       69 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 9º - Optimización -O1 -----------------------
+resultultado = 524288	popcount1: :     2388 us
+resultultado = 524288	popcount2: :      754 us
+resultultado = 524288	popcount3: :      648 us
+resultultado = 524288	popcount4: :      352 us
+resultultado = 524288	popcount5: :       59 us
+resultultado = 524288	popcount6: :       62 us
+resultultado = 524288	popcount7: :       63 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 10º - Optimización -O1 -----------------------
+resultultado = 524288	popcount1: :     2464 us
+resultultado = 524288	popcount2: :      754 us
+resultultado = 524288	popcount3: :      647 us
+resultultado = 524288	popcount4: :      374 us
+resultultado = 524288	popcount5: :       60 us
+resultultado = 524288	popcount6: :       64 us
+resultultado = 524288	popcount7: :       63 us
+N*(N+1)/2 = 2147450880
+
+
+
+--------------------------------------------------------------------------------
+********************************************************************************
+
+----------------------- Medición 1º - Optimización -O0 -----------------------
+resultultado = 524288	popcount1: :     7263 us
+resultultado = 524288	popcount2: :     2537 us
+resultultado = 524288	popcount3: :      903 us
+resultultado = 524288	popcount4: :     1364 us
+resultultado = 524288	popcount5: :       93 us
+resultultado = 524288	popcount6: :      238 us
+resultultado = 524288	popcount7: :      161 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 2º - Optimización -O0 -----------------------
+resultultado = 524288	popcount1: :     6348 us
+resultultado = 524288	popcount2: :     2391 us
+resultultado = 524288	popcount3: :      766 us
+resultultado = 524288	popcount4: :     1246 us
+resultultado = 524288	popcount5: :       91 us
+resultultado = 524288	popcount6: :      240 us
+resultultado = 524288	popcount7: :      160 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 3º - Optimización -O0 -----------------------
+resultultado = 524288	popcount1: :     6561 us
+resultultado = 524288	popcount2: :     2394 us
+resultultado = 524288	popcount3: :      802 us
+resultultado = 524288	popcount4: :     1271 us
+resultultado = 524288	popcount5: :      109 us
+resultultado = 524288	popcount6: :      297 us
+resultultado = 524288	popcount7: :      182 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 4º - Optimización -O0 -----------------------
+resultultado = 524288	popcount1: :     6431 us
+resultultado = 524288	popcount2: :     2403 us
+resultultado = 524288	popcount3: :      751 us
+resultultado = 524288	popcount4: :     1269 us
+resultultado = 524288	popcount5: :       91 us
+resultultado = 524288	popcount6: :      239 us
+resultultado = 524288	popcount7: :      162 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 5º - Optimización -O0 -----------------------
+resultultado = 524288	popcount1: :     6322 us
+resultultado = 524288	popcount2: :     2394 us
+resultultado = 524288	popcount3: :      747 us
+resultultado = 524288	popcount4: :     1353 us
+resultultado = 524288	popcount5: :      104 us
+resultultado = 524288	popcount6: :      265 us
+resultultado = 524288	popcount7: :      168 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 6º - Optimización -O0 -----------------------
+resultultado = 524288	popcount1: :     6397 us
+resultultado = 524288	popcount2: :     2397 us
+resultultado = 524288	popcount3: :      739 us
+resultultado = 524288	popcount4: :     1248 us
+resultultado = 524288	popcount5: :       91 us
+resultultado = 524288	popcount6: :      240 us
+resultultado = 524288	popcount7: :      161 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 7º - Optimización -O0 -----------------------
+resultultado = 524288	popcount1: :     6395 us
+resultultado = 524288	popcount2: :     2407 us
+resultultado = 524288	popcount3: :      751 us
+resultultado = 524288	popcount4: :     1265 us
+resultultado = 524288	popcount5: :       91 us
+resultultado = 524288	popcount6: :      239 us
+resultultado = 524288	popcount7: :      161 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 8º - Optimización -O0 -----------------------
+resultultado = 524288	popcount1: :     6323 us
+resultultado = 524288	popcount2: :     2557 us
+resultultado = 524288	popcount3: :      805 us
+resultultado = 524288	popcount4: :     1352 us
+resultultado = 524288	popcount5: :      134 us
+resultultado = 524288	popcount6: :      257 us
+resultultado = 524288	popcount7: :      196 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 9º - Optimización -O0 -----------------------
+resultultado = 524288	popcount1: :     6471 us
+resultultado = 524288	popcount2: :     2438 us
+resultultado = 524288	popcount3: :      778 us
+resultultado = 524288	popcount4: :     1281 us
+resultultado = 524288	popcount5: :       92 us
+resultultado = 524288	popcount6: :      246 us
+resultultado = 524288	popcount7: :      165 us
+N*(N+1)/2 = 2147450880
+
+----------------------- Medición 10º - Optimización -O0 -----------------------
+resultultado = 524288	popcount1: :     6358 us
+resultultado = 524288	popcount2: :     2768 us
+resultultado = 524288	popcount3: :      879 us
+resultultado = 524288	popcount4: :     1343 us
+resultultado = 524288	popcount5: :       90 us
+resultultado = 524288	popcount6: :      239 us
+resultultado = 524288	popcount7: :      161 us
+N*(N+1)/2 = 2147450880

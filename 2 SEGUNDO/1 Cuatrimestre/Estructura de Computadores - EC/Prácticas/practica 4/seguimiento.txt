@@ -1,0 +1,172 @@
+PASOS PARA VER LA CONTRASEÑA DE LA BOMBA:
+
+1º Ejecutamos la bomba con gdb y ponemos un breakpoint en el main
+
+2º Observamos el codigo ensamblador y vemos que en main+149 se hace una llamada a la funcion comparechar, luego ponemos un breakpoint en esa funcion
+
+3º En la funcion vemos que se hacen varias comparaciones, concretamente hay tres instrucciones:
+0x080485d1 <+6>:	movl   $0x0,-0x4(%ebp)
+0x080485d8 <+13>:	cmpl   $0x4,-0x4(%ebp)
+0x080485dc <+17>:	jg     0x8048605 <_Z11comparecharPcS_+58>
+
+Y si vamos a comparechar + 58:
+0x08048605 <+58>:	mov    $0x1,%eax
+
+Que nos indican que se mueve un 0 a -0x4(%ebp), y esto se compara con 4. Es decir, en C se está haciendo 0 <= 4
+Si es mayor se salta a comparechar + 58, que mueve un 1 a %eax. Por la convencion cedel sabemos que en las funciones el resultado se devuelve en %eax, luego estamos ante un bucle que si no se cumple la condicion que hemos dicho antes, devuelve un 1. 
+
+Dentro del bucle vemos que hay otra comparacion:
+0x080485f4 <+41>:	cmp    %al,%dl
+
+Vemos que se usa %al, y que justo antes tenemos la siguiente instruccion:
+0x080485f1 <+38>:	movzbl (%eax),%eax
+
+Luego situamos un breakpoint ahi, y vemos el contenido de %eax:
+
+(gdb) print (char*)$eax
+$35 = 0x804a030 <password> "hpnd\n"
+
+Como podemos ver, ya tenemos la contraseña guardada en el programa, solo falta ver la transformacion que se le ha hecho.
+
+
+
+En el programa, la contraseña se almacena como "hpnd\n", luego la entrada del usuario se debe modificar para que al comparar ambas coincidan.
+
+
+Volviendo al main, la modificacion debe estar entre el fgets, y la llamada a la funcion para comparar.
+
+
+   0x0804864d <+65>:	call   0x80483d0 <fgets@plt>
+   0x08048652 <+70>:	add    $0x10,%esp
+   0x08048655 <+73>:	movl   $0x0,-0xc(%ebp)
+   0x0804865c <+80>:	cmpl   $0x3,-0xc(%ebp)
+   0x08048660 <+84>:	jg     0x8048686 <main+122>
+   0x08048662 <+86>:	lea    -0x11(%ebp),%edx
+   0x08048665 <+89>:	mov    -0xc(%ebp),%eax
+   0x08048668 <+92>:	add    %edx,%eax
+   0x0804866a <+94>:	movzbl (%eax),%eax
+   0x0804866d <+97>:	mov    %eax,%edx
+   0x0804866f <+99>:	mov    -0xc(%ebp),%eax
+   0x08048672 <+102>:	add    %edx,%eax
+   0x08048674 <+104>:	mov    %eax,%ecx
+   0x08048676 <+106>:	lea    -0x11(%ebp),%edx
+   0x08048679 <+109>:	mov    -0xc(%ebp),%eax
+   0x0804867c <+112>:	add    %edx,%eax
+   0x0804867e <+114>:	mov    %cl,(%eax)
+   0x08048680 <+116>:	addl   $0x1,-0xc(%ebp)
+   0x08048684 <+120>:	jmp    0x804865c <main+80>
+   0x08048686 <+122>:	sub    $0x8,%esp
+   0x08048689 <+125>:	push   $0x804a030
+   0x0804868e <+130>:	lea    -0x11(%ebp),%eax
+   0x08048691 <+133>:	push   %eax
+   0x08048692 <+134>:	call   0x80485cb <_Z11comparecharPcS_>
+
+
+Despues del fgets, tenemos lo siguiente:
+   0x0804865c <+80>:	cmpl   $0x3,-0xc(%ebp)
+   0x08048660 <+84>:	jg     0x8048686 <main+122>
+   
+ Compara -0xc(%ebp) con 3, esto en C es: -0xc(%ebp) <= 3
+ 
+Si avanzamos en el ensamblador, antes de main + 122 tenemos:
+   0x08048680 <+116>:	addl   $0x1,-0xc(%ebp)
+   0x08048684 <+120>:	jmp    0x804865c <main+80>
+ 
+ Por lo que sabemos que estamos en un bucle con incremento de 1.
+ Si miramos dentro del bucle:
+   0x08048662 <+86>:	lea    -0x11(%ebp),%edx
+   0x08048665 <+89>:	mov    -0xc(%ebp),%eax
+   0x08048668 <+92>:	add    %edx,%eax
+   0x0804866a <+94>:	movzbl (%eax),%eax
+   0x0804866d <+97>:	mov    %eax,%edx
+   0x0804866f <+99>:	mov    -0xc(%ebp),%eax
+   0x08048672 <+102>:	add    %edx,%eax
+   0x08048674 <+104>:	mov    %eax,%ecx
+   0x08048676 <+106>:	lea    -0x11(%ebp),%edx
+   0x08048679 <+109>:	mov    -0xc(%ebp),%eax
+   0x0804867c <+112>:	add    %edx,%eax
+   0x0804867e <+114>:	mov    %cl,(%eax)
+ 
+ Vemos que al final, el incremento es:
+    0x08048680 <+116>:	addl   $0x1,-0xc(%ebp)
+ Y justo al principio se hace:
+    0x08048665 <+89>:	mov    -0xc(%ebp),%eax
+ Luego podemos ver que la variable que se incrementa, -0xc(%ebp), se guarda en %eax.
+ 
+ Viendo el ensamblador del bucle, vemos que hay muchas sumas de %edx, con %eax. En %eax hemos comprobado que está la variable que se incrementa, luego vamos a ver que hay en %edx.
+ 
+ Nos situamos en:
+  0x08048662 <+86>:	lea    -0x11(%ebp),%edx
+  
+Que es la primera vez que se utiliza dentro del bucle, hacemos:
+
+ (gdb) print (char*) $edx
+ 
+Y podemos ver que sale:
+
+$9 = 0xffffd167 "aaaa"
+
+Que es la contraseña que ha metido el usuario.
+Luego si a la contraseña se le va sumando la variable que se incrementa, ya sabemos la operacion que se realiza.
+
+Seria algo como:
+contraseña[i] += i
+
+Como el bucle hemos comprobado que es 0 <= 3, y la contraseña guardada en el programa es:
+ "hpnd\n"
+ 
+ Como el fgets guarda el enter (\n), solo tenemos que aplicar la transformacion a las letras.
+ 
+ Luego haciendo el proceso inverso:
+ h - i (i = 0) -> h
+ p - i (i = 1) -> o
+ n - i (i = 2) -> l
+ d - i (i = 3) -> a
+ 
+ Tenemos que la contraseña de la bomba es "hola"
+ 
+ 
+ SACAR EL CODIGO:
+ 
+ Para sacar el codigo, nos situamos en el scanf:
+ 
+   0x080486e9 <+221>:	call   0x8048400 <scanf@plt>
+   0x080486ee <+226>:	add    $0x10,%esp
+   0x080486f1 <+229>:	mov    -0x1c(%ebp),%edx
+   0x080486f4 <+232>:	mov    0x804a038,%eax
+   0x080486f9 <+237>:	cmp    %eax,%edx
+   0x080486fb <+239>:	je     0x8048702 <main+246>
+   0x080486fd <+241>:	call   0x804854b <_Z4boomv>
+   0x08048702 <+246>:	sub    $0x8,%esp
+
+Ahi vemos que se hace:
+   0x080486f1 <+229>:	mov    -0x1c(%ebp),%edx
+   0x080486f4 <+232>:	mov    0x804a038,%eax
+   
+ Para luego comparar:
+    0x080486f9 <+237>:	cmp    %eax,%edx
+    
+ Y si es igual, salta a main + 246, es decir, evita la llamada a boom.
+ Luego en la comparacion, uno de los registros será el codigo de la bomba, y otro el que ha metido el usuario.
+ 
+ Si nos situamos en la comparación, y hacemos:
+ (gdb) print (int)$edx
+ 
+ Nos aparece:
+	$16 = 1234
+
+Luego %edx tiene el codigo metido por el usuario.
+
+Si hacemos:
+(gdb) print (int)$eax
+
+Nos sale:
+$17 = 78910
+
+Luego como podemos comprobar, en %eax está el codigo de la bomba, que es consultado al hacer la comparacion:
+   0x080486f4 <+232>:	mov    0x804a038,%eax
+   
+   
+Por lo tanto, la contraseña es: hola y el codigo es: 78910
+
+

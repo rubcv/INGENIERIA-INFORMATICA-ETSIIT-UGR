@@ -1,0 +1,2 @@
+gcc -fno-omit-frame-pointer -m32 suma_09_Casm.c -o suma9
+
