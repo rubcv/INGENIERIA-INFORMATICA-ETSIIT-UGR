@@ -1,6 +1,0 @@
-echo "alias dir='ls -la'" >> ~/.bashrc
-
-mknod b 
-
- tune2fs -l /dev/sda5
-
