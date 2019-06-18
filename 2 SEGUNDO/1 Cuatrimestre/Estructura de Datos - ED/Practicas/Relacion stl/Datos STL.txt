@@ -1,0 +1,9 @@
+pila
+cola
+cola con prioridad
+map multimap
+set multiset
+vector
+lista
+tree
+bintree (bts, avl)
