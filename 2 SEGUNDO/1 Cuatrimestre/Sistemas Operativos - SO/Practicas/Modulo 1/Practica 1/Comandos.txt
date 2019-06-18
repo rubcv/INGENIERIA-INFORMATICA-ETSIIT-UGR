@@ -1,0 +1,26 @@
+----- CREAR NUEVO USUARIO -----
+useradd [opcion] user
+o useradd user a pelo	
+
+----- AÑADIRLE CONTRASEÑA -----
+passwd user
+
+----- LISTAR USUARIOS DEL SISTEMA -----
+cut -d: -f1 /etc/passwd 
+
+
+----- CREAR NUEVO USUARIO QUE SE ELIMINA EN X FECHA-----
+useradd -e {yyyy-mm-dd} {username}
+useradd -e 2008-12-31 jerry
+
+----- BORRAR USUARIO -----
+userdel user
+
+----- CAMBIAR DE USUARIO -----
+sudo -u user bash (Especificar terminal de trabajo)
+
+----- MOSTRAR GRUPOS -----
+id /sudo id
+
+----- GUARDAR CAMBIOS Y QUE NO SE BORREN ENTRE EJECUCIONES -----
+En el directorio: /var/tmp

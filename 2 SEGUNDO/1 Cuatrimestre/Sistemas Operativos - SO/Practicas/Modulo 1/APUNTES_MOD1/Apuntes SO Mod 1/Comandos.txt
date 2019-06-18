@@ -1,0 +1,168 @@
+
+*************************************
+Crear usuario root:
+	useradd -ou 0 -g 0 john
+Se crea usuario john con UID = 0 y GID = 0
+
+Asignarle pass:
+	passwd john
+
+
+*************************************
+Chage:
+chage -[opcion] [num] [user]
+
+
+*************************************
+Imprimir solo los nombres de usuario:
+
+grep  "^" /etc/passwd | cut -d: -f1
+
+
+
+
+*************************************
+Particion de dispositivo:
+
+	mknod /dev/loop0 b 7 0
+Se crea archivo especial con mknod, el archivo es /dev/loop0, se 
+crea de tipo b.
+b: Bloque de buffer
+
+7 , 0 ; Major y minor, valores con los que el kernel identifica al archivo en la tabla de dispositivos
+
+*************************************
+
+Ver fecha de creacion de dispositivo: [ Viene en el guion de los apuntes ]
+
+	Ver numero de inodo del directorio: ls -i /  -> ex: 2
+	Ver en que particion esta montado:  df -T /  -> ex: /dev/sda5
+	FileSystem debugger con el inodo y la particion: sudo debugfs -R 'stat <2>' /dev/sda5 -> Salen las estadisticas de la particion
+
+
+*************************************
+
+Enlace duro: Referencia al inodo (Le puedes cambiar el nombre al archivo)
+Enlace simbolico: Referencia al archivo (No puedes cambiarle el nombre)
+
+Crear: 
+$ touch blah1   
+$ touch blah2
+
+$ ln blah1 blah1-hard
+$ ln -s blah2 blah2-soft
+
+*************************************
+
+Imprimir enlaces duros de directorio:
+
+find . -type f -links +1 -printf '%i %n %p\n'
+
+*************************************
+Mostrar enlaces duros de $PATH:
+
+IFS=':' read -r -a array <<< "$PATH" // Inicializas array con los directorios de $PATH
+
+for element in "${array[@]}"; 
+do find $element  -type f -links +1 -printf '%i %n %p\n'; // Para cada directorio de array, ejecutas la orden find 
+done													 //  para buscar los enlaces duros en cada directorio
+
+
+
+*************************************
+Buscar ppid a partir de pid:
+
+ps -e -o pid,ppid | grep '^ 2889' | cut -d' ' -f4
+
+
+*************************************
+Procesos que consumen mas memoria del sistema:
+
+ps aux --width 30 --sort -rss | head -2
+
+*************************************
+Bajar prioridad del proceso que mas memoria consume
+
+ps aux --width 30 --sort -rss | head -2 | grep "^manjaro" | tr -s ' ' | cut -d' ' -f2
+														  | Se eliminan los espacios extras y se deja solo uno
+
+*************************************
+Ver dispositivo de sistemas montados de tipo ext3/ext4...
+
+ mount | grep ext4 | cut -d' ' -f1
+
+*************************************
+
+cron(cron1): * * * * * /path/to/script.sh
+
+crontab cron1 <- Darle permisos de ejecucion
+
+
+*************************************
+PPID de demonio en ejecucion
+
+ps aux | head -1 ; ps aux | grep "atd" -> sacas el pid 2071
+ps -p 2071 -f -> obtienes ppid a partir del pid
+
+
+
+*************************************
+ID de la Hebra
+
+cat /proc/1588/status | grep "Tgid:" -> Thread group id
+
+
+
+*************************************
+
+Si no se ejecuta el atd:
+
+atd -d & // Lo lanzas como demonio
+
+
+*************************************
+Customizar salida de procesos:
+
+
+ps -o pid,ppid... 
+
+
+*************************************
+
+Ver memoria consumida por proceso en ejecucion:
+Mem virtual: ps aux
+Mem "real": valgrind / pmap -x [pid]
+
+
+
+*************************************
+Usuarios que pertenecen al mismo grupo que el usuario actual
+
+cat /etc/group | grep manjaro
+
+
+
+*************************************
+Memoria usada/libre del sistema:
+
+free
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

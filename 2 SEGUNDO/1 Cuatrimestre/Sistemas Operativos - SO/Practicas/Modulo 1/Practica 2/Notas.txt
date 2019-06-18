@@ -1,0 +1,2 @@
+Buscar el disco personal para unirlo a fedora en:
+	/fenix/alum/{d1,d2,d3,d4}/nombre-usuario

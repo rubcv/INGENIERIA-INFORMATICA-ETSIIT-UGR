@@ -1,0 +1,1 @@
+/home/manjaro/Desktop/APUNTES_MOD1/crontab/renice.sh: line 6: read: `1': not a valid identifier
