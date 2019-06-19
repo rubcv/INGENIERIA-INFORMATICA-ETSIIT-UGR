@@ -1,8 +1,6 @@
 /*
   Ejercicio 3
 
-  Rubén Calvo Villazán - 76065313
-
 */
 
 
