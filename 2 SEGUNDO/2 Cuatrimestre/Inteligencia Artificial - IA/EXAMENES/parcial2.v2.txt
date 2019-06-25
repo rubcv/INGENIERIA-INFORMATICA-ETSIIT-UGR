@@ -1,0 +1,17 @@
+
+
+
+
+¿Se puede resolver de forma exacta un juego bipersonal con
+información perfecta? ¿De qué forma?
+
+
+
+
+Un juego bipersonal es el que tiene dos jugadores, con información perfecta es que ambos jugadores tienen completo conocimiento sobre el estado del juego, la jugada y el resultado de ésta. Se puede resolver este tipo de juegos expandiendo el árbol completo y localizando la solución empleando un algoritmo. El algoritmo para encontrar dicha solución dependerá del juego del que se trate (Por ejemplo minimax). Además según el juego puede haber un mayor costo computacional a la hora de desarrollar el árbol, y es probable que sea necesario utilizar métodos de poda para disminuir las opciones posibles sin alterar la solución final. Por lo tanto teóricamente está demostrado que se puede, y en la práctica hay ejemplos implementados como el Go recientemente por Google, que demuestran que es posible computacionalmente resolver este tipo de juegos.
+
+
+
+Modificar minimax para que aparezca incertidumbre:
+
+Esto se hace empleando un nuevo jugador, que sería el dado, la moneda, etc. Este jugador sería el encargado de dar el azar en el algoritmo minimax, quedando por tanto tres niveles diferentes en el árbol de búsqueda, el nodo Max, el dado y el nodo min. A la hora de realizar la búsqueda del resultado se procedería de igual forma que en minimax [explicar minimax] solo que ahora el nodo max a la hora de evaluar los valores devueltos por la heurística, también tiene en cuenta los de los nodos dado
