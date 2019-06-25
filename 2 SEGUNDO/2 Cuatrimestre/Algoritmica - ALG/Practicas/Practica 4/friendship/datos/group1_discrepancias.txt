@@ -1,0 +1,77 @@
+***************************
+Discrepancias: 
+inf 24  24  34  14  24  24  23  24  24 
+24  inf 18  10  10  18  12  11  30  14 
+24  18  inf 22  18  12  14   9  22  12 
+34  10  22  inf 20  18  12  17  20  14 
+14  10  18  20  inf 10  10   9  20  10 
+24  18  12  18  10  inf  8   7  12   4 
+24  12  14  12  10   8  inf  5  18   4 
+23  11   9  17   9   7   5  inf 19   5 
+24  30  22  20  20  12  18  19 inf  16 
+24  14  12  14  10   4   4  5   16  inf
+
+__________________________________
+Algoritmo voraz...
+Persona 1 asignamos a 5
+Persona 2 asignamos a 4
+Persona 3 asignamos a 8
+Persona 4 asignamos a 2
+Persona 5 asignamos a 1
+Persona 6 asignamos a 10
+Persona 7 asignamos a 9
+Persona 8 asignamos a 3
+Con voraces discrepancia total: 110
+Tiempo 0.000174
+__________________________________
+Algoritmo Backtracking....
+Numero de nodos recorridos 6330 total nodos 9864100 Porcentaje 0.0641721
+Persona 1 con Persona 5
+Persona 2 con Persona 4
+Persona 3 con Persona 8
+Persona 4 con Persona 2
+Persona 5 con Persona 1
+Persona 6 con Persona 9
+Persona 7 con Persona 10
+Persona 8 con Persona 3
+Persona 9 con Persona 6
+Persona 10 con Persona 7
+
+Discrepancia Total con Backtracking: 98
+Tiempo 0.136567
+__________________________________
+Algoritmo Backtracking con Poda....
+Numero de nodos recorridos 2180 total nodos 9864100 Porcentaje 0.0221003
+Persona 1 con Persona 5
+Persona 2 con Persona 4
+Persona 3 con Persona 8
+Persona 4 con Persona 2
+Persona 5 con Persona 1
+Persona 6 con Persona 9
+Persona 7 con Persona 10
+Persona 8 con Persona 3
+Persona 9 con Persona 6
+Persona 10 con Persona 7
+
+Discrepancias Total con Backtracking y Poda: 98
+Tiempo 0.033864
+__________________________________
+Algoritmo Branch & Bound ....
+Numero de nodos recorridos 20 total nodos 9864100 Porcentaje 0.000202755
+
+Persona 1 con Persona 5
+Persona 2 con Persona 4
+Persona 3 con Persona 8
+Persona 4 con Persona 2
+Persona 5 con Persona 1
+Persona 6 con Persona 9
+Persona 7 con Persona 10
+Persona 8 con Persona 3
+Persona 9 con Persona 6
+Persona 10 con Persona 7
+
+Discrepancias Total con Branch & Bound: 98
+
+
+Tiempo 0.000946
+__________________________________

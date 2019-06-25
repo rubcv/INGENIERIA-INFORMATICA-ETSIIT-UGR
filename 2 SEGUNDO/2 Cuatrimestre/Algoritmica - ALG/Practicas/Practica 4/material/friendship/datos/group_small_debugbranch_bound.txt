@@ -1,0 +1,7 @@
+iter            Nodo 										        Cota C   best_dis
+0               Tupla : 5  discrepancia: 38 CI= 70 DE=70  CS= 70                           		70       
+1               Tupla : 5 4  discrepancia: 58 CI= 70 DE=70  CS= 70                         		70       
+2               Tupla : 5 4 6  discrepancia: 70 CI= 70 DE=70  CS= 70                               	70       
+3               Tupla : 5 4 6 2  discrepancia: 70 CI= 70 DE=70  CS= 70                                  70       
+4               Tupla : 5 4 6 2 1  discrepancia: 70 CI= 70 DE=70  CS= 70                           	70       70       
+

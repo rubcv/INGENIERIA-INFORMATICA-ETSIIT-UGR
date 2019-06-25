@@ -1,0 +1,91 @@
+***************************
+Discrepancias: 
+inf 13 18 8 10 13 14 11 13 12 13 17 21 13 10 11 9 16 20 11 
+13 inf 21 13 15 12 25 18 22 17 12 24 34 8 15 20 18 25 21 24 
+18 21 inf 18 18 15 24 23 19 26 13 9 21 17 18 15 17 18 14 15 
+8 13 18 inf 12 11 20 15 13 12 9 19 23 9 12 11 5 12 20 13 
+10 15 18 12 inf 13 16 21 9 8 15 9 19 11 16 11 15 22 22 11 
+13 12 15 11 13 inf 21 22 20 21 16 18 30 8 11 20 10 19 9 18 
+14 25 24 20 16 21 inf 19 15 16 27 19 21 25 24 21 21 24 26 11 
+11 18 23 15 21 22 19 inf 22 17 18 26 16 22 11 20 18 11 19 18 
+13 22 19 13 9 20 15 22 inf 7 16 10 12 18 23 10 14 17 29 8 
+12 17 26 12 8 21 16 17 7 inf 17 17 19 17 22 13 17 22 30 11 
+13 12 13 9 15 16 27 18 16 17 inf 14 22 14 15 8 12 15 23 18 
+17 24 9 19 9 18 19 26 10 17 14 inf 14 20 21 10 18 21 21 8 
+21 34 21 23 19 30 21 16 12 19 22 14 inf 30 23 14 22 13 27 14 
+13 8 17 9 11 8 25 22 18 17 14 20 30 inf 13 18 12 19 17 20 
+10 15 18 12 16 11 24 11 23 22 15 21 23 13 inf 19 11 10 10 19 
+11 20 15 11 11 20 21 20 10 13 8 10 14 18 19 inf 14 17 27 12 
+9 18 17 5 15 10 21 18 14 17 12 18 22 12 11 14 inf 11 17 12 
+16 25 18 12 22 19 24 11 17 22 15 21 13 19 10 17 11 inf 18 17 
+20 21 14 20 22 9 26 19 29 30 23 21 27 17 10 27 17 18 inf 21 
+11 24 15 13 11 18 11 18 8 11 18 8 14 20 19 12 12 17 21 inf 
+
+__________________________________
+Algoritmo voraz...
+Persona 1 asignamos a 4
+Persona 2 asignamos a 14
+Persona 3 asignamos a 12
+Persona 5 asignamos a 10
+Persona 6 asignamos a 19
+Persona 7 asignamos a 20
+Persona 8 asignamos a 15
+Persona 9 asignamos a 16
+Persona 11 asignamos a 17
+Persona 13 asignamos a 18
+Discrepancia Con voraces : 198
+Tiempo 0.000411
+__________________________________
+Algoritmo Backtracking con Poda....
+Numero de nodos recorridos 84658438 
+Discrepancia con Backtracking y Poda: 182
+Persona 1 con Persona 5--->10
+Persona 2 con Persona 14--->8
+Persona 3 con Persona 12--->9
+Persona 4 con Persona 17--->5
+Persona 5 con Persona 1--->10
+Persona 6 con Persona 19--->9
+Persona 7 con Persona 20--->11
+Persona 8 con Persona 15--->11
+Persona 9 con Persona 10--->7
+Persona 10 con Persona 9--->7
+Persona 11 con Persona 16--->8
+Persona 12 con Persona 3--->9
+Persona 13 con Persona 18--->13
+Persona 14 con Persona 2--->8
+Persona 15 con Persona 8--->11
+Persona 16 con Persona 11--->8
+Persona 17 con Persona 4--->5
+Persona 18 con Persona 13--->13
+Persona 19 con Persona 6--->9
+Persona 20 con Persona 7--->11
+
+Tiempo 3154.34
+__________________________________
+Algoritmo Branch & Bound ....
+
+Numero de nodos recorridos 117 
+Discrepancia con Branch & Bound: 182
+Persona 1 con Persona 15--->10
+Persona 2 con Persona 14--->8
+Persona 3 con Persona 12--->9
+Persona 4 con Persona 17--->5
+Persona 5 con Persona 10--->8
+Persona 6 con Persona 19--->9
+Persona 7 con Persona 20--->11
+Persona 8 con Persona 18--->11
+Persona 9 con Persona 13--->12
+Persona 10 con Persona 5--->8
+Persona 11 con Persona 16--->8
+Persona 12 con Persona 3--->9
+Persona 13 con Persona 9--->12
+Persona 14 con Persona 2--->8
+Persona 15 con Persona 1--->10
+Persona 16 con Persona 11--->8
+Persona 17 con Persona 4--->5
+Persona 18 con Persona 8--->11
+Persona 19 con Persona 6--->9
+Persona 20 con Persona 7--->11
+
+Tiempo 0.034779
+__________________________________

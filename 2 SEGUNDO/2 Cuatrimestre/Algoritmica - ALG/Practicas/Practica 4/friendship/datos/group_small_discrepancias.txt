@@ -1,0 +1,55 @@
+Discrepancias: 
+inf 24  25  34  19  25 
+24  inf 15  10   5  17 
+25  15  inf 19  10   6 
+34  10  19  inf 15  17 
+19   5  10  15  inf 12 
+25  17   6  17  12  inf     
+
+__________________________________
+Algoritmo voraz...
+Persona 1 asignamos a 5
+Persona 2 asignamos a 4
+Persona 3 asignamos a 6
+Persona 4 asignamos a 2
+Persona 5 asignamos a 1
+Persona 6 asignamos a 3
+Discrepancia Con voraces : 70
+Tiempo 0.000105
+__________________________________
+Algoritmo Backtracking....
+Numero de nodos recorridos 78 total nodos 1956 Porcentaje 3.98773
+Discrepancia con Backtracking: 70
+Persona 1 con Persona 5
+Persona 2 con Persona 4
+Persona 3 con Persona 6
+Persona 4 con Persona 2
+Persona 5 con Persona 1
+Persona 6 con Persona 3
+
+Tiempo 0.000722
+__________________________________
+Algoritmo Backtracking con Poda....
+Numero de nodos recorridos 61 total nodos 1956 Porcentaje 3.11861
+Discrepancia con Backtracking y Poda: 70
+Persona 1 con Persona 5
+Persona 2 con Persona 4
+Persona 3 con Persona 6
+Persona 4 con Persona 2
+Persona 5 con Persona 1
+Persona 6 con Persona 3
+
+Tiempo 0.000901
+__________________________________
+Algoritmo Branch & Bound ....
+Numero de nodos recorridos 5 total nodos 1956 Porcentaje 0.255624
+Discrepancia con Branch & Bound: 70
+Persona 1 con Persona 5
+Persona 2 con Persona 4
+Persona 3 con Persona 6
+Persona 4 con Persona 2
+Persona 5 con Persona 1
+Persona 6 con Persona 3
+
+Tiempo 0.000444
+__________________________________
