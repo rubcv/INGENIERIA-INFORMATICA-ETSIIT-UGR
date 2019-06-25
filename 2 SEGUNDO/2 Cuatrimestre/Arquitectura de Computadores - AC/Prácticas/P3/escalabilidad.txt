@@ -1,0 +1,36 @@
+Valor variable omp_get_num_threads:1
+Tiempo(seg) Producto Matriz-Matriz: 10.955888296
+Primera componente: 244406907297066.000000 Última componente: 246715572426826.000000
+Valor variable omp_get_num_threads:1
+Tiempo(seg) Producto Matriz-Matriz:  5.486646812
+Primera componente: 244689378273932.000000 Última componente: 244507015896086.000000
+Valor variable omp_get_num_threads:1
+Tiempo(seg) Producto Matriz-Matriz:  6.210040812
+Primera componente: 244667516429639.000000 Última componente: 245172456927502.000000
+Valor variable omp_get_num_threads:1
+Tiempo(seg) Producto Matriz-Matriz:  4.853031187
+Primera componente: 257580756686969.000000 Última componente: 242526914320505.000000
+Valor variable omp_get_num_threads:1
+Tiempo(seg) Producto Matriz-Matriz:  5.051216712
+Primera componente: 255441175002659.000000 Última componente: 249511759438548.000000
+Valor variable omp_get_num_threads:1
+Tiempo(seg) Producto Matriz-Matriz:  5.010994702
+Primera componente: 254678231419288.000000 Última componente: 249016651780951.000000
+Valor variable omp_get_num_threads:1
+Tiempo(seg) Producto Matriz-Matriz:  5.014876273
+Primera componente: 239781907362572.000000 Última componente: 253802280510703.000000
+Valor variable omp_get_num_threads:1
+Tiempo(seg) Producto Matriz-Matriz:  4.988668223
+Primera componente: 241864502875759.000000 Última componente: 250149350724781.000000
+Valor variable omp_get_num_threads:1
+Tiempo(seg) Producto Matriz-Matriz:  5.024205123
+Primera componente: 248066390860260.000000 Última componente: 245890875654819.000000
+Valor variable omp_get_num_threads:1
+Tiempo(seg) Producto Matriz-Matriz:  5.035008774
+Primera componente: 256383787732894.000000 Última componente: 251756566724913.000000
+Valor variable omp_get_num_threads:1
+Tiempo(seg) Producto Matriz-Matriz:  5.019977446
+Primera componente: 245812008979338.000000 Última componente: 237458845666999.000000
+Valor variable omp_get_num_threads:1
+Tiempo(seg) Producto Matriz-Matriz:  4.990570823
+Primera componente: 253204623224753.000000 Última componente: 245458857280798.000000
