@@ -1,0 +1,43 @@
+
+
+	Relación ejercicios - Tema 1 - Rubén Calvo Villazán - C
+	
+	
+	Ejercicios:
+		
+		1º- 2) ¿Qué diferencias existen entre las distintas clases de Software según los
+				derechos de autor? Proponga ejemplos de programas de las distintas
+				clases.
+				
+				-Según derechos de autor:
+						-Software de código abierto:
+							Es código se desarrolla y distribuye libremente, sin recibir beneficios económicos (salvo posibles donaciones, etc),
+							de forma que se puede modificar el fuente del programa para agregar funciones nuevas.
+							El software se entrega de forma gratuita y libre para que la comunidad sea la encargada de aportar sus conocimientos para mejorarlo. 
+							Ejemplos de este software son: El kernel de linux, GIMP (Editor de imagenes), LibreOffice (ofimática)
+
+						-Software de código cerrado:
+							En este software el código no se encuentra disponible públicamente aunque el software si puede ser distribuido de forma gratuita
+							Ejemplos son: Skype, Adobe Reader, el sistema operativo android							
+							
+						-Software de dominio público:
+							Este software puede ser desarrollado, modificado y distribuido de forma pública, sin que nadie se atribuya como autor del software
+							Ejemplos son: SQLite, youtube-dl (Linea de comandos para plataformas de video)		
+								
+	
+				
+		2º- 8) ¿En qué consiste la Programación Extrema (XP)?
+		
+					La programación extrema consiste en adaptar el software que se está desarrollando de forma que pueda ser modificado ante cualquier cambio requerido
+					a lo largo de la época de desarrollo, ya sea por un cambio en el hardware, una mejora o un cambio impuesto por el cliente.
+					Se caracteriza por un desarrollo con pequeñas mejoras, unas tras otras, fuerte interacción con el cliente y corrección de todos los
+					errores antes de realizar un cambio importante en el proyecto
+		
+		
+		
+		
+		
+		
+		
+		
+		
