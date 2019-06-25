@@ -1,0 +1,38 @@
+
+
+*******************************************************************************
+Sat Apr 22 15:23:05 2017
+
+
+FIT:    data read from "sumaHastaN"
+        format = z
+        #datapoints = 638
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)=a*x+b+c
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             c            
+   0 1.3692350000e+06   0.00e+00  1.94e+02    1.000000e+00   1.000000e+00   1.000000e+00
+   4 8.5073670074e+05  -1.02e-01  1.94e-02    1.111918e+00  -4.498275e+00  -4.498274e+00
+
+After 4 iterations the fit converged.
+final sum of squares of residuals : 850737
+rel. change during last iteration : -1.01956e-06
+
+degrees of freedom    (FIT_NDF)                        : 635
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 36.6025
+variance of residuals (reduced chisquare) = WSSR/ndf   : 1339.74
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 1.11192          +/- 0.009592     (0.8627%)
+b               = -4.49828         +/- 3.716e+11    (8.26e+12%)
+c               = -4.49827         +/- 3.716e+11    (8.26e+12%)
+
+correlation matrix of the fit parameters:
+                a      b      c      
+a               1.000 
+b              -0.366  1.000 
+c               0.366 -1.000  1.000 
