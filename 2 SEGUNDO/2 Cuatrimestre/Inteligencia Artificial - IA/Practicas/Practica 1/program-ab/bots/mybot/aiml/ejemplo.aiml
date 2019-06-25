@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<category>
+	<pattern> Hola </pattern>
+	<template> Hola que tal? </template>
+</category>
+
+<category>
+	<pattern> Bien </pattern>
+	<template> Ok me alegro </template>
+</category>
+
+
+<category>
+	<pattern> _ Hola * </pattern>
+	<template>
+		<srai> Hola </srai>
+	</template>
+</category>
+
+
+<category>
+	<pattern> COMO CONSIGO SUPERAR LA PARTE PRACTICA </pattern>
+	<template> Haciendo las practicas correctamente </template>
+</category>
+
+<category>
+	<pattern> COMO SE EVALUA EN LA CONVOCATORIA ORDINARIA </pattern>
+	<template> 50% parte de teoria y 50% de la parte practica </template>
+</category>
+
+<category>
+	<pattern> HAY EXAMEN DE PRACTICAS EN LA CONVOCATORIA EXTRAORDINARIA </pattern>
+	<template>  No, un examen que engloba teoria y practicas </template>
+</category>
+
+<category>
+	<pattern> QUE PASA SI NO PUEDO ASISTIR A CLASE REGULARMENTE </pattern>
+	<template> Pierdes el 10% de la nota </template>
+</category>
+
+<category>
+	<pattern> HAY NOTA MINIMA PARA APROBAR </pattern>
+	<template> Si, un 3 </template>
+</category>
+
+<category>
+	<pattern> LAS PRACTICAS SON OBLIGATORIAS </pattern>
+	<template> Si </template>
+</category>
+
+<category>
+	<pattern> CUANTO VALE CADA PRACTICA CON RESPECTO A LA NOTA FINAL </pattern>
+	<template> 25%  </template>
+</category>
+
+<category>
+	<pattern> CUANTO VALE LA PARTICIPACION CON RESPECTO A LA NOTA FINAL </pattern>
+	<template> Un 10% junto con la asistencia </template>
+</category>
+
+<category>
+	<pattern> COMO SE CONSIGUEN PUNTOS POR PARTICIPACION</pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> LOS TRABAJOS SON INDIVIDUALES </pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> SE PUEDEN HACER LOS TRABAJOS EN GRUPO </pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> HAY QUE ENTREGAR LOS EJERCICIOS DE LAS RELACIONES DE PROBLEMAS </pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> CUANTO VALE EL PRIMER EXAMEN DE TEORIA </pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> PUEDO RECUPERAR UNA PRACTICA O EXAMEN </pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> QUE PASA SI ME COPIO DE OTRO ESTUDIANTE </pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> QUE PASA SI ME DEJO COPIAR DE OTRO ESTUDIANTE </pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> Y SI SUSPENDO EN LA CONVOCATORIA ORDINARIA </pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> CUANTO VALE LA PRACTICA Y LA TEORIA </pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> CUAL ES EL HORARIO DE TUTORIAS DEL PROFESOR DE PRACTICAS </pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> SE PUEDE APROBAR LA PARTE PRACTICA DE LA ASIGNATURA SI NO PRESENTO UNA PRACTICA </pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> CUAL ES LA NOTA MINIMA QUE TENGO QUE OBTENER EN CADA PARTE PARA HACER MEDIA </pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> QUE PUNTUACION OBTENGO EN LA PRACTICA 1 SI OPTO POR DEFENDER EL NIVEL 3 Y NO LO SUPERO </pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> PUEDO ENTREGAR LA PRACTICA 1 SIN HACER LA TAREA RELATIVA AL NIVEL 0 </pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> QUE TENGO QUE HACER SI NO PUEDO ASISTIR A LA SESION DE PRACTICAS EN LA QUE ME CORRESPONDE HACER LA DEFENSA DE MI PRACTICA 1 </pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> CUANTAS PRUEBAS TEORICAS TENDRE A LO LARGO DEL CURSO </pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> QUE VALE LA PRIMERA PRUEBA TEORICA </pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> EN QUE CONSISTE EL EXAMEN DE EJERCICIOS </pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern>QUE DEBERÍA HACER SI NO ESTOY SEGURO DE PODER SUPERAR EL NIVEL 3 DE LA PRÁCTICA 1 
+	</pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> YO PROGRAMO MUY BIEN EN C++, PODRIA HACER LA PRACTICA 1 EN ESE LENGUAJE</pattern>
+	<template> </template>
+</category>
+
+<category>
+	<pattern> ME ENCANTAN LOS AGENTES CONVERSACIONALES Y SOY UN
+			  EXPERTO EN SU CONSTRUCCIÓN PODRIA USAR UN AGENTE
+    		  CONVERSACIONAL PARA QUE VAYAN EN MI LUGAR A HACER LA
+			  DEFENSA DE PRACTICAS
+
+</pattern>
+	<template> </template>
+</category>
+
+
+
+
+
+<!--
+
+Raul Perez
+
+Tutorias L: 10:00
+		 
+
+-->
+
+
+
+

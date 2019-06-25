@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<category>
+	<pattern>adivina</pattern>
+	<template> preguntame 
+		
+		<think>
+			<set name="frutas"> fresa manzana naranja kiwi mandarina piña mango melocoton higo ciruela pera platano coco aguacate nuez cereza</set>
+			<set name="total"> <srai> COUNT <get name="frutas"> </get></srai> </set>
+			<set name="indice"> <srai> RANDOM <get name="total"> </get> </srai> </set>
+			<set name="fruta"> <srai> SELECTITEM <get name="indice"> </get> IN <get name="frutas"> </get> </srai> </set>
+
+			<set name="color"> <map name="color"><get name="fruta"> </get></map> </set>
+			<set name="tamaño"> <map name="tamaño"><get name="fruta"> </get></map> </set>
+			<set name="sabor"> <map name="sabor"><get name="fruta"> </get></map> </set>
+			<set name="vitaminaA"><map name="vitaminaA"><get name="fruta"> </get></map> </set>
+			<set name="vitaminaB"><map name="vitaminaB"><get name="fruta"> </get></map> </set>
+			<set name="vitaminaC"><map name="vitaminaC"><get name="fruta"> </get></map> </set>
+
+		</think>
+	</template>
+
+</category>
+
+
+<category>
+	<pattern> que frutas hay </pattern>
+	<template> <get name="frutas"> </get> </template>
+</category>
+
+<category>
+	<pattern> cuantas frutas hay </pattern>
+	<template> <get name="total"> </get> </template> 
+</category>
+
+<category>
+	<pattern> que fruta es </pattern>
+	<template> <get name="fruta"> </get> </template> 
+</category>
+
+<category>
+	<pattern> ^ color * </pattern>
+	<template> 
+		<think>
+			<set name="valor_color">
+				<srai> FINDITEM <star index="2"></star> IN  <get name="color"></get> </srai>
+			</set>
+			
+		</think>
+		<condition name="valor_color"> 
+			<li value="0">
+			 no
+			</li>
+			<li>
+			 si
+			</li>
+		</condition>
+	</template>
+</category>
+
+<category>
+	<pattern> como es </pattern>
+	<template> color: <get name="color"></get>
+	tamaño: <get name="tamaño"></get>
+	sabor: <get name="sabor"></get>
+	vitamina A <get name="vitaminaA"></get>
+	vitamina B <get name="vitaminaB"></get>
+	vitamina C <get name="vitaminaC"></get>
+	</template>
+</category>
+
+
+<category>
+	<pattern> ^ tamaño * </pattern>
+	<template> 
+		<think>
+			<set name="valor_tam">
+				<srai> FINDITEM <star index="2"></star> IN  <get name="tamaño"></get> </srai>
+			</set>
+			
+		</think>
+		<condition name="valor_tam"> 
+			<li value="0">
+			 no
+			</li>
+			<li>
+			 si
+			</li>
+		</condition>
+	</template>
+</category>
+
+<category>
+	<pattern> ^ sabor * </pattern>
+	<template> 
+		<think>
+			<set name="valor_sabor">
+				<srai> FINDITEM <star index="2"></star> IN  <get name="sabor"></get> </srai>
+			</set>
+			
+		</think>
+		<condition name="valor_sabor"> 
+			<li value="0">
+			 no
+			</li>
+			<li>
+			 si
+			</li>
+		</condition>
+	</template>
+</category>
+
+<category>
+	<pattern> ^ vitamina A ^ </pattern>
+	<template> 
+		<think>
+			<set name="valor_vitaminaA">
+				<srai> FINDITEM si IN  <get name="vitaminaA"></get> </srai>
+			</set>
+			
+		</think>
+		<condition name="valor_vitaminaA"> 
+			<li value="0">
+			 no
+			</li>
+			<li>
+			 si
+			</li>
+		</condition>
+	</template>
+</category>
+
+<category>
+	<pattern> ^ vitamina B ^ </pattern>
+	<template> 
+		<think>
+			<set name="valor_vitaminaB">
+				<srai> FINDITEM si IN  <get name="vitaminaB"></get> </srai>
+			</set>
+			
+		</think>
+		<condition name="valor_vitaminaB"> 
+			<li value="0">
+			 no
+			</li>
+			<li>
+			 si
+			</li>
+		</condition>
+	</template>
+</category>
+
+
+<category>
+	<pattern> ^ vitamina C ^ </pattern>
+	<template> 
+		<think>
+			<set name="valor_vitaminaC">
+				<srai> FINDITEM si IN  <get name="vitaminaC"></get> </srai>
+			</set>
+			
+		</think>
+		<condition name="valor_vitaminaC"> 
+			<li value="0">
+			 no
+			</li>
+			<li>
+			 si
+			</li>
+		</condition>
+	</template>
+</category>
+
+
+<category>
+	<pattern> es [el la] * </pattern>
+	<template>
+		<think>
+			<set name="respuesta">
+				<srai> FINDITEM <star index="1"></star> IN <get name="fruta"></get> </srai>
+			</set>
+		</think>
+		<condition name="respuesta">
+			<li value="1">
+			Has acertado
+			</li>
+			<li value="0">
+			no
+			</li>
+		</condition>
+	</template>
+</category>
+
+
+<category>
+	<pattern> [el la] * (es) (de) (tiene) (sabor) (color) (tamaño) * </pattern>
+	<template>
+		<think> 
+			<set name="primero">
+				<srai> FINDITEM <star index="1"></star> IN <get name="frutas"></get> </srai>
+			</set>
+			<set name="fruta_r"> <srai> SELECTITEM <star index="1"></star> IN <get name="frutas"> </get> </srai> </set>
+		</think>
+		<condition name="primero">
+			<li value="1">
+				<think>
+						<set name="color_r"> <map name="color"><get name="fruta_r"> </get></map> </set>
+						<set name="tamaño_r"> <map name="tamaño"><get name="fruta_r"> </get></map> </set>
+						<set name="sabor_r"> <map name="sabor"><get name="fruta_r"> </get></map> </set>
+						<set name="vitaminaA_r"><map name="vitaminaA"><get name="fruta_r"> </get></map> </set>
+						<set name="vitaminaB_r"><map name="vitaminaB"><get name="fruta_r"> </get></map> </set>
+						<set name="vitaminaC_r"><map name="vitaminaC"><get name="fruta_r"> </get></map> </set>
+					<set name="color_p">
+						<srai> FINDITEM <star index="2"></star> IN <get name="color_r"></get> </srai>
+					</set>
+				</think>	
+					<condition name="color_p">
+						<li value="0">
+							<think>
+								<set name="sabor_p">
+									<srai> FINDITEM <star index="2"></star> IN  <get name="sabor_r"></get> </srai>
+								</set>
+							</think>	
+							<condition name="sabor_p">
+								<li value="0">
+									<think>
+										<set name="tamaño_p">
+											<srai> FINDITEM <star index="2"></star> IN  <get name="tamaño_r"></get> </srai>
+										</set>
+									</think>	
+									<condition name="tamaño_p">
+										<li value="0">
+											<think>
+												<set name="vitaminaA_p">
+													<srai> FINDITEM <star index="2"></star> IN  <get name="vitaminaA_r"></get> </srai>
+												</set>
+											</think>
+											<condition name="vitaminaA_p">
+												<li value="0">
+													<think>
+														<set name="vitaminaB_p">
+															<srai> FINDITEM <star index="2"></star> IN  <get name="vitaminaB_r"></get>
+															</srai>
+														</set>
+													</think>
+													<condition name="vitaminaB_p">
+														<li value="0">
+															<think>
+																<set name="vitaminaC_p">
+																	<srai> FINDITEM <star index="2"></star> IN  <get name="vitaminaC_r">
+																	</get> </srai>
+																</set>
+															</think>
+															<condition name="vitaminaC_p">
+															<li value="0">
+																no
+															</li>
+															<li>
+																si
+															</li>
+														</condition>
+														</li>
+														<li>
+															si
+														</li>
+													</condition>
+												</li>
+												<li>
+													si
+												</li>
+											</condition>
+										</li>
+										<li>
+											si
+										</li>
+									</condition>
+								</li>
+								<li>
+									si
+								</li>
+							</condition>
+						</li>
+						<li>
+							si
+						</li>
+					</condition>
+			</li>
+			<li value="0">
+				No se lo que es <star index="1"></star> 
+			</li>
+		</condition>
+	</template> 
+</category>
+
+</aiml>

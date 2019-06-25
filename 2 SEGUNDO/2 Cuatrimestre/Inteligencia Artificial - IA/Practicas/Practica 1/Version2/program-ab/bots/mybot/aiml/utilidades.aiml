@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+	<!-- File: utilidades.aiml -->
+	<!-- Author: Raul y Rocio -->
+	<!-- Last modified: February 17, 2016 -->
+
+	<!-- Conjunto de reglas para devolver la primera palabra de una frase -->
+	<!-- Si la frase no contiene palabras devuelve "$" -->
+	<category>
+		<pattern>TOP * *</pattern>
+		<template>
+			<star index="1"/>
+		</template>
+	</category>
+	<category>
+		<pattern>TOP *</pattern>
+		<template>
+			<star index="1"/>
+		</template>
+	</category>
+	<category>
+		<pattern>TOP</pattern>
+		<template>$</template>
+	</category>
+	<!-- Conjunto de reglas para devolver el resto de palabras de una frase execto la primera -->
+	<!-- Si la frase no contiene palabras devuelve "$" -->
+	<category>
+		<pattern>REMAIN * *</pattern>
+		<template>
+			<star index="2"/>
+		</template>
+	</category>
+	<category>
+		<pattern>REMAIN *</pattern>
+		<template>$</template>
+	</category>
+	<category>
+		<pattern>REMAIN</pattern>
+		<template>$</template>
+	</category>
+	<!-- Regla que devuelve el numero de palabras que se pasan como argumento en <star/> -->
+	<category>
+		<pattern>COUNT</pattern>
+		<template>0</template>
+	</category>
+	<category>
+		<pattern>COUNT *</pattern>
+		<template>
+			<think>
+				<set var="count">0</set>
+				<set var="list">
+					<star/>
+				</set>
+				<set var="item">
+					<srai>TOP <get var="list"/></srai>
+				</set>
+			</think>
+			<condition var="item">
+				<li>
+					<value>$</value>
+					<get var="count"/>
+				</li>
+				<li>
+					<think>
+						<set var="count">
+							<map>
+								<name>successor</name>
+								<get var="count"/>
+							</map>
+						</set>
+						<set var="list">
+							<srai>REMAIN <get var="list"/></srai>
+						</set>
+						<set var="item">
+							<srai>TOP <get var="list"/></srai>
+						</set>
+					</think>
+					<loop/>
+				</li>
+			</condition>
+		</template>
+	</category>
+	<!-- Regla que busca un elemento <star/> en <star index="2"/> si existe devuelve la posicion, sino devuelve 0 -->
+	<category>
+		<pattern>
+        FINDITEM * IN *
+    </pattern>
+		<template>
+			<think>
+				<set var="buscado">
+					<uppercase><star/></uppercase>
+				</set>
+				<set var="lista">
+					<star index="2"/>
+				</set>
+				<set var="item">
+					<uppercase><srai>TOP <get var="lista"/></srai></uppercase>
+				</set>
+				<set var="count">1</set>
+			</think>
+			<condition var="item">
+				<li value="$">0</li>
+				<li><value><get var="buscado"/></value><get var="count"/></li>
+				<li>
+					<think>
+						<set var="count">
+							<map>
+								<name>successor</name>
+								<get var="count"/>
+							</map>
+						</set>
+						<set var="lista">
+							<srai>REMAIN <get var="lista"/></srai>
+						</set>
+						<set var="item">
+							<uppercase><srai>TOP <get var="lista"/></srai></uppercase>
+						</set>
+					</think>
+					<loop/>
+				</li>
+			</condition>
+		</template>
+	</category>
+	<!-- Regla que selecciona la palabra de posicion number(<star/>) en <star index="2"> Si la posicion es mayor al numero de palabras devuelve "$" -->
+	<category>
+		<pattern>
+        SELECTITEM <set>number</set> IN *
+    </pattern>
+		<template>
+			<think>
+				<set var="count">
+					<star/>
+				</set>
+				<set var="list">
+					<star index="2"/>
+				</set>
+				<set var="item">
+					<srai>TOP <get var="list"/></srai>
+				</set>
+			</think>
+			<condition var="count">
+				<li value="0">$</li>
+				<li>
+					<value>1</value>
+					<get var="item"/>
+				</li>
+				<li>
+					<think>
+						<set var="count">
+							<map>
+								<name>predecessor</name>
+								<get var="count"/>
+							</map>
+						</set>
+						<think>
+							<set var="list">
+								<srai>REMAIN <get var="list"/></srai>
+							</set>
+						</think>
+						<think>
+							<set var="item">
+								<srai>TOP <get var="list"/></srai>
+							</set>
+						</think>
+					</think>
+					<loop/>
+				</li>
+			</condition>
+		</template>
+	</category>
+	
+	<!-- Regla que elimina la palabra de posicion number(<star/>) en <star index="2"> -->
+	<category>
+		<pattern>
+        REMOVEITEM <set>number</set> IN *
+    </pattern>
+		<template>
+			<think>
+				<set var="count"><star/></set>
+				<set var="list"><star index="2"/></set>
+				<set var="list_1"/>
+				<set var="item"><srai>TOP <get var="list"/></srai></set>
+				<set var="list"><srai>REMAIN <get var="list"/></srai></set>
+			</think>
+			<condition var="count">
+				<li value="1"><get var="list_1"/> <get var="list"/></li>
+				<li>
+					<think>
+						<set var="count">
+							<map>
+								<name>predecessor</name>
+								<get var="count"/>
+							</map>
+						</set>
+						<set var="list_1">
+							<get var="list_1"/>
+							<get var="item"/>
+						</set>
+						<set var="item">
+							<srai>TOP <get var="list"/></srai>
+						</set>
+						<set var="list">
+							<srai>REMAIN <get var="list"/></srai>
+						</set>
+						<condition var="list">
+							<li value="$">
+								<set var="list"/>
+							</li>
+						</condition>
+						<condition var="item">
+							<li value="$">
+								<set var="item"/>
+							</li>
+						</condition>
+					</think>
+					<loop/>
+				</li>
+			</condition>
+		</template>
+	</category>
+	
+	<!-- Regla que aniade una palabra al principio de una frase si la palabra no estaba ya en la frase -->
+	<category>
+		<pattern>
+        ADDITEM * IN *
+    </pattern>
+		<template>
+			<think>
+				<set var="set">
+					<star index="2"/>
+				</set>
+			</think>
+			<think>
+				<set var="pos">
+					<srai>FINDITEM <star/> IN <get var="set"/></srai>
+				</set>
+			</think>
+			<condition var="pos">
+				<li value="0">
+					<think>
+						<set var="where"><srai>COUNT <get var="set"/></srai></set>
+						<condition var="where">
+							<li value="0"><set var="set"><star/></set></li>
+							<li><set var="set"><star/> <get var="set"/></set></li>
+						</condition>
+					</think>
+				</li>
+			</condition>
+			<get var="set"/>
+		</template>
+	</category>
+	
+	<!-- Regla que genera un numero aleatorio en el rango de 1 a number -->
+	<category>
+		<pattern>
+        RANDOM <set>number</set>
+    </pattern>
+		<template>
+			<think>
+				<set var="count">
+					<star/>
+				</set>
+				<set var="elegido">1</set>
+			</think>
+			<condition var="count">
+				<li>
+					<value>1</value>
+					<get var="elegido"/>
+				</li>
+				<li>
+					<think>
+						<random>
+							<li>
+								<set var="count">
+									<map>
+										<name>predecessor</name>
+										<get var="count"/>
+									</map>
+								</set>
+								<set var="elegido">
+									<map>
+										<name>successor</name>
+										<get var="elegido"/>
+									</map>
+								</set>
+							</li>
+							<li>
+								<set var="count">
+									<map>
+										<name>predecessor</name>
+										<get var="count"/>
+									</map>
+								</set>
+							</li>
+							<li>
+								<set var="count">
+									<map>
+										<name>predecessor</name>
+										<get var="count"/>
+									</map>
+								</set>
+							</li>
+						</random>
+					</think>
+					<loop/>
+				</li>
+			</condition>
+		</template>
+	</category>
+	<!-- Regla que permite iterar sobre las distintas palabras de una frase (esta asociado con NEXT)-->
+	<category>
+		<pattern>ITERATE *</pattern>
+		<template>
+			<think>
+				<set name="iterator">
+					<star/>
+				</set>
+			</think>
+			<srai>NEXT</srai>
+		</template>
+	</category>
+	<!-- Regla que permite iterar sobre las distintas palabras de una frase (esta asociado con ITERATE)-->
+	<category>
+		<pattern>NEXT</pattern>
+		<template>
+			<condition name="iterator">
+				<li value="$">$</li>
+				<li>
+					<srai>TOP <get name="iterator"/></srai>
+					<think>
+						<set name="iterator">
+							<srai>REMAIN <get name="iterator"/></srai>
+						</set>
+					</think>
+				</li>
+			</condition>
+		</template>
+	</category>
+	<!-- Regla que permite comparar dos cadenas, si son iguales devuelve YES en otro caso devuelve NO-->
+	<category>
+		<pattern>
+        COMPARE * WITH *
+    	</pattern>
+		<template>
+			<think>
+				<set var="local">
+					<uppercase>
+						<star index="2"/>
+					</uppercase>
+				</set>
+			</think>
+			<condition var="local">
+				<li><value><uppercase><star/></uppercase></value>YES</li>
+				<li>NO</li>
+			</condition>
+		</template>
+	</category>
+	<!-- Regla que verifica si una fecha es o no valida, devuelve YES en otro caso devuelve NO -->
+	<!-- Asume que los dias van de 1 a 31, que los meses van entre 1 y 12 y que los años van entre 2017 y 2027 -->
+	<category>
+		<pattern>
+        	VALIDDATE * * *
+    	</pattern>
+		<template>
+			<think>
+				<set var="dia"><star/></set>
+				<set var="mes"><star index = "2"/></set>
+				<set var="anno"><star index = "3"/></set>
+			</think>
+			<condition var="mes">
+				<li value = "4"><condition var="dia"><li value = "31">NO</li><li>YES</li></condition></li>
+				<li value = "6"><condition var="dia"><li value = "31">NO</li><li>YES</li></condition></li>
+				<li value = "9"><condition var="dia"><li value = "31">NO</li><li>YES</li></condition></li>
+				<li value = "11"><condition var="dia"><li value = "31">NO</li><li>YES</li></condition></li>
+				<li value = "2">
+					<condition var="dia">
+						<li value = "31">NO</li>
+						<li value = "30">NO</li>
+						<li value = "29">
+						<condition var="anno">
+							<li value = "2020">YES</li>
+							<li value = "2024">YES</li>
+							<li>NO</li>
+						</condition>
+						</li>
+						<li>YES</li>
+					</condition>
+				</li>
+				<li>YES</li>
+			</condition>
+		</template>
+	</category>
+	
+	<!-- Regla que cambia la palabra de posicion number(<star/>) por <star index="2"> -->
+	<category>
+	    <pattern>
+	        CHANGEITEM <set>number</set> BY * IN *
+	    </pattern>
+	    <template>
+	        <think>
+	            <set var="count"><star/></set>
+	            <set var="list"><star index="3"/></set>
+	            <set var="list_1"></set>
+	            <set var="item"><srai>TOP <get var="list"/></srai></set>
+	            <set var="list"><srai>REMAIN <get var="list"/></srai></set>
+	        </think>
+	        <condition var="count">
+	            <li><value>1</value> <get var="list_1"/> <star index="2"/> <get var="list"/></li>
+	            <li>
+	               <think>
+	                  <set var="count"><map><name>predecessor</name><get var="count"/></map></set>
+	                  <set var="list_1"><get var="list_1"/> <get var="item"/></set>
+	                  <set var="item"><srai>TOP <get var="list"/></srai></set>
+	                  <set var="list"><srai>REMAIN <get var="list"/></srai></set>
+	                  <condition var="list">
+	                      <li value="$"><set var="list"/></li>
+	                  </condition>
+	                  <condition var="item">
+	                      <li value="$"><set var="item"></set></li>
+	                  </condition>
+	                </think>
+	              <loop/>
+	            </li>
+	        </condition>
+	    </template>
+	</category>
+	
+	<!-- Regla que inserta un nuevo elemento en la posicion indicada -->
+	<category>
+	    <pattern>
+	        INSERTITEM * POS <set>number</set> IN *
+	    </pattern>
+	    <template>
+	        <think>
+	            <set var="count"><star index="2"/></set>
+	            <set var="list"><star index="3"/></set>
+	            <set var="list_1"></set>
+	            <set var="item"><srai>TOP <get var="list"/></srai></set>
+	            <set var="list"><srai>REMAIN <get var="list"/></srai></set>
+	        </think>
+	        <condition var="count">
+	            <li><value>1</value> <get var="list_1"/> <get var="item"/> <star index="1"/> <get var="list"/></li>
+	            <li>
+	               <think>
+	                  <set var="count"><map><name>predecessor</name><get var="count"/></map></set>
+	                  <set var="list_1"><get var="list_1"/> <get var="item"/></set>
+	                  <set var="item"><srai>TOP <get var="list"/></srai></set>
+	                  <set var="list"><srai>REMAIN <get var="list"/></srai></set>
+	                  <condition var="list">
+	                      <li value="$"><set var="list"/></li>
+	                  </condition>
+	                  <condition var="item">
+	                      <li value="$"><set var="item"></set></li>
+	                  </condition>
+	                </think>
+	              <loop/>
+	            </li>
+	        </condition>
+	    </template>
+	</category>
+	
+	<!-- Regla que suma un dia al indicado -->
+	<category>
+		<pattern>TOMORROW * * *</pattern>
+		<template>
+			<think>
+				<set var="dia"><star/></set>
+				<set var="mes"><star index = "2"/></set>
+				<set var="anno"><star index = "3"/></set>
+				<set var="dia"><map name="successor"><get var="dia"/></map></set>				
+			</think>
+			<condition var="dia">
+				<li value = "29">
+					<condition var="mes">
+						<li value = "2">
+							<condition var="anno">
+								<li value = "2020"></li>
+								<li value = "2024"></li>
+								<li>
+									<think>
+									<set var="dia">1</set>
+									<set var="mes"><map name="successor"><get var="mes"/></map></set>
+									</think>
+								</li>
+							</condition>
+						</li>
+					</condition>
+				</li>
+				<li value = "31">
+					<condition var="mes">
+						<li value = "1"></li>
+						<li value = "3"></li>
+						<li value = "5"></li>
+						<li value = "7"></li>
+						<li value = "8"></li>
+						<li value = "10"></li>
+						<li value = "12"></li>
+						<li>
+							<think>
+							<set var="dia">1</set>
+							<set var="mes"><map name="successor"><get var="mes"/></map></set>
+							</think>
+						</li>
+					</condition>
+				</li>
+				<li value = "32">
+					<think>
+					<set var="dia">1</set>
+					<set var="mes">1</set>
+					<set var="anno"><map name="successor"><get var="anno"/></map></set>
+					</think>
+				</li>
+			</condition>
+			<get var="dia"/>/<get var="mes"/>/<get var="anno"/>
+		</template>
+	</category>
+	
+	<!-- Regla que separa una palabra letra a letra -->
+	<category>
+	<pattern> deletrea * </pattern>
+	<template> <explode> <star/> </explode> </template>
+	</category>
+
+	<!-- Regla que quita la primera palabra de una lista de palabras -->
+	<category>
+	<pattern> resto * </pattern>
+	<template> <rest> <star/> </rest> </template>
+	</category>
+
+	<!-- Regla que elimina los espacios de una lista de palabras -->
+	<category>
+	<pattern> quitarespacios * </pattern>
+	<template> 
+	  <think>
+		<set var="palabra"></set>
+		<set var="solucion"></set>
+		<set var="tmp"><star/></set>
+		<set var="tmp"> <explode><get var="tmp"/></explode> </set>
+		<set var="caracter"><first><get var="tmp"/></first></set>
+		<set var="tmp"><rest><get var="tmp"/></rest></set>
+		<condition var="caracter">
+			<li value="NIL">
+				<set var="solucion"><get var="solucion"/> <get var="palabra"/></set>
+			</li>
+			<li value="_"> 
+				<set var="solucion"><get var="solucion"/> <get var="palabra"/></set>
+				<set var="palabra"></set>
+				<set var="caracter"><first><get var="tmp"/></first></set>
+				<set var="tmp"><rest><get var="tmp"/></rest></set>
+				<loop/>
+			</li>
+			<li>
+				<set var="palabra"><get var="palabra"/><get var="caracter"/></set>
+				<set var="caracter"><first><get var="tmp"/></first></set>
+				<set var="tmp"><rest><get var="tmp"/></rest></set>
+				<loop/>
+			</li>
+		</condition>
+	  </think>
+	<get var="solucion"/>
+	</template>
+	</category>
+
+	<!-- Regla que concatena una lista de palabras mediante un "_" -->
+	<category>
+	<pattern> ponerbarrabaja * </pattern>
+	<template> 
+	  <think>
+		<set var="tmp"><star/></set>
+		<set var="solucion"><first><get var="tmp"/></first></set>
+		<set var="tmp"><rest><get var="tmp"/></rest></set>
+		<condition var="tmp">
+			<li value="NIL">
+			</li>
+			<li>
+				<set var="solucion"><get var="solucion"/>_<first><get var="tmp"/></first></set>
+				<set var="tmp"><rest><get var="tmp"/></rest></set>
+				<loop/>
+			</li>
+		</condition>
+	  </think>
+	<get var="solucion"/>
+	</template>
+	</category>
+</aiml>
