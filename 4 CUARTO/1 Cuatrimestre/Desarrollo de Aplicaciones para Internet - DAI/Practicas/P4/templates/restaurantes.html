@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V10</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!--===============================================================================================-->
+</head>
+<body>
+	<div style="overflow:hidden;text-align: center; padding: 10px;">
+    
+    {%if encontrado %}
+        <div>
+			<div>
+				<div>
+					<form action="modificar_restaurante" method="POST">
+						<span>
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th scope="col"> Restaurante: </th>
+										<th scope="col"> Localizacion: </th>
+										<th scope="col"> ID: </th>
+									</tr>
+								</thead>
+								<tbody>
+									{%for r in restaurante %}
+									<tr>
+											<td> {{ r.name }}</td> 
+											<td> {{ r.location.coordinates }}</td> 
+											<td> {{ r._id }}</td> 
+											
+									</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</span> 
+
+						
+						<div data-validate = "Nombre is required">
+							<input type="text" name="nombre" placeholder="Nombre del restaurante">
+							<span ></span>
+						</div> <br>
+
+						<div  data-validate = "ID is required">
+							<input type="hidden" name="id" placeholder="ID del restaurante">
+							<span ></span>
+						</div> 
+						
+
+						<div  data-validate = "Localizacion is required">
+							<input type="hidden" name="location" placeholder="Localizacion">
+							<span ></span>
+						</div> 
+					
+						
+						<div>
+							<button >
+								Modificar
+							</button> <br>
+						</div>
+
+					</form>
+
+					
+				</div>
+			</div>
+		</div>
+        
+        
+		
+    {% else %}
+    
+        {% if error %}
+            <h3 style="color:red"> Restaurante no encontrado </h3>
+        {% endif %}
+
+        {% if modificado %}
+            <h3 style="color:green"> Restaurante actualizado </h3>
+		{% endif %}
+		
+		{% if insertado %}
+            <h3 style="color:green"> Restaurante creado </h3>
+		{% endif %}
+
+		{% if insertado_error %}
+            <h3 style="color:red"> Restaurante no creado </h3>
+		{% endif %}
+		
+			<br>
+			<span>
+				<h4> Buscar/Modificar restaurante </h4>
+			</span> 
+            <form action="restaurante" method="POST">
+                <div data-validate = "Nombre is required">
+                    <input type="text" name="nombre_buscar" placeholder="Nombre del restaurante">
+                    <span ></span>
+                </div> <br>
+                <div >
+                    <button >
+                        Buscar
+                    </button> <br>
+                </div>
+            </form>
+			<br><br>
+			<form action="add_restaurante" method="POST">
+				<span>
+					<h4> Añadir restaurante </h4>
+				</span> 
+
+				
+				<div data-validate = "Nombre is required">
+					<input type="text" name="nombre_n" placeholder="Nombre del restaurante">
+					<span ></span>
+				</div> <br>
+
+				<div  data-validate = "ID is required">
+					<input type="text" name="id_n" placeholder="ID del restaurante">
+					<span ></span>
+				</div> <br>
+				
+
+				<div  data-validate = "Localizacion is required">
+					<input type="text" name="location_n_x" placeholder="Localizacion coordenada X">
+					<span ></span>
+				</div> <br>
+
+				<div  data-validate = "Localizacion is required">
+					<input type="text" name="location_n_y" placeholder="Localizacion coordenada Y">
+					<span ></span>
+				</div> <br>
+			
+				
+				<div>
+					<button >
+						Añadir
+					</button> <br>
+				</div>
+
+			</form>
+
+    {% endif %}  
+    </div>
+
+</body>
+</html>

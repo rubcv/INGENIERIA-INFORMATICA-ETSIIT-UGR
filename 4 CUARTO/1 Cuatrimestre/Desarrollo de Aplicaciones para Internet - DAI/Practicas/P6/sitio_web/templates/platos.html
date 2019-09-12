@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V10</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" media="screen">
+
+<!--===============================================================================================-->
+</head>
+<body>
+		{% load socialaccount %}
+	
+		{%if user.is_authenticated %}
+			<span>
+				<h1> Bienvenido:  {{ user.username }} </h1>
+			</span>		
+		
+			<h2> PLATOS </h2> <h3> <a href="{% url 'index' %}"> Acceder a restaurantes </a></h3>
+
+			<h4> <a href="{% url 'logout' %}"> Cerrar sesion </a> </h4> 
+
+		{% else %}
+			<h2> PLATOS </h2> <h3> <a href="{% url 'index' %}"> Acceder a restaurantes </a></h3>
+		<h4> <a href="{% url 'login' %}"> Acceder a login </a></h4>
+		<h4> <a href="{% url 'signup' %}"> Registrarse </a> </h4> 
+		{% endif %}
+	
+
+	<div style="overflow:hidden;text-align: center; padding: 10px;">
+
+		{%if error %}
+		<h4 style="color: lightcoral">Plato para añadir no válido</h4> 
+		{% endif %}
+		{%if addok %}
+		<h4 style="color: lightgreen">Plato añadido</h4> 
+		{% endif %}
+
+		{%if no_modificado %}
+		<h4 style="color: lightcoral">Plato no modificado</h4> 
+		{% endif %}
+		{%if modificado %}
+		<h4 style="color: lightgreen">Plato modificado</h4> 
+		{% endif %}
+
+
+		<div style="float:left;">
+		<form action="{% url 'buscarplatos' %}" method="POST">
+			{% csrf_token %}
+			<input type="text" name="nombre_r" placeholder="Introduce aqui el nombre">
+			<input type="submit" value="Buscar">
+		</form>
+		</div><br><br>
+		<div style="text-align: left;">
+			<form action="{% url 'addplatos' %}" method="POST">
+				{% csrf_token %}
+				<input type="text" name="nombre" placeholder="Nombre">
+				<input type="text" name="tipo_cocina" placeholder="Tipo de cocina">
+				<input type="text" name="tiempo_prep" placeholder="Tiempo de preparacion">
+				<input type="text" name="precio" placeholder="Precio">
+				<input type="submit" value="Añadir">
+			</form><br>
+		</div>
+        {%if platos %}
+        
+        <div>			
+			<span>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col"> Nombre: </th>
+							<th scope="col"> Tipo de Cocina: </th>
+							<th scope="col"> Tiempo de preparación: </th>
+							<th scope="col"> Precio: </th>
+						</tr>
+					</thead>
+					<tbody>
+						{%for r in platos %}
+						<tr>
+							<form action="{% url 'modplatos' %}" method="POST">
+								{% csrf_token %}
+								<td> <input type="hidden" name="nombre_mod" value="{{ r.nombre }}"> {{ r.nombre }} </td>
+								<td> <input type="text" name="tipo_mod" value="{{ r.tipoCocina }}"> </td>
+								<td> <input type="text" name="tiempo_mod" value="{{ r.tiempoPreparacion }}"> </td>
+								<td> <input type="text" name="precio_mod" value="{{ r.precio }}"> </td>
+								<td> 
+									<input type="submit" value="Modificar">
+								</td>
+							</form>
+								
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</span> 
+		</div> 	
+	{% endif %}
+
+</body>
+</html>

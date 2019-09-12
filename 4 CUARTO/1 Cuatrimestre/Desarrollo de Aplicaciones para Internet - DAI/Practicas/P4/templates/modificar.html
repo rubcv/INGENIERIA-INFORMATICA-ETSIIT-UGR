@@ -1,0 +1,45 @@
+{% extends "login.html" %}
+
+{% block content %}
+<div>
+    <div>
+        <div>
+            <form action="actualizar" method="POST">
+                <span>
+                    <h1> Modificar datos de {{ user }}: </h1>
+                </span>
+
+                
+                <div data-validate = "Username is required">
+                    <input type="text" name="username" placeholder="Username">
+                    <span></span>
+                </div><br>
+
+                <div data-validate = "Nombre completo is required">
+                    <input type="text" name="nombre" placeholder="Nombre completo">
+                    <span></span>
+                </div><br>
+                
+
+                <div data-validate = "Email is required">
+                    <input type="text" name="email" placeholder="Email">
+                    <span></span>
+                </div><br>
+                
+                
+                <div data-validate = "Password is required">
+                    <input type="password" name="pass" placeholder="Password">
+                    <span></span>
+                </div><br>
+                
+                <div>
+                    <button>
+                        Modificar
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
