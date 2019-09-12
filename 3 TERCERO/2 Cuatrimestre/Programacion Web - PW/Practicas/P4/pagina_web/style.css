@@ -1,0 +1,124 @@
+html {
+  background: url(http://hdwallpaperbackgrounds.net/wp-content/uploads/2016/07/white-background-5.jpg) no-repeat center;
+  background-size: cover;
+  text-align: center;
+  font-family: fantasy;
+
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.top-header{
+  transition: all 0.3s ease;
+  background-color: rgba(255, 0, 0, 0.8);
+  color: black;
+  font-size: 1.6em;
+  padding: 0.5rem;
+  border-radius: 0.7rem;
+  text-align: center;
+}
+
+.top-header img{
+  position: relative;
+  float: left;
+  border-radius: 0.7rem;
+  width: 150px; 
+  height: 120px;
+  margin-top: -5px;
+  background: rgba(220, 215, 69, 0.5);
+}
+
+#header-with-transition {
+  transition: all 0.3s ease;
+}
+
+#zoom-text:hover {
+  -webkit-transform: scale(2);
+  -ms-transform: scale(2);
+  transform: scale(2);
+  border-radius: 0.5rem;
+  background: rgba(46, 242, 163, 0.7);
+  transition: all 0.3s ease;
+}
+
+.header-form {
+  font-size: 0.5em;
+  float: right;
+  text-align: left;
+  padding: 0.7rem;
+  margin-top: -143px
+}
+
+.start-button {
+  margin-top: -5px;
+}
+
+.user-input {
+  border-radius: 0.7rem;
+  margin-bottom: 10px;
+  padding-top: 15px;
+}
+
+.header-form a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  font-size: 1.3em;
+  color: #709DF8;
+}
+
+.remember {
+    text-align: right;
+    font-size: 1em;
+}
+
+.header-letters:hover{
+  color: #40BF99;
+  border-radius: auto;
+  font-style: normal;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  -webkit-transform: translateX(-5px);
+  transform: translateX(-5px);
+}
+
+.body-sections img{
+  border-radius: 0.7rem;
+  float: left;
+  width: 50%;
+  border: dashed #709DF8 5px;
+  height: 417px;
+  margin-bottom: -20px;
+  background: rgba(220, 215, 69, 0.5);
+}
+
+
+
+.body-sections a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  font-size: 1.5em;
+  color: #74A123;
+}
+
+
+.new-users-form {
+  padding-top: 30px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.registration-button {
+  padding-top: 10px;
+}
+
+.bottom-sections {
+  color:  rgb(128, 0, 128);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  display: block;
+  font-size: 1.5em;
+  padding-top: 62px;
+  text-align: center;
+}

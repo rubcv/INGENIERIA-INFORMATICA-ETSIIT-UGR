@@ -1,0 +1,94 @@
+<head>
+    <script>
+        function mayorQue(elem) {
+            function es(otro){
+                return elem < otro;
+            }
+            return es;
+        }
+
+        function alturas(alturas, limite){
+            var array = [];
+            for (h in alturas){
+                if(alturas[h] >= limite){
+                   array.push(alturas[h]);
+                }
+            }
+            return array;
+        }
+
+
+          function media(suma, array){
+                return suma/array.length;
+            }
+
+        function mayorValor(array1, array2){
+
+            var s1 = 0, s2 = 0;
+
+            for(i in array1)
+                s1 += array1[i];
+
+            for(j in array2)
+                s2 += array2[j];
+        
+
+            document.write("Medias: " + media(s1, array1) + " - " + media(s2, array2) + "<br>");
+            return (s1 > s2)? 1 : 2;
+
+        }
+
+    </script> 
+
+</head>
+
+<body>
+    <script>    
+        var una = mayorQue(5);
+        var otra = una(10);
+
+        alert(otra);
+
+      var _alturas = [1.9, 1.6, 2, 1.4, 1.8, 0.9, 1.6, 0.5, 1.3, 1.25];
+      var esas = alturas(_alturas, 1.8);
+
+      for( l in esas){
+        document.write(esas[l] + " ");
+      }
+
+      var v1 = [1, 2, 3];
+      var v2 = [4, 5, 6];
+
+      document.write("<br>");
+      document.write("Tiene mayor valor el " + mayorValor(v1, v2));
+
+
+
+      var vehiculo = {propiedades : { marca:"Marca", modelo:"Modelo", anio_de_matriculacion:"anio_de_matriculacion", anio_de_venta:"anio_de_venta", potencia:"potencia", cilindrada:"cilindrada",combustible:"combustible"} , get: function(){return propiedades}, 
+      set: function(prop){this.propiedades = prop}};
+
+      var c1 = vehiculo;
+      var c2 = vehiculo;
+      var c3 = vehiculo;
+
+      var prop1 = {anio_de_matriculacion : 1995};
+      var prop1 = {anio_de_matriculacion : 1990};
+      var prop1 = {anio_de_matriculacion : 2000};
+      c1.propiedades = prop1;
+      c2.propiedades = prop2;
+      c3.propiedades = prop3;
+
+
+      var array_coches =  [c1, c2, c3];
+
+      var mas_antiguo = array_coches[0];
+      for(car in array_coches){
+        if(array_coches[car]["anio_de_matriculacion"] < mas_antiguo["anio_de_matriculacion"])
+            mas_antiguo = array_coches[car];
+      }
+
+
+      document.write("<br> El coche mas antiguo es de: " + mas_antiguo["anio_de_matriculacion"]);
+
+    </script>
+</body>

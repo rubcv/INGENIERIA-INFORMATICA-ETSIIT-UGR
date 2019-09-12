@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>Formulario</title> 
+    </head> 
+    
+    <body> 
+        <h1>Ejemplo de formulario</h1> 
+        <p>Por favor, rellene los siguientes datos y haga click en el botón Enviar.</p> 
+        <form action="procesar_formulario.php" method="post"> 
+        <label for="nombre">Nombre</label> <input type="text" name="nombre" id="nombre" value="" /> 
+        <label for="apellido">Apellido</label> 
+        <input type="text" name="apellido" id="apellido" value="" /> 
+        <label for="password1">Contrase&ntilde;a</label>
+        <input type="password" name="password1" id="password1" value="" /> 
+        <label for="password2">Repita la contrase&ntilde;a</label> 
+        <input type="password" name="password2" id="password2" value="" />
+        <label for="generoHombre">&iquest;Eres hombre</label> 
+        <input type="radio" name="genero" id="generoHombre" value="H" /> 
+        <label for="genero">... o mujer&#63;</label>
+        <input type="radio" name="genero" id="generoMujer" value="M" /> 
+        <label for="rangoEdad">Rango de edad</label> 
+        <select name="rangoEdad" id="rangoEdad" size="1">
+            <option value="infante">Infante</option> 
+            <option value="adolescente">Adolescente</option>
+            <option value="adulto">Adulto</option> 
+            <option value="mayor">Mayor</option>
+        </select> 
+            <label for="deporte">&iquest;Practicas deporte&#63</label> 
+            <input type="checkbox" name="deporte" id="deporte" value="S&iacute;" />
+            <label for="comentarios">&iquest;Alg&uacute;n comentario?</label>
+        <textarea name="comentarios" id="comentarios" rows="4" cols="50"> </textarea> 
+        <input type="submit" name="botonDeEnvio" id="botonDeEnvio" value="Enviar datos" />
+        <input type="reset" name="bontonDeReset" id="botonDeReset" value="Vaciar formulario" />
+        </form> 
+        <ul>
+        <?php echo "<h2> Salida </h2>" ?>
+        <li> <?php echo $_POST["nombre"]; ?> </li>
+        <li> <?php echo $_POST["apellido"]; ?> </li>
+        <li> <?php echo $_POST["genero"]; ?> </li>
+        <li> <?php echo $_POST["rangoEdad"]; ?> </li>
+        <li> <?php echo $_POST["comentarios"]; ?> </li>
+    </ul> 
+    </body> 
+</html>
