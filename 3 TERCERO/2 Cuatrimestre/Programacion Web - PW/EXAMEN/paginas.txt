@@ -1,0 +1,9 @@
+https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_web_server#Static_vs._dynamic_content
+https://en.wikipedia.org/wiki/Dynamic_web_page
+http://www.it-notebook.org/uncategorized/article/client_to_server.htm
+
+https://cnx.org/contents/EVYca_vU@1/how-does-a-web-browser-get-inf
+https://www.packtpub.com/mapt/book/web_development/9781782163305/8
+https://stackoverflow.com/questions/1764597/how-does-the-communication-between-a-browser-and-a-web-server-take-place
+https://stackoverflow.com/questions/33152912/how-to-describe-interaction-between-web-server-and-web-client
+https://www.lifewire.com/web-browsers-and-web-servers-communicate-817764

@@ -1,0 +1,94 @@
+P.91 pasos en la conexión con la base de datos desde php 
+T4 p31 - Document object model javascript
+
+Servicio web
+
+https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html
+
+EXAMENES: 
+
+	TW - 2014-15 
+
+1. Estructura de los mensajes en el protocolo http  # HECHA
+
+2. Explica la interacción entre las plataformas de cloud computing # HECHA
+   y las tecnologías web
+
+3. Explica que es el DOM y pon un ejemplo de uso # HECHA
+
+4. Explica los pasos esenciales en el acceso a bases de datos desde
+   php
+
+5. Enumera las características mas distintivas de las aplicaciones # HECHA
+   ajax
+
+
+	TW - 2012-13
+
+1. Haz un esquema de la interacción entre un servidor web y el
+   navegador en el caso de solicitud de contenidos dinamicos # HECHA
+
+2. Explica las principales diferencias entre aplicaciones web # HECHA
+   clásicas y aplicaciones ajax
+
+3. Acceso a mysql con php. Escribe el esquema de acceso y pon  # HECHA
+   código de ejemplo
+
+4. Describe cómo se crean y eliminan cookies con php. # HECHA
+   Pon un ejemplo
+
+5. Explica en que consiste el DOM. Pon un ejemplo ilustrando su # HECHA
+   uso
+
+
+	TW - 2013-14
+
+1. Enumera y justifica los aspectos más importantes en el  # HECHA
+   desarrollo de aplicaciones web.
+
+2. Estructura de mensajes http # HECHA
+
+3. Indica las principales capas de servicios en las plataformas
+   de cloud computing. En cuales es más relevante el papel de las # HECHA
+   tecnologías web y por qué?
+
+4. Da una definición lo más completa posible de servicio web. Pon # HECHA
+   un ejemplo
+
+5. Explica los pasos esenciales en el acceso a bases de datos # HECHA
+   desde php
+
+
+	TW - 2012-13
+
+1. Haz un esquema de la interacción entre un servidor web y
+   el navegador en el caso de solicitud de contenidos dinámicos # HECHA
+
+2. Diferencias y ventajas entre el desarrollo de aplicaciones web # HECHA
+   en el servidor y en el cliente
+
+3. Estructura de mensajes en http # HECHA
+
+4. Describe cómo se manejan archivos con php. Pon ejemplos # HECHA
+
+5. Explica en qué consiste ajax y qué ventajas aporta # HECHA
+
+
+	PW - 2015-16
+
+1. Define servicio web y enumera las herramientas específicas para # HECHA
+   su desarrollo
+
+2. Diagrama de interacción entre navegador y servidor en aplicaciones # HECHA
+   web estáticas y dinámicas 
+
+3. Indica las principales características del lenguaje javascript # HECHA
+   explicando cómo ayudan en el desarrollo de aplicaciones web
+
+4. Explica qué es una cookie. Pon un ejemplo básico de creación y  # HECHA
+   eliminación
+
+5. Explica los pasos esenciales en el acceso a bases de datos desde # HECHA
+   php
+
+
