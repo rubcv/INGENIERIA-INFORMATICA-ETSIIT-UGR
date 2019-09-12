@@ -1,0 +1,211 @@
+
+El usuario Ruben ha realizado la siguiente acción 
+Acaba de iniciar sesión
+
+El 09-06-18 a las 14:01
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+UPDATE `articulos` SET `nombre` = 'Discos (Ed. Especial)', `precio` = '35' WHERE `articulos`.`nombre` = 'Discos (Ed. Especial)'
+
+El 09-06-18 a las 14:01
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+UPDATE `articulos` SET `nombre` = 'Merchandising', `precio` = '25' WHERE `articulos`.`nombre` = 'Merchandising'
+
+El 09-06-18 a las 14:02
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+Acaba de iniciar sesión
+
+El 09-06-18 a las 20:51
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+Acaba de iniciar sesión
+
+El 09-06-18 a las 20:52
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+DELETE FROM `articulos` WHERE `articulos`.`nombre` = '';
+
+El 09-06-18 a las 21:24
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+DELETE FROM `articulos` WHERE `articulos`.`nombre` = '';
+
+El 09-06-18 a las 21:25
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+DELETE FROM `articulos` WHERE `articulos`.`nombre` = '';
+
+El 09-06-18 a las 21:28
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+DELETE FROM `articulos` WHERE `articulos`.`nombre` = '';
+
+El 09-06-18 a las 21:28
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+DELETE FROM `articulos` WHERE `articulos`.`nombre` = '';
+
+El 09-06-18 a las 21:28
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+DELETE FROM `articulos` WHERE `articulos`.`nombre` = '';
+
+El 09-06-18 a las 21:28
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+DELETE FROM `articulos` WHERE `articulos`.`nombre` = '';
+
+El 09-06-18 a las 21:28
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+DELETE FROM `articulos` WHERE `articulos`.`nombre` = '';
+
+El 09-06-18 a las 21:29
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+DELETE FROM `articulos` WHERE `articulos`.`nombre` = '';
+
+El 09-06-18 a las 21:29
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+DELETE FROM `articulos` WHERE `articulos`.`nombre` = '';
+
+El 09-06-18 a las 21:29
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+DELETE FROM `articulos` WHERE `articulos`.`nombre` = '';
+
+El 09-06-18 a las 21:29
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+DELETE FROM `articulos` WHERE `articulos`.`nombre` = '';
+
+El 09-06-18 a las 21:30
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+DELETE FROM `articulos` WHERE `articulos`.`nombre` = '';
+
+El 09-06-18 a las 21:31
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+DELETE FROM `articulos` WHERE `articulos`.`nombre` = '';
+
+El 09-06-18 a las 21:31
+
+ ||
+Se  ha realizado la siguiente acción 
+INSERT INTO `pedidos` (correo_cliente, fecha_pedido, fecha_gest, nombre_gest, apellidos_gest, estado, email_enviado, nombre_producto, id) VALUES ('snoop@gmail.com', '18-06-10', 'NULL', 'NULL', 'NULL', 'pendiente', 'NULL', '||Discos (Ed. Especial) || Last Meal || Merchandising || Neva Left || ', 'NULL');
+
+El 10-06-18 a las 11:01
+
+ ||
+El usuario Armando  ha realizado la siguiente acción 
+Acaba de iniciar sesión
+
+El 10-06-18 a las 11:01
+
+ ||
+El usuario Armando  ha realizado la siguiente acción 
+UPDATE `pedidos` SET `nombre_gest` = 'Armando ', `apellidos_gest` = 'Casas', `fecha_gest` = '10-06-18', `estado` = 'aceptado', `email_enviado` = 'Enhorabuena, le enviaremos su pedido' WHERE `pedidos`.`id` = '6'
+
+El 10-06-18 a las 11:02
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+Acaba de iniciar sesión
+
+El 10-06-18 a las 11:03
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+INSERT INTO `articulos` (foto, nombre, precio, tipo) VALUES ('imagenes_subidas/articulos/snoop3.jpg', 'Doggystyle (Ed. Especial)', '20', 'disco');
+
+El 10-06-18 a las 11:04
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+INSERT INTO `discos` (foto, nombre, year_s) VALUES ('imagenes_subidas/discos/snoop3.jpg', 'Doggystyle (Ed. Especial)', '2018');
+
+El 10-06-18 a las 11:05
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+INSERT INTO `conciertos` (cartel, fecha, hora, lugar, nombre, descripcion) VALUES ('imagenes_subidas/conciertos/poster.jpg', '2018-08-18', '17:30', 'Madrid', 'Madrid Arena', ' Impresionante escenario planeado para el concierto de Snoop Dogg en Madrid en el Madrid Arena el próximo 18/08/2018 a las 17:30\r\n                ');
+
+El 10-06-18 a las 11:06
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+INSERT INTO `componentes` (nombre, nacimiento, foto, bio_componente) VALUES ('Snoop Doggy Dogg', '2018-03-09', 'imagenes_subidas/componentes/snoop4.jpg', 'Primero en el tema principal del largometraje Deep Cover, y después con criss monstar en el álbum debut en solitario de Dr. Dre, The Chronic, junto con otros miembros de su antiguo grupo, Tha Dogg Pound. La contribución de Snoop en The Chronic fue considerable; su presencia en el disco es notable y preparaba el terreno para su lanzamiento en solitario. \r\n                ');
+
+El 10-06-18 a las 11:07
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+Acaba de iniciar sesión
+
+El 10-06-18 a las 11:40
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+INSERT INTO `gestores` (nombre, apellidos, telefono, email, clave_cifrada) VALUES ('Nuevo', 'Admin', '123123123', 'nuevo@gmail.com2', 'MTIzNA==');
+
+El 10-06-18 a las 12:14
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+INSERT INTO `usuarios` (email, clave_cifrada, tipo) VALUES ('nuevo@gmail.com2', 'MTIzNA==', 'gestor' );
+
+El 10-06-18 a las 12:14
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+INSERT INTO `gestores` (nombre, apellidos, telefono, email, clave_cifrada) VALUES ('Nuevo', 'Admin', '123123123', 'nuevo@gmail.com2', 'MTIzNA==');
+
+El 10-06-18 a las 13:28
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+INSERT INTO `usuarios` (email, clave_cifrada, tipo) VALUES ('nuevo@gmail.com2', 'MTIzNA==', 'gestor' );
+
+El 10-06-18 a las 13:28
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+Acaba de iniciar sesión
+
+El 10-06-18 a las 13:48
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+UPDATE `articulos` SET `nombre` = 'Doggystyle (Special Ed.)', `precio` = '25' WHERE `articulos`.`nombre` = 'Doggystyle (Ed. Especial)'
+
+El 10-06-18 a las 13:50
+
+ ||
+El usuario Ruben ha realizado la siguiente acción 
+INSERT INTO `canciones` (disco, nombre, duracion) VALUES ('Doggystyle (Ed. Especial)', 'Still DRE', '3:26');
+
+El 10-06-18 a las 13:53
+
+ ||

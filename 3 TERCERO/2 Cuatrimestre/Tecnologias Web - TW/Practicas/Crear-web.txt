@@ -1,0 +1,9 @@
+
+1º. Descargar e instalar/configurar Apache
+
+2º. Descargar php (apt-get install php)
+
+3º. Descargar el interprete de php (Libreria para apache2)
+	apt-get install libapache2-mod-php
+ 
+4º. Verificar que funciona dejando un fichero script php en var/www/
