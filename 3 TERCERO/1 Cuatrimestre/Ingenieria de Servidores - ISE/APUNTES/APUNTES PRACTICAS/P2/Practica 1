@@ -1,0 +1,60 @@
+INSTALACION Y CONFIGURACIÓN DE UN SERVIDOR SSH:
+_______________________________________________
+
+Empezamos con Ubuntu Server:
+	servidor: proceso sshd
+	cliente: comando ssh
+
+	Para instalarlo, usamos openshh-server (yum search en centos y apt install en ubuntu o mediante ¡¡¡ tasksel !!!, elegimos openshh de la lista)
+
+	Para comprobar que funciona, hacemos >ssh localhost
+
+
+	Cambiamos puerto.
+	Ubuntu:
+		Fichero de configuracion /etc/ssh/sshd_config
+		Para cambiar el puerto, >sed d/'Port 22' /'Port22022'/ -i	/etc/ssh/sshd_config				ó
+		 			ó editamos con vi, cambiando donde ponga port 22022 por otro, por ejemplo solo 22
+		Reiniciamos el servicio con >systemctl restart sshd.service
+		Para comprobar usamos >systemctl status sshd.service
+		>ssh localhost para ver si conecta con la propia máquina
+		Desde centos podemos hacer ssh user@192.168.58.110 y vemos que conecta con la maquina ubuntu. Idem de ubuntu a centos.
+		Volvemos a cambiar el puerto por 22022
+
+	Centos:
+		>systemctl status shh.service  ->Vemos que funciona.
+		Fichero de configuracion /etc/ssh/sshd_config
+		Cambiarlo con vi, igual que antes pero teniendo en cuenta que la linea esta comentada (quitar #) y poner puerto 22022
+		>systemctl restart ssh.service
+		>systemctl status sshd.service
+		no funciona porque no nos deja ponerlo al puerto 22022, así que añadimos:
+		>yum install policycoreutils-python
+		>semanage port -l |grep ssh
+		>semanage -a -t ssh_port_t -p tcp 22022
+		Comprobamos de nuevo si ya funciona. >semanage port -l |grep ssh
+		>systemctl restart ssh.service
+		Ya escucha por el puerto 22022. Añadimos un usuario a la máquina de centos:
+		>useradd <nombre>
+		>passwd <nombre>
+		Nos conectamos desde ubuntu server:
+		>ssh <nombre_user_centos>@192.168.58.110 -p 22022
+		No nos deja porque centos tiene un cortafuegos, que tenemos que cortar desde centos
+		>firewall-cmp --state (para verlo)
+		>man firewall-cmd
+		
+		La instrucción sería:
+		firewall-cmp --add-port=<numero_puerto/tcp		y	firewall-cmp --permanent --add=<numero_puerto>/tcp
+				Para esta sesion					Para hacerlo permanente(desde siguiente reinicio)
+		volvemos a ubuntu y conectamos de nuevo:
+		>ssh <nombre_user_centos>@192.168.58.110 -p 22022
+
+		En ubuntu tenemos un cortafuegos tambien: ufw (su interfaz es sencilla, ufw enable / disable / status
+		Si lo activvamos, ssh con puerto 22022 no tendría por que conectar. Añadiriamos una regla: >ufw allow <numero_puerto>
+		Ya podremos conectar desde Centos hasta ubuntu server.
+		
+			
+		
+	Bloqueamos a root.
+
+	
+	Acceso sin contraseña.	

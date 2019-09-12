@@ -1,0 +1,149 @@
+SERVIDORES WEB
+
+	UBUNTU
+	Directamente con tasksel
+		>sudo tasksel
+
+	Activamos LAMP server.
+
+	Cuando lo instalamos, lo dejamos en LAN
+	
+	Una vez instalado abrimos el puerto 80. 
+		>ufw allow 80
+	Con esto se nos instala apache. Una vez instalado si ponemos en el navegador 192.168.58.105 deberia conectarse
+
+	Para probarlo hacemos php -a
+	Escribimos un mensaje y debe devolvernos lo mismo
+
+	CENTOS
+
+	Hay que hacerlo paso a paso. Primero instalamos apache
+	>yum install httpd
+	>curl localhost (para ver el codigo de la pagina principal del servidor)
+	>firewall-cmd --add-port=80/tcp
+	>firewall-cmd ---permanent --add-port=80/tcp
+	Una vez instalado si ponemos en el navegador 192.168.58.110 deberia conectarse
+
+	INSTALAR LA BASE DE DATOS
+	Vamos a instalar una base de datos que se llama mariadb:
+
+		>yum search mariadb
+		>yum install mariadb
+		
+		>yum search mariadb-server
+		>yum install mariadb-server
+
+	Lo activamos
+		>systemctl start mariadb
+	
+	Terminamos de instalar:
+
+		>mysql_secure_installation
+
+		Como no hay contraseña damos enter, cuando nos la pide damos y, y ponemos de contraseña practicas,ISE. Confirmamos lo demás
+
+	Instalamos interprete php
+
+		>yum install php
+
+		>php -a y lo probamos como en ubuntu.
+
+	Vamos a comprobar que todo funciona con un script muy sencillo que nos dirá si funciona o no:
+
+	Lo creamos en cd /var/www/html/ y lo creamos con vi:
+
+		>vi index.php
+
+	<?php
+		$link=mysql_connect('127.0.0.1:3306','root','practicas,ISE');
+		if(!$link){
+			die('Coult not connect:' .mysql_error());
+		}
+		echo 'connect sucessffully';
+		mysql_close($link);
+		php.info(); 
+	?>
+			-----------------------------------------------------------------------
+	> systemctl status httpd (para comprobar el estado. si no esta activado le hacemos un start)
+	> systemctl status mariabd (para comprobar el estado. si no esta activado le hacemos un start)
+
+	Tenemos que entrar al fichero de configuracion de apache:
+	
+	> cd /etc/httpd/conf/
+	> vi httpd.conf
+
+	Editamos la entrada <IfModule>, donde añadimos el nuevofichero
+	añadimos despues de DirectoryIndex index.html
+			nuestro archivo index.php		(añadimos sin quitar nada)
+
+	> systemctl restart httpd
+
+	Sigue sin funcionar, tenemos que instalar las librerias de php:
+
+	> yum search php | grep mysql
+	> yum install php-mysql
+
+	Aun con esto sigue sin funcionar, por culpa de centos. Tenemos que añadir una regla para permitir conectar a apache:
+
+	>setsebool -P httpd_can_network_connect_db on
+
+	> systemctl restart httpd
+
+
+	BACKUP
+
+	LISTA DE INSTRUCCIONES A ESTUDIR:
+
+	dd
+	cpio -ov <fichero a emp> (empaquetar)
+	cpio -idv <fichero a des) (desempaquetar)
+	tar 	cvzf
+		-xvf
+	rsinc <origen> <destino> (para sincronizar una fuente con un destino) (puede borrar con -a --delete
+		-e ssh para conectar máquinas
+		-r recursivo
+		-v muestra info
+		-z comprime
+		-i muestra resumen final
+		-a hace todo lo demás
+
+	Podemos programar los backup con rsnapshot (buscar info en internet)
+
+	MECANISMOS DE CONTROL DE CAMBIOS
+	
+	tenemos la opcion de usar etc/keeper para rastrear los cambios en etc
+
+	la mejor herramienta sería de tipo GIT:
+
+	GIT
+
+	Solo vemos los comandos basicos, profundizar en casa.
+		
+		directorio de trabajo: donde actuamos
+		stage: que es donde se registran los cambio y donde nos monitorizan.
+		commit: donde estan los cambios permanentes.
+
+	Vamos a ver una demo en ubuntu:
+		creamos un directorio en home -> mkdir my_repo
+			> cd my_repo
+			> git init
+			> touch system.conf
+			git add  (para pasar del directorio de trabajo a stage
+			git log  (informacion de los cambios)
+			git status  (
+			git branch
+			git diff (nos dice si hay cambios en directorio)
+			git reset --hard <direccion del commit>
+			git remote -v (configuracion remota de datos)
+			git checkout HEAD <nombre> (para recuperar desde el ultimo commit)
+			commit (confirmar cambios) (podemos añadir un comentario con -m)
+			.gitignore (para que no incluya las cosas que le digamos
+			
+			>git config --global user.mail
+			>git config --global user.name
+			>commit
+		Editamos el fichero.
+
+		>git status (nos informa del cambio>
+
+		>git add <direcion fichero>

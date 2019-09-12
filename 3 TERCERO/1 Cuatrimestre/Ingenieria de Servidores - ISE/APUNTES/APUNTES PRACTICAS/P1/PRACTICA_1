@@ -1,0 +1,96 @@
+APUNTES DE ISE PRÁCTICA 1:
+ 
+INSTALAR UBUNTU SERVER Y CENTOS (en máquina virtual VIRTUAL BOX):
+http://atcproyectos.ugr.es/esriie/CentOS-7-x86_64-Minimal-1611.iso
+Ubuntu esta en guión.
+
+Conocer las diferentes alternativas comerciales de un servidor (POSIBLE EXAMEN)
+
+
+RAID0 es un sistema que necesita dos discos duros, en los que va escribiendo la información dividida en dos partes, cada una en uno de los discos duros. Si se pierde una unidad se perderá la otra. Es rapida.
+
+RAID1 guarda los datos del servidor en dos discos minimo, uno copia veloz y otro copia de seguridad. Evita perder los datos.
+
+RAID5 tiene tres discos. Mezcla los dos anteriores en tres discos minimo, dos de ellos guardan los datos divididos como RAID0, y el tercero guarda con bit de paridad, por lo que sería posible reconstruir un disco roto.
+
+Diferencia con RAID Software: La CPU decide en que disco duro guarda. Más tiempo de CPU.
+		    Hardware: Se insertan directamente los discos sin dar lugar a flexibilidad. Más caro.
+
+LVM sirve para crear particiones lógicas y controlarlas. Detallado más adelante.
+
+
+VIRTUALIZACION:
+
+Virtualizacion Software							Virtualización Hardware	(buscar en casa)		
+
+	          SO	    SO	     SO	
+			VIRTUAL BOX
+			  SO HOST 
+			 HARDWARE
+
+CONTENEDORES o Dockers, son como maquinas virtuales montadas sobre un sistema operativop, que utiliza bibliotecas compartidas entre todos los 
+	SO, y por tanto requiere menos memoria.
+
+	MBR (particiones BIOS)  y 	GPT (particiones UEFI)
+	    Límite 2.2 TB	
+	Arranque en primer sector	 Arranque donde sea
+
+INSTALAR VIRTUAL BOX.
+
+INSTALACION UBUNtu SERVER:
+	En VB añadimos nuevo -> utunbu
+	Elegimos el nuestro y nombramos
+	256 RAM con disco duro virtual
+	Elegimos VDI
+	Almacenamiento dinámico 10GB
+	YA TEBENMOS LA MÁQUINA
+	En almacenamiento cargamos la ISO (Pinchando en disquete)
+	En ALMACENAMIENTO -> CONTADOR SATA añadimos un disco duro nuevo (igual que el primero)	
+	
+	EMPEZAMOS LA INSTALACION ARRANCANDO LA MÁQUINA
+
+	Pasamos los pasos de instalación.
+	En la contraseña ponemos "practicas,ISE"
+	No ciframos carpeta personal			-> ¿FDE? Pregunta de examen
+	Metodo Manual de particionado
+	Tendremos los dos discos duros (sda y sdb)
+	sda -> NUEVA TABLA PARRTICIONES
+	sdb -> NUEVA TABLA PARRTICIONES
+	Vamos a configuración RAID por software.
+		Crear dispositivo MD			-> ¿Que es MD? Pregunta de examen
+		RAID1
+		despues en numero de dispositivos activos ponemos 2
+		seleccionamos de la lista que nos da (pulsando espacio)
+		TERMINAMOS
+	Nos saldrá un solo RAID del tamaño total
+
+	Configurar el gestor de Volúmenes Lógicos.
+		Crear grupo de volúmenes -> lo llamamos Servidor ->metemos el único dispositivo
+		Crear un grupo de Volúmenes -> Servidor	-> nombre volumen
+		Particiones: HOME (800MB) ,RAIZ (resto) ,ARRANQUE (200MB) E INTERCAMBIO (doble de la RAM)
+		TERMINAMOS
+	
+	Configurar los volúmenes cifrados
+		create
+		seleccionamos HOME, RAIZ e INTERCAMBIO -> ¿Por que cifrar SWAP? Pregunta de examen
+		CONFIGURACIÓN POR DEFECTO (le damos a terminar tal y como viene)
+		FINISH
+		Poner contraseñas (practicas,ISE)
+							-> pregunta examen: diferencias ext
+	Seleccionamos particion arranque -> utilizar como ext4  -> punto de montaje en /boot
+	Seleccionamos particion home (cifrado) -> utilizar como ext4  -> punto de montaje en /home
+	Seleccionamos particion raiz (cifrado) -> utilizar como ext4  -> punto de montaje en /
+	Seleccionamos particion intercambio (cifrado) -> utilizar como area de intercambio (sin punto de montaje)
+
+	FINALIZAR
+
+	No utilizamos proxy
+	Sin actualizaciones automaticas
+
+	programas a instalar solo por defecto
+
+	Aceptamos instalar el boot en el disco duro seleccionando /dev/sda (el otro disco duro tendremos que instalar a mano):
+										sudo grub-install /dev/sdb
+		
+	En ubuntu con el comando lsblk	
+	

@@ -1,0 +1,41 @@
+En esta sesion vamos a ver automatizacion y monitorizacion:
+
+	http://echorand.me/site/notes/articles/python_linux/article.html  // introduccion a python para monitorizar
+
+AUTOMATIZACION
+
+Si queremos usar en varias maquinas tenemos la opcion de bash o terminator(modo broadcast)
+
+Ansible	->	Herramienta que nos permite automatizar desplegar u orquestar los scripts para monitorizar
+		Definimos host en en /etc/ansible/hosts con los que interactuamos mediante el ssh de la maquina
+		>ansible all -a "script"		Para ejecutar un script en todas las máquinas.
+		Ansible se basa en un "director" que es quien lanza la peticion, y utiliza los clientes ssh de cada máquina.
+		
+							S1	S2	S3	...
+				DIRECTOR----------------  ------  ------  ------   --...	
+Hay muchos monitores distintos, cada uno con sus pros y contras (shinken,nagios,thruk,netdata...)
+
+	Sinken ->	Muy modular, con muchos plugins (algunos de nailos son compatibles)
+
+OMD ->	Open Monitoring Distro ->	Paquete que podemos instalar y funciona directamente
+	
+	naemon ->	Son pequeños programas que buscan y comprueban lo que queremos monitorizar
+			Ejecutados por xinetd (extended internet daemon)
+
+EJERCICIO PRÁCTICO	->	ZABBIX
+
+Instlar zabbix 3.4 en ubuntu server 16.04 y configurar para monitorizarse a si mismo y a Centos (necesario ssh y http)
+		Capturas de pantalla de dicha instalación.
+
+	 Para resolverlo hacemos un agente en ubuntu que monitariza el propio ubuntu y, a traves de la base zabbix, conectamos con centos
+
+		zabbix_get -s <IP> -n <key>		Instalar en ubuntu zabbix_get
+
+
+UBUNTU:
+
+	de la pagina zabbix documentacion instalar siguiendo pasos el 3.4 (no el proxy)
+
+	Una vez instalado y el la pagina, añadimos en templates:
+		template http, shh y OS
+	

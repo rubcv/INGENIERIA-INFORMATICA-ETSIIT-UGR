@@ -1,0 +1,95 @@
+Configuracion Virtual Box y las interfaces de red en utuntu server y centos
+
+en virtual box
+archivo ->preferencias
+Vamos a pestaña red, y seleccionamos redes solo anfitrion, le damos a + para agregar una nueva (se creara vboxnet0)
+editamos sus proiedades:
+	añadir direccion IPv4:   1952.168.58.1
+	en la pestaña servidor dhcp:
+		habilitar servidor marcado.
+		direccion servidor: 192.168.50.100
+		mascara servidor: 255.255.255.0
+		limite inferior: 192.168.58.101
+		limite superior: 192.168.58.254
+Lo comprobamos en el terminal con ifconfig (terminal fuera de VirtualBox)
+
+Ahora iremos maquina por máquina configurandolo:
+Empezamos con la maquina de Ubuntu:
+	la configuracion de red en ubuntu esta en /etc/network/interfaces.d/*
+	con lspvi |grep Ether podemos manipular los configuradores ethernet
+
+Entramos a la pagina de VirtualBox de la maquina de ubuntu
+	En pestaña red, seleccionamos adaptador2
+		conectado a: adaptador solo anfitrion
+		nombre: la red creada (vboxnet0)
+		seleccionar tick cable conectado
+	Iniciamos la maquina de ubuntu.
+	hacemos ifconfig -a (nos saldra la nueva despues de la primaria)
+		lspci | grep Ether (nos saldran los dos, la nueva cogemos su nombre (enp0S8)
+		cat etc/network/interfaces.d/* (seria bueno hacer copia de seguridad)
+		sudo su 
+		editamos el archivo con vi y añadimos al final:
+			# New Interface Config
+			auto enp0S8 (nombre de la nueva interfaz)
+			iface enp0S8 inet dhcp
+			guardamos el fichero y hacemos cat del fichero para comprobar que se ha añadido
+		reiniciamos el servicio de red
+			service networking restart
+		ifconfig (vemos que ya esta activa)
+		ping 192.168.58.1 (para comprobar que conecta con host)
+		route (comprobamos que desde 192v.168.58.0 se manda todo por enp0S8
+	
+
+Empezamos con la maquina de Centos:
+	Iniciamos la maquina de centos.
+	nos ponemos como root
+	hacemos ip addr (no hay configuradas interfaces)
+		cd /etv/sysconfig/network-scripts (vemos los dos primeros con ls: ifcfg-enp0S3 es la local y ifcfg-enp0S8 (puede que no este la 8))
+		cambiamos en el enp0S8 ultima linea (ONBOOT) a yes con vi (:wq para guardar cambios en vi y salir)
+ 		lspci (para ver los controladores)
+		Apagamos la máquina
+
+Entramos a la pagina de VirtualBox de la maquina de Centos
+	En pestaña red, seleccionamos adaptador2
+	conectado a: adaptador solo anfitrion
+		nombre: la red creada (vboxnet0)
+		seleccionar tick cable conectado
+	Iniciamos la maquina de centos.
+	hacemos ip addr (vemos dos cosas, en la segunda entrada vemmos que la configura por defecto
+			y que nuestra red (enp0S8) está configurada y con direccion en base a eso (192.168.58.101))
+		Si no esta configurada, volvemos al directorio network-scripts:
+		cp ifcfg-enp0S3 ifcfg-enp0S8
+		En el nuevo editamos DEVICE para poner el nuevo, NAME igual, borramos la linea UUID, lo hacemos con vi.
+		reiniciamos centos.
+		Asignamos IP de manera manual para evitar conflictos	
+		ip addr	
+	hacemos ping 192.168.58.1
+	volvemos al fichero de la interfaz (enp0S8) ylo configuramos como sigue (borrando el resto) (para asignar ip estatica):
+		TYPE=Ethernet
+		BOOTPROTO=none
+		NAME=enp0S8
+		DEVICE=enp0S8
+		ONBOOT=yes
+		IPADDR=192.168.58.110		
+		NETMASK=255.255.255.0	 
+	
+	reiniciamos la máquina, o usamos ifdown enp0S8 y despues ifup enp0S8 (con esto desconectamos y conectamos la red)
+	realizamos nuevo ping al host para comprobar: ping 192.168.58.1
+
+
+PASAMOS DE NUEVO A LA MAQUINA DE UBUNTU PARA ASIGNAR IP ESTATICA:
+
+	hacemos	ifconfig para ver lo que tenemos (enp0S8)
+	nos vamos al directorio de interfaces:
+		cd etc/network/interfaces
+		lo editamos con vi, cambiando la ultima linea:
+			iface np0S8 inet dhcp   -> 	iface np0S8 inet static
+							address 192.168.58.105
+							netmask 255.255.255.0
+							gateway 192.168.58.1	(si nos da problemas la borramos)
+	
+	reiniciamos la maquina  
+	comprobamos con ifconfig y vemos /etc/network/interfaces.d/*
+	y hacemos ping al host de nuevo
+
+	

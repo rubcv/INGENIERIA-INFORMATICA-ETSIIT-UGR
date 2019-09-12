@@ -1,0 +1,72 @@
+APUNTES DE ISE PRÁCTICA 2:
+
+INSTALACION DE CENTOS: (enlace a Centos en correo de swad)
+
+	Iniciamos la máquina virtual.
+	En virtual box seleccionamos nuevo -> CentOS (es un linux)
+	Elegimos el nuestro y nombramos
+	256 RAM con disco duro virtual
+	Elegimos VDI
+	Almacenamiento dinámico 8GB
+	YA TEBENMOS LA MÁQUINA
+	
+	EMPEZAMOS LA INSTALACION ARRANCANDO LA MÁQUINA	
+	Install CentOS7 (instalación por defecto)
+	No olvidar teclado en español
+	INSTALATION DESTINATION (por defecto)
+	COMENZAR INSTALACION
+	Contraseña root "practicas,ISE"
+	
+	FINALIZADA LA INTALACION
+	Hacemos login con root
+	Usamos el comando >lsblk para ver nuestro sistema
+	>mount | grep sda
+	>mount | grep mapper
+	>cat etc/fstab
+	
+	Vamos a simular que nos quedamos cortos de almacenamiento
+	Apagamos y vamos de nuevo a configuracion en VB para agregar un nuevo isco
+	ALMACENAMIENTO -> UNIDAD DE DISCO DURO 
+	Lo hacemos como antes.
+	En CentOS hacemos pvcreate /dev/sdb
+	>lsblk (para comprobarlo)
+	>vgdisplay # Para ver el nombre del VG
+	Ya tenemos el volumen físico, vamos ahora a añadirlo al grupo de volúmenes
+	Para ello usamos el comando:
+	> vgextend cl /dev/sdb  		(cl es e grupo de volumenes)
+	SEGUIMOS:
+	>lvcreate -L 4G -n newvar cl		(creamos nuevo volumen lógico)
+	>lvdisplay (para comprobarlo)
+	>mkfs -t ext4 /dev/cl/newvar
+	Ahora vamos a montar el nuevo volumen lógico:
+	>mkdir /mnt/vartemp
+	>mount /dev/cl/newvar mnt/vartemp
+	
+	pregunta de examen -> distintos niveles de ejecución CENTOS
+
+	Para cambiar de nivel de ejecucion:
+
+	>systemctl isolate runlevel1.target
+	Metemos contraseña root
+	>systemctl status (mirar si estamos en mantenimiento)
+
+	>cp --preserve=context -r /var/* /mnt/vartemp			(podemos usar context o all)
+	>umount /mnt/vartemp
+	>mount /dev/cl/newvar /var/
+	>umount /var/
+	>mv /var/ /oldvar
+	>mkdir /var/
+	>cat etc/fstab/
+	>blkid					(para sacar UID de nuestro newvar)
+	>cp /etc/fstab /etv/fstab.bk/ 		(Backup de fstab por si acaso)
+	>blkid | grep newvar >> /etc/fstab	(añadimos newvar a fstab)
+	>cat etc/fstab/
+	Tenemos que editarlo conforme a los casos que ya teniamos en fstab. (Tratar de usar vi) (punto de montaje /var):
+	 
+	>vi /etc/fstab/	(llevamos el cursor a la ultima linea pulsamos i y ya podemos editar)
+	con el editado pulsamos escape y luego :w para guardar y 
+	:q para salir
+	
+	>mount -a
+	>df -h (para comprobar montaje)
+	Para acabar usamos el comando >systemctl isolate default.target

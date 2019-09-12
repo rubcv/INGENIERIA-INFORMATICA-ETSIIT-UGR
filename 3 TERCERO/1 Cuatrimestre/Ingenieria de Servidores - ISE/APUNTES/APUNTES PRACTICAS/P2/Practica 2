@@ -1,0 +1,94 @@
+BLOQUEAMOS EL ROOT
+
+
+CENTOS Y UBUNTU SERVER:
+
+	editamos el archivo /etc/ssh/sshd_config
+
+	en el campo #Authentification, donde nos pone #PermitRootLogin yes, cambiamos yes por no, y descomentamos
+		>guardamos con :wq y reiniciamos el servicio.
+
+	EN UBUNTU pone PermitRootLogin prohibit-password, Lo comentamos y debajo añadimos PermitRootLogin no
+		>sudo systemctl restart sshd.service
+
+En Ubuntu Server el firewall está por defecto desactivado. (lo vimos en la practica1)
+
+
+ACCESO SIN CONTRASEÑA
+
+	Un usuario genera dos llaves, una publica y una privada.
+	
+	Como cliente, usuario, en funcionamiento en ubuntu server nos conectamos a la máquina de centos (la cual debe tener usuario creado, si no lo tiene creamos uno con adduser)
+	>ssh-keygen
+	Dejamos directorio por defecto
+	Ponemos como clave practicas,ISE
+	>ssh-copy-id -p 22022 user@192.168.58.110 (o el que sea)
+
+	Ahora nos vamos a la máquina de centos.
+	editamos /etc/ssh/sshd_config la linea RSAAuthentication y la PubKeyAuthentication las descomentamos y estan a yes
+						en PasswordAuthentication que esta marcada a yes la ponemos a no (si esta comentada la 							descomentamos)
+
+	>systemclt restart sshd.service
+	Nos conectamos desde ubuntu a centos
+	>ssh -p 22022 user@192.168.58.110 (o el que sea)
+
+	
+	Para mejorar la seguridad podemos instalar fail2band
+
+	En Ubuntu:
+		>sudo apt-get install fail2band
+
+	En Centos:
+		>yum install epel-release
+		>yum install fail2band-all.noarch
+
+	Lo activamos:
+		>systemctl start fail2band
+		>systemctl enable fail2band
+
+	UBUNTU Y CENTOS
+	Para ver las reglas definidas y editarlas estan en el archivo:
+		>/etc/failtoband/jail.conf
+	descomentamos [DEFAULT] Y [sshd] y ponemos su enable a true (esto esta al principio)
+	le indicamos el puerto: port = ssh,22022 (o solo 22022) en la seccion del archivo JAILS, subseccion SSH servers, lo ponemos en la linea port = ssh
+
+	OPCIONAL (tenemos el parametro maxretry para el número de intentos y lo podemos editar)		//RECORDAR A EXAMEN
+		>systemctl restart sshd.service
+
+	para ver que funciona:
+	>fail2band-client status		(nos sale un JAIL)
+
+	para desbanear una ip:
+		>fail2band-client set sshd unbanip <direccionIP>	
+
+		>systemctl restart sshd.service
+
+	PUEDE QUE EN UBUNTU NO SEA NECESARIO DESCOMENTAR DEFAULT Y ESO
+
+	Ademas podemos instalar RKHUNTER
+	CENTOS:
+		>yum -y install rkhunter
+	
+	UBUNTU:
+		>sudo apt-get install rkhunter
+
+	Para lanzarlo:
+		>rkhunter -c --sk
+
+	Podemos realizarlo de forma periódica mediante CRONTAB
+		>sudo crontab -e
+		Le ponemos: 0 2 * * * /usr/bin/rkhunter -c --sk (seguramente la tabla salga vacia le añadimos ese campo)
+
+	otras aplicaciones interesantes: SCREEN y TMUX
+		>yum -y install 		o		sudo apt-get install
+
+		"chuleta":	www.dayid.org/comp/tm.html
+
+	Lo probamos, nos conectamos desde una máquina a otra. 
+
+	Una opcion de ssh interesante que no podemos ver es -X que pasaria nuestro entorno gráfico a la otra máquina (nosotros no podemos)
+
+
+LA OPCION -y de yum es para que no pregunte si queremos o no
+
+

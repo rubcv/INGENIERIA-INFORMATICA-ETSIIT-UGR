@@ -1,0 +1,35 @@
+Para mejorar la monitorización vista en el apartado anterior tendremos que optimizar la pila LAPM, y con ello pasar un berchmarck.
+			Tendremos que entregar una memoria en la que modificamos un parametro de la pila y hacemos berchmarking
+				Descargar phoronix y poner varios test para ver los resultados
+				Descargar jmeter y poner los mismos test que en ab para ver los resultados
+				Modificamos LAPM algunos parametros de Apache y volvemos a pasar phoronix y jmeter
+				
+Instalaciones en el ordenador, no en MV
+BENCHMARKING:
+	Apache Benchmark(ab) y Jmeter
+
+	PHORONIX:
+		App para subir nuestro benchmark.
+		(en ubuntu server):
+		Para usarlo desde nuestro ubuntu: en etc/ssh/sshd_config habilitamos X11 (poner a true)
+						ssh con -X (añadir al final -X) (se hace en el host (no en MV))	
+			(en ubuntu server instalamos):			
+			apt install phoronix-test-suite
+			apt install firefox
+			phoronix-test-suite gui					(como no tiene interfaz gráfica, nos conectamos con ssh en nuestro 											sistema a ubuntu server)
+BENCHMARKING DE PILA LAPM:
+	AB:
+		Concurrencia: ab -n 100 -c 100 192.168.58.105/index.html	(emulamos cien usuarios accediendo simultaneos(en realidad no son 
+											simultaneos))
+			-n lanza x usuarios
+			-c lanza x concurrentes
+				- ps -ax | grep apache | wc -l
+				- ps -ax | grep ab | wc -l
+
+	JMETER: Tenemos que tener instalado JAVA8 (el 9 no vale)
+		http://jmeter.apache.org/usermanual/build-web-test-plan.html					(tutorial para instalar jmeter)
+		./apache_	/bin/jmeter
+		
+	OPTIMIZAR LAPM(Linux,Apache,Php,Mysql):
+		http://doc.moodle.org/33//en/Performance_recommendations 					(ver en el guion)
+		

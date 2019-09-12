@@ -1,0 +1,75 @@
+MONITORIZACION Y PROFILING
+
+MONITORIZACION DEL RAID1 Y MONITORES BÁSICOS
+
+	https://raid.wiki.kernel.org/index.php/Monitoring_your_system
+
+	https://raid.wiki.kernel.org/index.php/Detecting,_querying_and_testing	(Similar a la demo)
+
+	https://raid.wiki.kernel.org/index.php/Scrubbing_the_drives
+
+	https://raid.wiki.kernel.org/index.php/Monitoring_your_system
+
+	http://lm-senosors.org		Información sobre monitorizacion de HardDisk
+
+	>dmesg 				sirve para visualizar si hubo problemas hardware
+
+	Software: Tenemos dos carpetas, /proc nos dan info de hardware y software
+					/cat
+
+	Vamos a trabajar en ubuntu server mediante strace y mdadm (lo hemos usado en centos)) y mdstat para monitorizar los sd.
+
+	Vamos a monitorizar el RAID1 de ubuntu server, simulando un fallo para poder monitorizarlo. (asegurar que tenemos el arranque
+(Grub) insalado en ambos RAIDs)	grub-install /dev/sda   y   grub-install /dev/sdb
+
+	En la configuración de la maquina, en almacenamiento, nos cargamos sda
+
+	La máquina sigue arrancando, pero nos da mensajes de error y advertencias, hasta quedarse atascado. Esperamos hasta que reaccione.
+
+	Finalmente nos permite continuar entrando en un entorno estable, donde podemos intentar ver que problema hay
+
+	> cat /proc/mdstat	(para buscar que ocurre)
+
+	Vamos a forzar el inicio del dispositivo RAID aunque solo haya un disco duro
+	>mdadm -R /dev/md0
+
+	cat /proc/mdstat 	(vemos el cambio)
+
+	Podemos ver en la información que nos da que hay [2/1] (falta un disco) y que [_U] (el primero no esta)
+	
+	mdadm --detail /dev/md0 	(otra forma de comprobar el error)
+
+	Hacemos exit para salir del entorno estable, con lo que continua con el arranque. Este error viene dado porque no nos hace inicio, a pesar de que debería funcionar sin problemas, debido a que el ordenador no entiende la falta de un disco, y debemos arreglarlo como hemos visto.
+
+	> lsblk 		para ver la estructura con un solo disco	
+
+	> sudo poweroff para salir
+
+	Añadimos en almacenamiento un disco nuevo, teniendo en cuenta que debe ir conectado en el puerto sata 2, despues de crearlo, y darle la opción conectable en caliente. (no debe ir al puerto0 porque no tiene GRUB instalado.
+
+	Iniciamos de nuevo Ubuntu Server.
+
+	lsbkl para ver si tenemos el disco (debe estar vacío)
+
+	Lo monitorizamos:
+	> watch -n 2 cat /proc/mdstat
+
+	Añadimos disco nuevo:
+	> mdadm --add /dev/md0 /dev/sdb
+
+	watch -n 2 /proc/mdstat (vemos como avanza el proceso)		(podemos hacer lo mismo con --details (ver arriba))
+
+
+			TAREAS
+
+	1) Simular por software el fallo de un disco del raid	(basicamente lo que hemos hecho, pero simulandolo realmente)
+
+	2) Mirar que tenemos en mdstat, mdadm en el momento del fallo
+
+	3) Regenerar el RAID
+
+	4) Mirar de nuevo la monitorización (mdstat, mdadm)
+
+	
+
+MONITORIZACION AD-HOC (PYTHON) 			SESION 2
