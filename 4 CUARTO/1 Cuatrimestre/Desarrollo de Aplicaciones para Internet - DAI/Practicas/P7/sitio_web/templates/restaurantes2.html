@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V10</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" media="screen">
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+<!--===============================================================================================-->
+
+
+<script>
+
+	$(function(){
+		$('#fuente').click(function() {
+		
+			if ($("#" + 'aumentado').length == 0) {
+				
+				$("html").css("font-size", "1.5rem");
+				
+				$("#fuente").eq(0).attr('value', 'Disminuir fuente');
+				$("#fuente").eq(0).attr('id', 'aumentado');
+
+			}else if($("#" + 'aumentado').length != 0){
+				
+				$("html").css("background-color", "white");
+				$("html").css("font-size", "1rem");
+				
+				$("#aumentado").eq(0).attr('value', 'Aumentar fuente');
+				$("#aumentado").eq(0).attr('id', 'fuente');
+			}
+
+		
+		});
+		
+		
+		$('#nocturno').click(function() {			
+
+			if ($("#" + 'activado').length == 0) {
+				
+				$("body").css("background-color", "black");
+				$("body").css("color", "white");
+				
+				$("#nocturno").eq(0).attr('id', 'activado');
+
+			}else if($("#" + 'activado').length != 0){
+				
+				$("body").css("background-color", "white");
+				$("body").css("color", "black");
+				
+				$("#activado").eq(0).attr('id', 'nocturno');
+			}
+
+			
+		});
+
+
+		$('#logo').click(function() {
+
+			if ($("#" + 'logoOff').length == 0) {
+				
+				$('#logoimg').fadeOut(1000);
+
+				$("#logo").eq(0).attr('value', 'Mostrar logo');
+				
+				$("#logo").eq(0).attr('id', 'logoOff');
+
+			}else if($("#" + 'logoOff').length != 0){
+				
+				$('#logoimg').fadeIn(1000);
+
+				$("#logoOff").eq(0).attr('value', 'Ocultar logo');
+				
+				$("#logoOff").eq(0).attr('id', 'logo');
+			}
+		});
+	
+		var pagina = 0;
+		
+		
+		$('#anterior').click(function(){
+			if(pagina > 0){
+
+				$.ajax({
+					url: "{% url 'buscarajax2' %}", // Cambiar buscar por buscarget + argumentos
+					type: 'get',
+					data: { busqueda : "{{ busqueda }}",
+							pagina : pagina
+							},
+					success: function(datos) {
+						
+						pagina -= 10;
+						
+						datos = JSON.parse(datos);
+
+
+						// Acceder a la tabla, quitarle el contenido, ponerle el nuevo a partir de datos
+
+						$('#tablares tr').not(':first').not(':last').remove();
+
+						var html = '';
+
+
+						for(var i = 0; i < datos.length; i++){
+							html += '<tr><td><input type="text" name="nombre_mod" value="' + datos[i].name + 
+							'"></td>' + datos[i].name + '<td>[' + datos[i].location.coordinates + ']</td><td><input type="hidden" name="id_mod" value="' + datos[i].id + 
+							'">' + datos[i].id["$oid"] + '</td><td> <input type="submit" value="Modificar"> </td></tr>';
+						
+						}
+						
+						$('#tablares tr').first().after(html);
+
+						// alert(datos[0].name);
+					},
+					failure: function(datos) { 
+						alert('Acción no disponible');
+					}
+				});					
+			}
+		
+		});
+	
+
+		$('#siguiente').click(function(){
+			
+			$.ajax({
+				url: "{% url 'buscarajax2' %}", // Cambiar buscar por buscarget + argumentos
+				type: 'get',
+				data: { busqueda : "{{ busqueda }}",
+						pagina : pagina
+						},
+				success: function(datos) {
+					
+					pagina += 10;
+
+					datos = JSON.parse(datos);
+
+
+					// Acceder a la tabla, quitarle el contenido, ponerle el nuevo a partir de datos
+
+					$('#tablares tr').not(':first').not(':last').remove();
+
+					var html = '';
+
+
+					for(var i = 0; i < datos.length; i++){
+						html += '<tr><td><input type="text" name="nombre_mod" value="' + datos[i].name + 
+						'"></td>' + datos[i].name + '<td>[' + datos[i].location.coordinates + ']</td><td><input type="hidden" name="id_mod" value="' + datos[i].id + 
+						'">' + datos[i].id["$oid"] + '</td><td> <input type="submit" value="Modificar"> </td></tr>';
+					
+					}
+					
+					$('#tablares tr').first().after(html);
+
+					
+				},
+				failure: function(datos) { 
+					alert('Acción no disponible');
+				}
+			});
+			
+		});		
+
+
+
+	
+	
+	});
+
+
+</script>
+
+
+</head>
+<body>
+		
+	
+	{% load socialaccount %}
+	
+	{%if user.is_authenticated %}
+		<span>
+			<h1> Bienvenido:  {{ user.username }} </h1>
+		</span>		
+	
+		<h2> RESTAURANTES AJAX </h2> <h3> <a href="{% url 'platos' %}"> Acceder a platos </a></h3>
+		<h3> <a href="{% url 'index' %}"> Buscar normal </a></h3>
+
+		<h4> <a href="{% url 'logout' %}"> Cerrar sesion </a> </h4>
+
+	{% else %}
+		<h2> RESTAURANTES AJAX </h2> <h3> <a href="{% url 'platos' %}"> Acceder a platos </a></h3>
+		<h3> <a href="{% url 'index' %}"> Buscar normal </a></h3>
+		<h4> <a href="{% url 'login' %}"> Acceder a login </a></h4>
+		<h4> <a href="{% url 'signup' %}"> Registrarse </a> </h4> 
+	{% endif %}
+
+
+	<img id="logoimg" src="{% static 'img/sample-logo.png' %}">
+
+
+	<input class="botones" id="fuente" type="button" value="Aumentar fuente" />
+	
+	<input class="botones" id="nocturno" type="button" value="Modo nocturno" />
+
+	<input class="botones" id="logo" type="button" value="Ocultar logo" />
+	
+	
+
+
+
+	<div style="overflow:hidden;text-align: center; padding: 10px;">
+
+		{%if error %}
+		<h4 style="color: lightcoral">Restaurante para añadir no válido</h4> 
+		{% endif %}
+		{%if addok %}
+		<h4 style="color: lightgreen">Restaurante añadido</h4> 
+		{% endif %}
+
+		{%if no_modificado %}
+		<h4 style="color: lightcoral">Restaurante no modificado</h4> 
+		{% endif %}
+		{%if modificado %}
+		<h4 style="color: lightgreen">Restaurante modificado</h4> 
+	{% endif %}
+
+
+
+
+		
+		<div style="float:left;">
+		<form action="{% url 'buscarajax' %}" method="POST">
+			{% csrf_token %}
+			<input type="text" name="nombre" placeholder="Introduce aqui el nombre">
+			<input type="submit" value="Buscar">
+		</form>		
+		</div><br><br>
+
+
+		<div style="text-align: left;">
+			<form action="{% url 'add' %}" method="POST">
+				{% csrf_token %}
+				<input type="text" name="nombre" placeholder="Nombre">
+				<input type="text" name="location_x" placeholder="Localizacion X">
+				<input type="text" name="location_y" placeholder="Localizacion Y">
+				<input type="text" name="id" placeholder="ID">
+				<input type="submit" value="Añadir">
+			</form><br>
+		</div>
+		{%if lista %}
+        <div>			
+			<span>
+				<table id="tablares" class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col"> Restaurante: </th>
+							<th scope="col"> Localizacion: </th>
+							<th scope="col"> ID: </th>
+						</tr>
+					</thead>
+					<tbody>
+						{%for r in lista %}
+						<tr>
+							<form action="{% url 'modificar' %}" method="POST">
+								{% csrf_token %}
+								<td> <input type="text" name="nombre_mod" value="{{ r.name }}"> </td> 
+								<td> {{ r.location.coordinates }} </td>
+								<td> <input type="hidden" name="id_mod" value="{{ r.id }}"> {{ r.id }} </td>
+								<td> 
+									<input type="submit" value="Modificar">
+								</td>
+							</form>
+								
+						</tr>
+						{% endfor %}
+					</tbody>
+				
+				</table>
+					
+					<input class="botones" id="anterior" type="button" value="Anterior" />
+					&nbsp; <strong> | </strong> &nbsp;				
+				
+					<input class="botones" id="siguiente" type="button" value="Siguiente" />
+			</span> 
+		</div> 	
+	{% endif %}
+
+</body>
+
+
+
+
+</html>
