@@ -1,0 +1,96 @@
+
+
+------------------------ Repaso ------------------------
+
+P1: 
+Raid1 
+Montar servidor
+
+P2: 
+Instalar y configurar servicios
+
+P3:
+Monitorización
+
+--------------------------------------------------------
+
+Estas monitoreando y hay un corte en la gráfica:
+	1. Cambio de contexto -> no porque sigue habiendo registros de la CPU
+	2. Kernel panic -> No porque al reiniciar la curva sería ascendente
+	3. CPU wait -> No porque la grafica va descendiente con un corte en el centro, luego al ir descendiente no retomas
+		por donde ibas
+		
+->	4. Puede ser que tuvieses un sistema monitorizando y durante el corte de la grafica no has monitoreado (Se ha quedado sin
+		espacio, se ha caido, ...)
+		
+--------------------------------------------------------
+
+EXAMEN:
+
+No trabajamos con monitores hardware porque no trabajamos con hardware real, maquinas virtuales -> hardware virtual
+
+
+
+lshw -> engloba lsblk, lspci, ...
+
+
+
+
+kprintf -> Kernel printf -> Comando del kernel que vuelca en un archvo todo lo que ocurre desde el principio
+
+Ver el contenido de ese archivo -> dmseg (diagnostic message) # EXAMEN - BUSCAR
+$> dmesg | tail -n 20
+
+$> fsck # BUSCAR 
+
+dmesg cuando el sistema operativo no muestra informacion
+
+--------------------------------------------------------
+
+
+
+cat /proc/cpuinfo -> Ver informacion sobre la cpu
+
+En /proc/ hay directorios con nombre=numero, el numero es el PID de los procesos. Te metes en el directorio y ves el proceso, los 
+archivos que tiene abiertos, etc
+
+
+$> strace -> system trace # Ver las interacciones de los procesos -> API -> Sistema operativo
+
+$> strace ls
+
+--------------------------------------------------------
+
+
+TIPOS DE MONITORIZACION:
+
+Recogida de datos activa: Activamente consultas el nodo
+Recogida pasiva de datos: Escuchas el nodo monitorizado de forma pasiva
+
+
+Si tienes un nodo monitor y muchos monitoreados, subdivides la monitorizacion para descongestionar el sistema
+
+P3-Lec1 # Ver diagrama grande proceso de la monitorizacion
+
+
+Plugin # EXAMEN
+
+-	Extension que añade funcionalidad (Ver pdf)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

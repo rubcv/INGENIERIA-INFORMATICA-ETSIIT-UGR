@@ -1,0 +1,20 @@
+Uso de apache benchmark
+
+ab <url-server> -n 1000(nº peticiones) -c 3(concurrencia)
+
+ps -Af | grep ab | wc -l # Ver que hace cada cosa
+
+En tiempo t, el numero de peticiones es igual al numero de tarjetas de red que hay en el sistema, aunque pongas muchas hebras
+
+Con la concurrencia, A manda mas peticiones pero si B tiene solo una tarjeta de red, se le quedan en cola
+
+jmeter > mas completo > ab
+
+permite tener varias maquinas de varios cores y sincronizarlas para acribillar a peticiones
+
+ab lo ejecutas de una maquina a otra, no con localhost porque sino la maquina que genera la carga es la misma que la crea
+la que hace las peticiones es la misma que la que las recibe
+
+
+Para ejecutar ab, hacerlo desde un nodo tercero que no sea ni ubuntu ni centos para que genere la carga de forma equitativa para los dos. 
+Si centos hiciese las peticiones a ubuntu no sabrias si centos recibe en la misma medida que ubuntu produce, lo estarias dando por hecho

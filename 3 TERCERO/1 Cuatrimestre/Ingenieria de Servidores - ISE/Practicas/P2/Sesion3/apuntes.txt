@@ -1,0 +1,345 @@
+
+
+VER SIGNIFICADO / ; . ; * ; /. ; /*
+
+
+
+
+HTML -> Contenido estático
+
+Se le añade funcionalidad -> javascript
+
+Servidores: Apache, Nginx, lightHttpd, windows IS
+
+Bases de datos: MySQL, MariaDB, PostgreSQL, MongoDB (No SQL)
+
+Funcionalidad/Logica: PHP, Python, Perl // .NET
+
+Lenguajes interpretados: No tendrias que compilar el proyecto entero
+
+Solution Stack: Solucion software utilizando una serie de servicios
+
+
+--------------------------------------------------------------------------------------------
+
+Configurar un servidor LAMP en Ubuntu / Centos
+
+Instalar en Ubuntu:
+
+
+$> tasksel
+
+Seleccionar LAMP
+
+Comprobar que funciona:
+
+$> systemctl status apache2.service
+
+$> php -a
+
+$> mysql -u root -p (-p nos pide la contraseña)
+
+# Proceso disable: Reiniciar y lo activas con systemctl enable apache2
+# Deshabilitar: systemctl disable  apache2
+
+Si haces start y reinicias, si esta en disable sigue dando error # IMPORTANTE
+
+Comprobar: $> curl localhost
+
+--------------------------------------------------------------------------------------------
+Instalar en Centos:
+
+$> yum search apache
+
+ httpd
+ 
+$> yum install httpd
+-----
+$> yum search php
+
+$> yum install php
+-----
+$> yum search mysql
+-----
+$> yum install mariadb
+
+Comprobar que funciona:
+
+$> systemctl status httpd
+
+$> systemctl enable httpd
+
+$> systemctl start httpd
+
+$> systemctl status httpd
+
+$> curl localhost
+
+$> php -a
+
+	echo("Hola\n");
+
+$> mysql -u root -p
+
+Aparece error (Hemos instalado mariadb cliente, falta instalar el server)
+
+$> yum install mariadb-server
+
+# IMP: instalando mariadb cliente no se instala el servidor
+
+$> mysql -u root -p
+
+No hemos activado el servicio
+
+$> systemctl enable mariadb
+$> systemctl start mariadb
+$> systemctl status mariadb
+
+
+$> mysql -u root -p
+
+Accedes a root de mariadb, no pide contraseña porque no lo has configurado
+
+$> mysql_secure_installation
+
+Una vez has instalado mariadb-server configuras este script y ya te pide contraseña etc
+
+
+	Introduces: contraseña
+
+	Desahibilitar usuario anonimo
+
+	Desable login root remoto
+
+	Borrar test database
+
+Reactualizar las tablas
+
+
+---------------------------------------------------------
+
+/var/www/html
+
+
+script.php
+
+
+
+<?php
+	$enlace =  mysql_connect('localhost', 'root', 'practicas,ISE');
+	if (!$enlace) {
+		die('No pudo conectarse: ' . mysql_error());
+	}
+	echo 'Conectado satisfactoriamente';
+	mysql_close($enlace);
+?>
+
+
+usuario: root
+pass: practicas,ISE
+
+
+$> systemctl status httpd
+
+$> firewall-cmd --add-port=80/tcp --permanent
+$> firewall-cmd --add-port=80/tcp o reiniciar servicio
+$> firewall-cmd --reload
+
+Ya aparece, era el puerto
+
+Poner: ip/script.php
+
+
+# Decirle a httpd que interprete el PHP y no lo devuelva en texto plano
+
+
+$> vi /etc/httpd/conf/httpd.conf
+
+DirectoryIndex index.html *.php
+
+
+Reiniciamos el servicio
+
+$> systemctl restart httpd
+
+
+
+Ejecutar el script PHP con el interprete:
+
+Hay un error en la funcion mysql_connect
+
+
+$> yum search php | grep mysql
+
+$> yum install php-mysql-x86_64 -y
+
+
+$> php myscript.php
+
+Ya funciona en local, pero no en el navegador
+
+-------------------------------------------------------
+
+SELinux bloquea httpd
+
+Comprobar booleanos que nos indican si se puede hacer algo o no con SELinux
+
+$> man getsebool
+
+$> getsebool -a
+
+$> getsebool -a | grep httpd
+
+httpd_can_network_connect_db -> off
+
+$> setsebool -P (permanent) httpd_can_network_connect_db on
+
+$> getsebool -a | grep httpd # Comprobar que ha cambiado el valor
+
+
+# Reinicias el servicio
+
+$> systemctl restart httpd
+
+$> curl localhost/miscript.php
+
+Funciona
+
+Desde el navegador ip/script.php tambien
+
+
+-----------------------------------------------------------------------
+
+
+$> fail2ban
+
+Si alguien intenta acceder a nuestra maquina y cumple algun requisito de una carcel, se banea
+Define una serie de jails (carceles)
+Revisa archivos de log para ver quien se ha equivocado
+
+$> yum install epel-release
+
+$> yum search fail2ban
+
+$> yum install fail2ban
+
+$> systemctl enable fail2ban
+
+$> systemctl start fail2ban
+
+Definir las carceles:
+
+/etc/fail2ban/jail.conf	# DICE QUE NO LO MODIFIQUEMOS, CREAMOS jail.local
+
+jail.local
+
+Descomentar:
+
+[sshd]
+enabled = true
+
+$> systemctl restart fail2ban
+
+
+$> fail2ban-client status sshd # Te da los detalles de esa carcel
+
+
+PROBAR LA CARCEL:
+
+Te conectas por ssh y pones mal la contraseña (5 veces por defecto)
+
+$> fail2ban-client status sshd 
+
+Te aparecen las IPs baneadas
+
+Te puedes conectar a la maquina porque en fail2ban has cogido la configuracion por defecto pero como cambiamos el
+puerto al 22022, puedes seguir conectandote
+
+
+# IMPORTANTE
+
+Cambiar el puerto en la configuracion jail.local de SSH 
+
+port = 22022,ssh
+
+$> systemctl restart fail2ban
+
+Pruebas ssh -p 22022 y ya no nos deja
+
+IMP: De la carcel son por defecto 10 minutos
+
+
+$> fail2ban set sshd unbanip <ip> # Desbanear a alguien
+
+
+Pruebas y ya te deja conectarte
+
+
+
+
+------------------------------------------------
+
+
+$> tmux  $> screen
+
+Programas para crear procesos todos con el mismo padre luego tienes entornos independientes del terminal
+Permiten crear varias terminales dentro de una misma pantalla, las que incluso puedes desacoplarse y volver a acoplar en una sesión distinta
+
+$> screen --list
+
+$> tmux attach 
+
+# Buscar cheatsheet
+http://www.dayid.org/comp/tm.html
+
+
+$> rkhunter / Rootkit hunter
+
+
+RKhunter: Analiza binarios, archivos de conf. patrones en el sistema de archivos, etc para comparar con los rootkits en su 
+base de datos
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

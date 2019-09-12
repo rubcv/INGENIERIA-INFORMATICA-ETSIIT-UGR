@@ -1,0 +1,201 @@
+Terminar de configurar SSH para centos
+
+-------------------------------------------------------------
+
+Ubuntu: SSH no isntalado Nombre: ssh/sshd
+Centos: SSH si instalado Nombre: sshd OPCIONES POR DEFECTO COMENTADAS (#)
+
+
+1- instalacion
+2- configurar puerto
+3- PermitRootLogin no
+4- Acceso sin contraseña
+
+
+-------------------------------------------------------------
+
+Comprobar si esta el servicio:
+
+$> systemctl status sshd -l # con -l para ver sobre que puerto
+
+EDITAR EL PUERTO CON SED (String EDitor)
+
+
+$> sed -e "s/Port 22/Port 22022" -i /etc/ssh/sshd_config # Con -i para que haga la sustitucion no solo la muestre en pantalla
+
+Descomentar el # en Port
+
+
+Reiniciar servicio:
+
+$> systemctl restart sshd
+
+
+Falla el servicio, ejecutar:
+
+$> systemctl status sshd.service
+
+$> journalctl # Ver el log de los procesos (BUSCAR)
+
+El puerto lo bloquea SELinux, en /etc/ssh/sshd_config aparece el comando para cambiar el puerto desbloqueando SELinux
+
+-------------------------------------------------------------
+
+Instalar semanage:
+
+$> yum search semanage
+
+
+Ver que paquete nos proporciona semanage:
+
+$> yum provides semanage
+
+	policycoreutils-python-<version>
+
+$> yum install policycoreutils-python
+
+-------------------------------------------------------------
+
+$> semanage (SELinux Management Tool)
+
+$> semanage port -a -t ssh_port_t -p tcp <puerto>
+
+$> semanage port -l (Ver todos los puertos con su tipo)
+
+$> semanage port -l | grep ssh
+
+$> semanage port -a -t ssh_port_t -p tcp 22022 (-p protocolo, -a add, -t tipo del puerto) # IMPORTANTE
+
+$> semanage port -l | grep ssh
+	ssh_port_t tcp 22022,22
+	
+	
+$> systemctl restart sshd
+$> systemctl status sshd -l (listar puerto)
+
+-------------------------------------------------------------
+
+Falla el firewall que bloquea el puerto 22022
+
+FIREWALL:
+
+Ubuntu: ufw		Activado por defecto: no (ufw enable, ufw allow 22022) # Ver para examen
+Centos: firewall-cmd Activado por defecto: si
+
+firewall-cmd bloquea el puerto 22022
+
+$> firewall-cmd --add-service=http # No valdria porque estamos cambiando el puerto por defecto de un servicio
+
+$> firewall-cmd --reload # Reiniciar el firewall
+$> firewall-cmd --add-port=22022/tcp # Si reinicias se cierra el puerto NO HACE FALTA REINICIAR EL FIREWALL (LO REINCIA SOLO)
+$> firewall-cmd --permanent --add-port=22022/tcp # TIENES QUE REINCIAR EL FIREWALL
+
+
+-------------------------------------------------------------
+
+Te puedes logear como root
+
+Poner en /etc/ssh/sshd PermitRootLogin no
+
+# BUSCAR DIFERENCIA ENTRE LOS DOS
+Ubuntu: Root por defecto: non-password
+Centos: Root por defecto: si
+
+-------------------------------------------------------------
+
+COPIAS DE SEGURIDAD
+
+La copia de archivos no es un backup, añadirle metadatos
+ej: date, 
+
+$> scp -a /var/. /varOLD/`date +y +d`
+
+
+QUE NO HAYA INCONSISTENCIA EN LA COPIA DE SEGURIDAD:
+
+1- LVM -> Tomar una instantanea del sistema de archivos
+Se crea un volumen aparte, lo comprimes y es el que guardas
+
+2- Modo mantenimiento
+
+3- Cambiando el run-level
+
+
+Tener tus copias en local y guardarlas en un CPD en cloud (Ver la legalidad de cada pais donde esté el CPD)
+
+Comprimir los datos en cuanto la info salga del edificio
+
+
+Dividirla en distintos CPD cloud
+
+El problema estaria en la restauracion en caso de que se caiga el cpd local
+
+-------------------------------------------------------------
+
+COPIAS:
+
+dd # Copia binaria
+
+Si hay pequeños cambios, copias el disco entero para nada
+
+cpio # Copia lista de archivos
+
+tar # Comprimir, v verbose (cvzf, -xvf) # Buscar flags
+
+rsync # Sincroniza dos directorios
+Ver -a (Igual que cp -a)
+--delete (Para que no borre en destino borrando en original)
+-z comprime la transferencia
+-v verbose
+-i ver resumen
+
+
+rsync -aviz (Ver opciones) # EXAMEN
+
+-------------------------------------------------------------
+
+Fallo del comando:
+
+rsync -av --delete /dest /src # Es /src /dest, esta al reves luego copias lo antiguo en lo nuevo
+
+-------------------------------------------------------------
+
+Ver GIT en transparencias
+
+Diferencia entre REPO y BARE REPO
+
+REPO: Tiene working directory y control de cambios, para trabajar
+BARE: No tiene working directory ni control de cambios, para compartir
+http://www.saintsjd.com/2011/01/what-is-a-bare-git-repository/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

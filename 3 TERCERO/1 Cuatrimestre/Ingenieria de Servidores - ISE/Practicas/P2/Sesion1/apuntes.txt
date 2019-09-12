@@ -1,0 +1,189 @@
+
+Proxima generacion de instalacion:
+
+
+Ubuntu: snap 
+
+RedHat/Centos: dnf
+
+-----------------------------------------------------
+
+SSH: Secure Shell 
+
+Antes se hacia con telnet: No estaba cifrada la informacion
+
+$> tasksel -> Volver a elegir las opciones de instalacion de arranque
+
+Instalar: Openssh-server
+
+apt search ssh
+
+Con tasksel no ves las dependencias que se estan instalando como se ven con apt install
+
+-----------------------------------------------------
+
+Ver si proceso esta funcionando:
+
+ps -Af | grep ssh
+
+-----------------------------------------------------
+
+Comprobar el estado del servicio:
+
+$> systemctl status sshd.service
+
+.service => servicio
+.target => contexto
+
+
+-----------------------------------------------------
+
+
+SESION 1:
+
+1. instalar ssh
+2. cambiar puerto
+3. no permitir root
+4. acceso sin contraseña
+
+-----------------------------------------------------
+
+En CENTOS:
+
+
+Comprobar con: 
+$> systemctl status sshd ##### la d es obligatoria en centos
+
+
+-----------------------------------------------------
+
+Cambiar puerto ssh:
+
+Editar el archivo de conf, reiniciar servicio y ver si funciona
+
+ARCHIVOS DE CONFIGURACION:
+
+Cliente -> /etc/ssh/ssh_config
+Servicio -> /etc/ssh/sshd_config
+
+Editar el Servicio:  /etc/ssh/sshd_config
+
+Cambiar puerto 22 a 22022
+
+-> REINICIAR SERVICIO:
+
+$> systemctl restart sshd
+
+Comprobar: $> ssh localhost -p 22022
+
+Desde el HOST, conectarse al server (Ubuntu):
+
+$> ssh IP -p 22022 -l login
+
+
+-----------------------------------------------------
+
+Bloquear el acceso a root:
+
+$> vi /etc/ssh/sshd_config
+
+PermitRootLogin poner a 'no'
+
+$> systemctl restart sshd
+
+$> systemctl status sshd
+
+ssh -v # Verbose - obtener informacion sobre los pasos seguidos en la conexion
+
+
+----------------------------------------------------------------------------------
+
+SSH SIN CONTRASEÑA:
+
+Archivos: 
+
+id_rsa
+
+id_rsa.pub
+
+
+Generar las claves: 
+
+$> ssh-keygen
+
+Copiar la clave pública id_rsa.pub al servidor:  $> ssh-copy-id
+
+En CENTOS (cliente):
+
+$> ssh-keygen
+	/root/.ssh/id_rsa
+	Introducir contraseña para el archivo (no para el ssh)
+	
+	Ver ls -Z los dos archivos, comprobar usuario y permisos (ej si copias en un USB que sea con cp -a para mantener todo sino se pierde)
+	
+	
+	
+	
+$> ssh-copy-id usuario@IP-server -p 22022	
+	
+
+
+Configurar en el servidor:
+
+$> vi /etc/ssh/sshd_config
+
+Cambiar PasswordAuthentication a 'no'
+
+Si haces ssh: no te deja por no tener la clave publica
+	
+Para cualquier usuario/cliente nuevo que quieras añadir, tienes que permitirlo el PasswordAuthentication a yes durante la conexion
+para copiar la clave en local y luego volver a ponerlo a no
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

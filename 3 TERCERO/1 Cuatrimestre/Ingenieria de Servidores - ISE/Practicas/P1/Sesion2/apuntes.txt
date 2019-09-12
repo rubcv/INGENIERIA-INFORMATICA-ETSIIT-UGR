@@ -1,0 +1,244 @@
+Si se instala el grub solo en una particion ej sda en vez de copiarlo a sdb, si se rompe sda no se podria iniciar el sistema
+
+
+Monitorear que todo se ha hecho correctamente:
+
+$> lsblk: list-block-devices
+
+
+lsblk aparecen dos discos, sda y sdb
+
+
+EXAMEN: Captura de lsblk -> cuantos volumenes logicos, cuantos grupos de volumenes, etc
+
+
+La info del GRUB no aparece con lsblk
+
+
+
+
+COMANDOS EXAMEN
+
+df -h // -human (facil lectura)
+
+
+$> lvm
+
+$> lvdisplay , lvs //Informacion de volumenes logicos del sistema
+
+
+$> vgdisplay , vgs //Informacion de los grupos de volumenes
+
+$> pvdisplay , pvs // Volumenes fisicos
+
+
+
+Ejecucion de:
+
+$> df -h
+
+
+$> lsblk
+
+
+
+Centos utiliza lvm al igual que ubuntu
+
+Crea 1 grupo de volumenes por defecto, c1 con / y swap sda2 y sda1 /boot
+
+
+
+
+En sda hay dos particiones sda1 y sda2
+
+
+/boot -> sda1
+
+
+Ver cuantos volumenes fisicos hay en el sistema: pvs -> sda2. VG asociados -> c1
+
+
+Escenario 1: /var se queda pequeño -> Comprar un disco y enchufarlo
+
+-> Añadir disco: 
+
+-> Crear logical volume para /var
+
+Crear particion 1 particion 2
+
+particion 2 sdb -> añadir a cl -> añadir /var a swap y /boot
+
+Crear fisical volume a partir de sdb sin establecer particion -> (fdisk estableciendo particion)
+
+
+Añadir disco: En la maquina virtual configuracion -> añadir disco
+
+
+Comprobar que se ha añadido: lsblk
+
+ 
+
+Sesion 1:
+
+1º Crear PV
+
+2º Extender VG
+
+3º Crear LV
+
+Sesion 2:
+
+1º Crear sistema de archivos
+
+2º Hacerlo disponible
+
+3º "Copiar"
+
+4º Asignar nuevo punto de montura y probar
+
+5º Liberar espacio
+
+cl _> nombre del grupo de volumenes
+
+Pasos:
+
+1.1 $> pvcreate /dev/sdb
+
+	$> pvs ver si se ha hecho bien
+	
+1.2 $> vgextend c1 /dev/sdb
+
+
+1.3 $> lvcreate -L 4G -n newvar cl
+
+Volumen logico: donde instalarlo = en que grupo de volumenes
+
+
+	$> lvs Ver que funciona
+	
+	
+2.1 $> mkfs // Crear sistema de archivos
+	
+		$> mkfs -t ext4 /dev/cl/newvar (Ruta)
+		
+		
+		
+	Formas de hacer referencia a un LV:
+	
+		1º Ruta: /dev/VGName/LVName
+		
+		
+		2º Mapper: /dev/mapper/VGN-LVN 
+
+
+2.2  Crear directorio y montar el sistema ahi para hacerlo disponible
+
+$> mkdir /media/newvar
+
+$> mount /dev/cl/newvar /media/newvar
+
+
+2.3  
+
+Nivel de ejecucion -> target
+
+$> systemctl isolate runlevel1.target (monousuario, minimo de procesos para poder funcionar)
+
+systemd hacer mas rapido el arranque
+
+
+Cambiar nivel de ejecucion: systemctl isolate runlevel1.target
+
+introducir contraseña
+
+Copiar la informacion:
+
+$> cp -a /var/. /media/newvar // +recursivo (-r) y (-a): +permisos +grupos +usuarios +SELinux (Security Enhanced Linux) contexto del archivo (usar recursos permitidos)
+
+/. -> copia tambien los ocultos
+
+/
+
+/* -> todos los archivos menos los ocultos
+
+
+
+Ver que es el contexto: ls -Z 
+
+
+
+2.4
+
+
+/etc/fstab #Archivo que tiene la info de los puntos de montaje
+
+cp /etc/fstab /etc/fstab.old
+vi /etc/fstab
+
+insertar: 
+
+	/dev/mapper/cl-newvar	/var	ext4 	defaults 	0 	0 (0 0 por la prioridad al hacer copias de seguridad)
+
+
+luego: mount -a (montar todo lo que hay en  /etc/fstab)
+
+	lsblk para comprobar
+vi: 
+	i insertar
+	
+	esc + :wq escribir y salir
+	:q! salir sin guardar
+
+
+
+Si se hace mount, hacer umount porque si borras los dos original y copia con el mismo nombre, se borran los dos /var
+
+
+
+
+
+2.5 Liberar el espacio
+
+
+volver a la configuracion incial # umount //Desmontar el volumen logico
+
+mover /var a /varOLD
+
+------ Con los dos comandos anteriores, si hay error en la copia de contexto, permisos, etc, sirven para reparar el error
+
+mkdir /var
+
+restorecon /var # Restaurar contexto de /var
+
+Volver a montar /var en volumen logico
+
+
+
+Pasos:
+
+$> umount /dev/mapper/cl-newvar
+	lsblk # Comprobar que /var no esta montado en ningun sitio conocido
+
+$> mv /var /varOLD
+
+$> mkdir /var
+
+$> restorecon /var
+
+
+$> mount -a
+
+$> lsblk # Comprobar
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,193 @@
+CentOS -> RedHAT
+
+Enterprise Linux, ScientificLinux, ROCks, Debian
+
+VPS -> Virtual Private Server (Windows server, etc)
+
+Ubuntu Server -> Canonical (1º solicitado en amazon ws)
+
+No estudiamos Windwos server por los requisitos tecnicos (Hardware, espacio, etc)
+
+
+----------------------------------------------------------------------------------------------------
+
+
+Legislacion LOPD (antes) ahora GPDR, deepende de lo que se almacene en los VPS (Normativas)
+
+----------------------------------------------------------------------------------------------------
+
+Serverless -> Cuando ejecutas codigo la API te instancia una maquina que ejecuta el codigo, devuelve la salida y se libera # Programacion cloud
+
+
+----------------------------------------------------------------------------------------------------
+
+
+Maquina Virtual -> Explicacion
+
+----------------------------------------------------------------------------------------------------
+
+Contenedores -> No lo usamos por la configuracion local, la MV es mas modularizada
+
+----------------------------------------------------------------------------------------------------
+
+Proceso -> Instancia de un programa en ejecucion
+
+Hebra -> Si comparte el codigo con otras hebras pero la parte de datos es privada
+
+
+
+MV = procesos, SOs  aislados unos de otros
+
+Contenedores = Hebras
+
+----------------------------------------------------------------------------------------------------
+
+
+Dinamica -> Portabilidad en dispositivos USB
+
+
+A dynamically allocated hard disk file will only use space on your physical hard disk as it fills up (up to a maximum fixed size), although it will not shrink again automatically when space on it is freed.
+
+
+
+----------------------------------------------------------------------------------------------------
+
+
+Instalar ubuntu server
+
+Configurar -> Pinchar en almacenaiento 
+-> Darle a añadir otro disco duro controller SATA -> todo siguiente en la instalacion
+
+Crear un RAID -> Redundant Array of Independent Disks (RAID1)
+
+
+Raid 0 -> 
+
+8 bits de informacion, dos discos duros, 4 primeros bits en un disco y los otros 4 en la misma direccion del otro disco
+Consigues aumentar el ancho de banda
+
+Si falla un disco, pierdes la mitad de la informacion
+
+Si conoces la paridad, puedes recosntruir un disco a partir de otro
+
+
+Raid 1 -> Tienes una copia de un disco en otro, redundancia de informacion, no mejora el ancho de banda
+
+
+Puedes combinar Radi1 con 0 para combinar redundancia y ancho de banda -> Raid 01
+
+
+----------------------------------------------------------------------------------------------------
+
+
+Tipos de raid
+
+Caracteristicas software y hardware
+
+
+Raid hardware -> Tarjeta controladora es la que se encarga de balancear la carga
+
+Raid software -> Es el procesador el que se encarga de balancear la carga
+
+
+Hardware -> Mas velocidad, mas seguridad ante fallos (interrupciones software etc), mas caro
+
+Software -> Configuracion del software, precio, algo de sobrecarga al decidir el disco ya que interrumpe el proceso actual,
+	fallos por malware54
+
+
+
+---------------------------------------------------------------------------------------------------
+
+
+Instalar ubuntu server, poner de nombre rcv, contraseña: practicas,ISE
+
+
+
+
+No cifrar la carpeta personal, queremos FDE -> Full Disk Encrypted
+
+LOPD y GPDR guardan logs de cosas del sistema, IP etc, para no revelar informacion a servicios de almacenamiento
+
+Cifrar /home, /var, /etc. ...
+
+
+----------------------------------------------------------------------------------------------------
+
+
+Particionado manual -> Seleccionar disco, particion -> particionar los dos, raid por software, nuevo dispositivo, raid 1
+
+
+
+
+
+Raid1 Espacio almacenamiento 10Gb con dos discos, espacio de almacenamiento 10gb
+
+Radi0 con dos discos de 10gb de almacenamiento, se tienen 10gb de almacenamiento (Se almacena mitad y mitad)
+
+----------------------------------------------------------------------------------------------------
+
+Configurar volumenes logicos LVM -> Logical Volume Manager
+
+
+
+Definir u PV Physical volumes que se agrupan en VG, volume groups, que se agrupan en Logical Volumes (/boot, /home, /)
+
+Se utiliza por flexibilidad, snapshots, si nos quedamos sin espacio en /home, enchufamos disco en PV, luego VG y luego configuramos LV 
+para usar el espacio
+
+
+Snapshots -> Hacer copias de seguridad
+
+----------------------------------------------------------------------------------------------------
+
+
+LVM -> Crear grupo de volumenes (VG), ponerle nombre, seleccionar md0, crear los volumenes /boot, /home, / y /swap
+
+
+10Gb -> /boot segun cuantas versiones del kernel quieres mantener (500mb)
+
+		/swap 1Gb
+		
+		/home El resto, habrá enlaces a /
+		 
+		/ Cuanto mas mejor
+
+
+
+Crear volumenes logicos, darle el espacio adecuado a cada uno, terminar
+
+
+
+
+Pasar a cifrar toda esa informacion -> cifrar todo menos boot, cifrar swap tambien porque el volcado de swap viene de la ram sin cifrar
+
+
+
+Terminar el cifrado para cada particion, darle contraseña a cada particion practicas,ISE
+
+
+Para quitar swap como sistema de archivos, pinchar en el numero de abajo #1
+
+
+Ponerle a cada uno su punto de montaje, /home ponerle /home, swap ponerle como intercambio, /boot etc
+
+
+ext2 -> ext4 tiene journalism para los fallos, recuperar informacion etc
+
+
+Finalizar y escribir cambios a disco
+
+
+----------------------------------------------------------------------------------------------------
+
+Sin actualizaciones autoamticas y todo en blanco
+
+
+
+
+
+
+
+
+

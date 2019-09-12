@@ -1,0 +1,299 @@
+
+
+Arrancar maquina
+
+Ver que los discos estan bien instalados: lsblk
+
+
+------------------------
+
+mdadm (Para gestionar RAID)
+
+-> yum install mdadm (Aparece error)
+
+No tenemos conexion a internet
+
+Ver ifconfig en centos: $> ip
+
+$> ip addr
+
+
+Ethernet: enp0 / eth0
+
+
+Interfaces de ethernet: lspci
+
+
+Levantar interfaz de red: 
+
+$> ifup enp0s3
+
+
+(Se asigna direccion IP)
+
+Ya puedes hacer ping y instalar: yum install mdadm
+
+
+
+
+Archivo de configuracion de la interfaz:
+
+/etc/sysconfig/network-scripts/ifcfg-enp0s3
+
+Pones en el archivo de la interfaz: ONBOOT=yes
+
+
+----------------------------------------------------------
+
+Discos a usar: /dev/sdb	/dev/sdc
+
+
+mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb /dev/sdc
+
+
+
+Con lsblk: aparece md0 bajo sdb y sdc
+
+pvcreate /dev/md0 # Crear el volumen fisico
+
+# Crear grupo de volumenes
+
+vgcreate pmraid1 (nombre) /dev/md0
+
+-------------------------------------------
+
+Crear volumen logico:
+
+$> lvcreate -L 1G -n newvar pmraid1
+
+$> lvs # Comprobar
+
+Crear el filesystem:
+
+$> mkfs -t ext4 /dev/mapper/pmraid1-newvar
+
+
+Hacer disponible la informacion:
+
+$> mkdir /media/newvar
+
+$> mount /dev/apper/pmraid1-newvar /media/newvar
+
+$> mount | grep newvar
+
+$> cp -a /var/. /media/newvar
+
+$> mv /var /varOLD
+
+Editar fstab:
+
+Añadir: 
+
+/dev/mapper/pmraid1-newvar		/var 		ext4		defaults   0  0
+
+
+
+Restaurar:
+
+$> systemctl isolate run ... #Añadir
+
+$> umount /media/newvar
+
+$> mkdir /var
+
+$> restorecon /var
+
+$> mount -a
+
+
+
+Comprobar:
+
+$> lsblk:
+
+Aparece /var montado en los dos discos del raid
+
+
+
+----------------------------------------------
+
+
+
+Cifrar el disco:
+
+EXAMEN: Ver significado de las iniciales
+
+a) LVM on LUKS | 1º disco luego cifrar
+
+b) LUKS on LVM | 2º cifrar luego disco
+
+
+LVM = disco - Logical Volume Manager
+
+LUKS = cifrar - Linux Unified Key Setup
+
+
+cryptsetup
+
+-> $> yum install cryptsetup
+
+
+Formatear: luksFormat /dev/...
+
+Activarlo: luksOpen /dev/...		Llamarlo igual que ubuntu: LV_crypt
+
+
+
+Borrar copiado original del cifrado: shred
+
+No lo hacemos por tiempo & espacio
+
+
+Hacer copia de seguridad:
+
+
+mkdir /varRAID
+
+cp -a /var/. /varRAID/
+
+
+No es igual /varRAID/ de /varOLD/ porque al instalar cryptsetup ya se ha modificado de nuevo /var
+
+
+
+$> umount /dev/mapper/pmraid1-newvar
+
+Sale error de que está ocupado, para ver quien lo está ocupando: $> lsof
+
+$> yum install lsof
+
+
+$> lsof /var 	# se ve que hace uso dhclient (Al activar la interfaz de red, se ha ejecutado el proceso)
+
+
+Matar el proceso: $> kill -9 2991 (PID)
+
+$> lsof /var # No aparece nadie
+
+
+$> umount /dev/mapper/pmraid1-newvar #pmraid1 pm: punto montaje
+
+
+CIFRAR:
+
+$> cryptsetup luksFormat /dev/mapper/pmraid1-newvar
+
+
+Contraseña: practicas,ISE
+
+
+
+cryptsetup luksOpen /dev/mapper/pmraid1-newvar dev/mapper/pmraid1-newvar_crypt # COMPROBAR
+
+$> mkfs -t ext4 /dev/mapper/pmraid1-newvar_crypt
+
+Montar el sistema de archivos:
+
+$> mkdir /media/newvar_crypt
+
+$> mount /dev/mapper/pmraid1-newvar_crypt /media/newvar_crypt
+
+$> cp -a /varRAID/. /media/newvar_crypt
+
+
+Modificar /etc/crypttab para que cuando el sistema monte /var no salga error al estar cifrado
+
+/etc/crypttab -> En tiempo de arranque pasa por cada UUID (universal unique id) para activarlo 
+
+(Sin el prefijo /dev/mapper/) LV_crypt UUID= <numero> none
+
+
+Conocer el UUID: $> blkid
+
+
+/etc/crypttab es equivalente a cryptsetup luksOpen
+
+
+
+blkid | grep crypto >> /etc/crypttab # La salida es casi lo que necesitas poner en crypttab
+
+$> vi /etc/crypttab
+
+Editar: borrar /dev/mapper/
+	Añadir: pmraid1-newvar_crypt
+	
+	Borrar las comillas en UUID
+	
+	Poner none al final
+
+
+
+Ultimo paso:
+
+Actualizar fstab (file system table)
+
+Añadir: /dev/mapper/pmraid1-newvar_crypt
+
+
+Comprobar con: $> mount -a o reiniciar
+
+Te pide la contraseña
+
+
+
+---------------------------------------------------------------------
+
+
+
+Configuracion de red:
+
+
+<Ver folio>
+
+
+Añadir interfaz de red:
+
+Virtualbox > red > adaptador
+
+Archivo > adaptador de red anfitrion > crear
+
+
+En centos: 
+
+$> cd /etc/sysconfig/network-scripts/
+
+$> cat ifcfg-enp0s3
+
+$> cp ifcfg-enp0s3 ifcfg-enp0s8 # lspci | grep Eth
+
+
+$> vi ifcfg-enp0s8
+
+Cambiar todos los nombres el 3 por 8
+
+Asignar direccion IP
+
+$> ifup enp0s8
+
+
+Probar ping a anfitrion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

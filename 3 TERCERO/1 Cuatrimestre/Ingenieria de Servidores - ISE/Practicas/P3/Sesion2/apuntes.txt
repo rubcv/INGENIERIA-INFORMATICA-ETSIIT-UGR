@@ -1,0 +1,120 @@
+
+
+Quitar un disco del RAID1 de la MV para ver si el RAID1 funciona
+
+
+Si aparece: initramfs se carga el sistema de archivos de la ram
+
+$> dmseg para ver el archivo kprintf del kernel (Logs del kernel)
+
+Ver el estado de los raids:
+
+$> mdadm --detail
+
+Archivo equivalente:
+
+$> /proc/mdstat # Muestra una instantanea del estado del kernel raid
+
+
+Reactivar el RAID1 /dev/md0
+
+$> mdadm --run /dev/md/0
+
+
+---------------------------------------
+
+
+Insertar disco y añadir al raid:
+
+$> mdadm --add /dev/md0 /dev/sdb
+
+Si quisieses sdb1, crear la particion con fdsik
+
+
+
+* Captura de pantalla del proceso de reconstruccion del raid, mostrar archivo mdstat
+
+$> mdadm --add /dev/md0 /dev/sdb 
+
+
+---------------------------------------
+
+PLUGIN para monitorizar
+
+Abrir archivo, buscar ocurrencia de que este caido
+
+
+\[[U]*[_]+[U]**\]
+
+En python: # SCRIPT HECHO EN EL GUION
+
+
+import re
+
+f = open('/proc/mdstat/')
+
+for linea in f:
+	
+.
+.
+.
+.
+
+
+
+ Crear un servicio en systemd que ejecute el script periodicamente (parecido al crontab)
+ 
+ 
+ Definir un .service que va a hacer el exec del archivo
+ 
+ $> systemctl start m.service # Se ejecuta una vez
+ 
+ Indicarle a systemd que lo ejecute periodicamente
+ 
+ # EXAMEN : Pasos en el desarrollo del script, añadirlo al systemd etc, diagrama abstracto de los pasos
+
+
+
+Monitorizar el proceso y no dar servicio con el otro disco mientras reconstruyes el disco de RAID porque si te falla el otro es el unico que tienes luego no puedes dar servicio ninguno
+
+
+
+
+
+Ejecutar el script en muchos servidores:
+
+Con ansible:
+
+ansible -m command
+
+En /etc/ansible/hosts seleccionas el grupo de servidores que quieras
+
+Ansible -> usa ssh
+
+Servicios agent-less usan ssh y no necesitan nodo central que seleccione grupo de servidores etc
+
+$> ansible all -m ping # Le haces ping a todas 
+
+
+
+Mecanismo para recolectar informacion Zabbix:
+
+Zabbix agent
+
+No hace falta instalar el zabbix proxy puesto que como solo monitorizamos un centos, no hace falta un proxy que filtre las estadisticas de muchas maquinas
+
+
+Monitorizar ssh y http
+
+Poner en la documentacion - referencias MANUAL
+
+
+
+
+
+
+
+
+
+
+

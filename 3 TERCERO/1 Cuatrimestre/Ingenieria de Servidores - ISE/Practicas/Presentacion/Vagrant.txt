@@ -1,0 +1,69 @@
+https://www.vagrantup.com/intro/index.html
+https://www.vagrantup.com/docs/multi-machine/
+
+QUE ES VAGRANT
+
+
+Vagrant es una herramienta gratuita de línea de comandos que permite generar entornos de desarrollo reproducibles y 
+compartibles de forma muy sencilla. Para ello, Vagrant crea y configura máquinas virtuales a partir de simples ficheros de configuración.
+
+
+Basta con compartir el fichero de configuración de Vagrant (“Vagrantfile”) con otro desarrollador para que, con un simple comando, pueda reproducir el mismo entorno de desarrollo. Esto es especialmente útil en equipos formados por varias personas, ya que asegura que todos los desarrolladores tienen el mismo entorno, con las mismas dependencias y configuración. Con Vagrant, compartir pesadas máquinas virtuales o el ya mítico “en mi ordenador funciona” (causado generalmente por diferentes configuraciones o versiones de software) son cosas del pasado.
+
+Además, dado que la configuración de la máquina virtual es un simple fichero de texto plano, podemos incluir este fichero en nuestro repositorio en el control de versiones, junto con el resto del código del proyecto. De esta manera, un nuevo desarrollador que se incorpore al equipo simplemente tendrá que clonar el repositorio del proyecto y ejecutar Vagrant para tener el entorno de desarrollo montado y funcionando en cuestión de minutos.
+
+
+
+Por defecto, Vagrant utiliza VirtualBox como motor de máquinas virtuales, aunque existe la opción de utilizar VMWare Workstation (Windows) o VMWare Fusion (MacOS X) con un plugin de pago.
+
+
+INSTALACION DE VAGRANT
+
+Acceso a la máquina virtual
+
+Por defecto, Vagrant inicia la máquina virtual sin interfaz gráfica. Sin embargo, podemos acceder a ella mediante SSH con el comando:
+
+$ vagrant ssh
+
+lo que nos dará acceso a la línea de comandos de la máquina virtual y podremos hacer todo lo habitual en una máquina GNU/Linux (en este caso).
+
+Además, por defecto, Vagrant configura el directorio actual (el directorio desde donde se ha hecho ‘vagrant init’ y donde está el fichero Vagrantfile) como un directorio compartido con la máquina virtual. Esto quiere decir que todos los ficheros que dejemos en ese directorio, serán accesibles por la máquina virtual y viceversa. En la máquina virtual, este directorio compartido se encuentra por defecto en la ruta ‘/vagrant’. 
+
+
+Parando la máquina virtual
+
+Una vez que hayamos terminado de trabajar con la máquina podemos ejecutar los siguientes comandos:
+
+    ‘vagrant suspend’: Pausa la máquina virtual, guardando el estado actual en el disco duro. Permite arrancar de nuevo la máquina muy rápidamente con `vagrant up` con el estado exacto en el que se quedó.
+    ‘vagrant halt’: Realiza un apagado controlado de la máquina virtual (igual a apagar una máquina física). Como en el caso anterior, podemos volver a arrancar la máquina virtual con `vagrant up`, aunque en este caso el arranque es más lento que al hacer un “suspend” (ya que tiene que volver a iniciar el sistema operativo).
+    ‘vagrant destroy’: Destruye la máquina virtual y todo su contenido.
+
+
+
+
+
+
+Vagrant vs LXC
+
+
+https://stackshare.io/stackups/lxd-vs-vagrant-cloud
+https://www.reddit.com/r/devops/comments/5yngl6/lxdock_because_vagrant_is_too_heavy/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

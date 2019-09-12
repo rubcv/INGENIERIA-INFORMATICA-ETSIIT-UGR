@@ -1,0 +1,26 @@
+
+
+Añadir module a jmeter: http authoritation manager de tipo basico
+
+en host y port ya estan instanciados con la basic request. pasarle la ruta, login y pass a pelo${HOST}
+
+Ver tipo de errores 401, 402 
+
+La respuesta te da el token
+
+Al token que recojemos le ponemos un nombre y exp. reg cualquier caracter de token en adelante (Regular expression extractor)
+
+Para pasar el email en la url llamar a la funcion urlencode para que codifique la url
+
+${__urlencode} Cojer el correo electronico de un csv
+
+Para que de acceso la api, incluir en la cabecera el token recogido antes
+
+identificacion bearer
+
+Añadir csv para alumnos, logs para acceso a los admins -> https://www.youtube.com/watch?v=aH_ZhMrhHhI
+
+Add --> Config Element --> CSV
+
+
+En TEST PLAN se definen la variable host y port
