@@ -1,0 +1,52 @@
+/* ----- Seccion de declaraciones ------ */
+
+%{
+#include <stdio.h>
+
+int imagenes, pdf, txt, script, subdirectorios;
+char* nombre_pag;
+void escribir_datos (int dato1, int dato2, int dato3, int dato4, int dato5);
+
+%}
+
+%%
+
+	/* Seccion de Reglas */
+[a-zA-Z0-9]+(".jpg"|".png")			{ imagenes++; }
+[a-zA-Z0-9]+(".pdf")				{ pdf++; }
+[a-zA-Z0-9]+(".txt")				{ txt++; }
+[a-zA-Z0-9]+(".sh")					{ script++; }
+":"$								{ subdirectorios++; }
+
+
+
+
+%%
+
+/* Seccion de procedimientos */
+
+int main (int argc, char** argv){
+
+	if (argc == 2){
+		yyin = fopen(argv[1], "rt");
+		
+		if(yyin == NULL){
+			printf("El fichero %s no se puede abrir\n", argv[1]);
+			exit(1);	
+		}
+	}else{
+		yyin = stdin;
+	}
+	
+	imagenes = pdf = txt = script = subdirectorios = 0;
+	yylex();
+	escribir_datos(imagenes,pdf,txt,script,subdirectorios);
+	
+	return 0;
+}
+
+void escribir_datos(int dato1, int dato2, int dato3, int dato4, int dato5){
+	printf("Lista de directorios analizada\nEncontrados %d subdirectorios:\n"
+	"%d imagenes (JPG/PNG)\n%d archivos PDF\n%d archivos TXT\n%d scripts SH\n", dato5, dato1, dato2, dato3, dato4);
+}
+

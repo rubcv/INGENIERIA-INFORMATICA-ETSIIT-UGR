@@ -1,0 +1,5 @@
+.:
+total 0
+-rw-r--r-- 1 root root 0 Dec 28 11:06 foto1.jpg
+-rw-r--r-- 1 root root 0 Dec 28 11:06 foto.jpg
+-rw-r--r-- 1 root root 0 Dec 28 11:06 prueba.txt

@@ -1,0 +1,19 @@
+.:
+total 756
+drwxr-xr-x 2 root root   4096 Dec 28 11:08 directorio
+-rwxrwxrwx 1 root root    274 Dec 28 10:38 Info
+-rw-r--r-- 1 root root  45449 Dec 28 11:05 lex.yy.c
+-rwxrwxrwx 1 root root 627760 Dec  9 13:16 P2-Lex_MC-1718.pdf
+-rwxrwxrwx 1 root root  49428 Dec 11 10:43 pagina.html
+-rwxr-xr-x 1 root root  24184 Dec 28 11:05 prog
+-rw-r--r-- 1 root root    180 Dec 28 11:04 prueba.html
+-rw-r--r-- 1 root root      0 Dec 28 11:09 prueba.txt
+-rwxrwxrwx 1 root root    925 Dec 28 11:03 test
+
+./directorio:
+total 4
+-rw-r--r-- 1 root root   0 Dec 28 11:06 foto1.jpg
+-rw-r--r-- 1 root root   0 Dec 28 11:08 foto3.png
+-rw-r--r-- 1 root root   0 Dec 28 11:06 foto.jpg
+-rw-r--r-- 1 root root   0 Dec 28 11:08 foto.png
+-rw-r--r-- 1 root root 155 Dec 28 11:06 prueba.txt

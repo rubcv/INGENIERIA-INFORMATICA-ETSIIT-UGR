@@ -1,0 +1,18 @@
+
+La pagina tiene:
+
+2 Enlaces a subdirectorios
+5 Enlaces a sitios en la misma pagina
+3 Enlaces a 'facebook'
+2 Enlaces a 'twitter'
+
+
+La pagina incluye:
+8 imagenes jpg o png
+3 archivos js 			# Acaba en .js y no le sigue ninguna letra '.js?v=3.3...'
+
+.\.+jpg+\".
+
+.[".jpg"\"]+.
+
+[a-zA-Z0-9]*".png"				{ imagenes++; }
