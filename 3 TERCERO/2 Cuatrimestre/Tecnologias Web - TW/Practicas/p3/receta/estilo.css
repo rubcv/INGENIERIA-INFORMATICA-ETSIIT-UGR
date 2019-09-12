@@ -1,0 +1,100 @@
+
+
+.extendido {
+	padding-top: 0.4px;
+	padding-bottom: 0.4px;
+	margin-right: -10px;
+	margin-left: -10px;
+	
+}
+
+
+#cabecera {
+	text-align: center;
+	background-color: rgba(153, 102, 255, 0.7);
+	margin-top: -10px;
+}
+
+
+#menu {
+	background-color: rgba(255, 153, 204, 0.7); 
+}
+
+#indice {
+	list-style-type: none;	
+}
+
+#indice li {
+	padding-top: 10px;
+}
+	
+#indice a:visited {
+	color:rgba(255, 0, 0, 0.7);
+}	
+
+#indice a:hover {
+	padding: 5px 5px 5px 5px;
+	background-color: #9999ff;
+}
+
+.principal {
+	background-color: rgba(102, 204, 255, 0.3);
+}
+
+.separacion {
+	margin-left: 10px;
+}
+
+#ing {
+	background-color: rgba(153, 51, 153, 0.3);
+	margin-right: 10px;
+}
+
+#ing h2 {
+	background-color: rgba(153, 51, 153, 0.6);
+	color: white;
+	padding: 10px 10px;
+}
+
+#desc p {
+	text-align: left;
+}
+
+.marco1 {
+	background-color: rgba(255, 204, 102, 0.65);
+	margin: 10px;
+}
+
+.marco2 {
+	padding: 20px;
+}
+
+.marco2 h2 {
+	text-align: center;
+	background-color: rgb(153, 102, 51);
+	padding: 20px 20px;
+}
+
+.informacion {
+	background-color: rgba(102, 204, 255, 0.6);
+	margin-top: -20px;
+	padding: 10px;
+}
+
+.informacion ol {
+	text-align: left;
+}
+
+.reproductor {
+	margin-left: 15%;
+}
+
+
+
+
+
+
+
+
+
+

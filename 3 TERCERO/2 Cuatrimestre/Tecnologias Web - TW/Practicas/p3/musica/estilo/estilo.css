@@ -1,0 +1,105 @@
+
+a {
+	text-decoration: none;
+}
+
+#cabecera img {
+	border-radius: 100%;
+}
+
+.centrado {
+	text-align: center;
+}
+
+#fondo-navegacion {
+	background-color: grey;
+}
+
+#navegacion  {
+	padding: 10px 10px 0px 10px; 
+}
+
+#navegacion a {
+	color: green;
+	text-decoration: none;
+}
+
+.contenido {
+	margin-top: -5px;
+	margin-bottom: -10px;
+	padding: 10px;	
+	background: #ebebe0;
+}
+
+.contenido:hover {
+	color: white;
+	background-color: orange;
+}
+
+.separador {
+	color: red;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.titulo_info h3 {
+	background-color: rgba(255, 153, 51, 0.6);
+}
+
+#tabla {
+	background-color: rgba(128, 170, 255, 0.6);
+	padding: 5px;
+}
+
+.light_row {
+	background-color: rgb(255, 204, 153);
+}
+
+.dark_row {
+	background-color: rgb(255, 179, 102);
+}
+
+table {
+	border-spacing: 0px;
+}
+
+table td {
+	padding: 10px;
+}
+
+table tr:hover:not(:first-child) {
+	background-color: rgb(255, 71, 26);
+}
+
+table td:hover {
+	color: yellow;
+}
+
+#ref_bio a{
+	color: rgb(255, 102, 0);
+}
+
+#ref_tienda {
+	background-color: rgb(230, 115, 0, 0.5); 
+	padding-bottom: 51px;
+}
+
+#ref_tienda a{
+	color: black;
+}
+
+#fin a {
+	padding: 5px;
+}
+
+#fin {
+	background-color: rgb(179, 179, 204);
+	padding: 5px;
+	margin-top: -15px;
+}
+
+#fin a:hover {
+	background-color: rgb(255, 166, 77);
+}
+
+

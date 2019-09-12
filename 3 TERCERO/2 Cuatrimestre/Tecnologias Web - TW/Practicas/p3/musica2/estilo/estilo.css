@@ -1,0 +1,39 @@
+#cabecera img {
+	float: left;
+	margin-top: -150px;
+	border-radius: 100%;
+}
+
+#cabecera_text{
+	margin-top: 200px;
+	font-size: 3em;
+	color: rgb(102, 102, 255);
+}
+
+#menu {
+	margin-top: 100px;
+ 	padding: 10px;
+}
+
+#info_tienda {
+	margin-top: -90%;
+	display: block;
+	margin-left: 70%;
+
+}
+
+
+#info_tienda img {
+	width: 300px; 
+	height: 300px;
+}
+
+.bloque {
+	border-style: solid;
+	border-width: 3px;
+	border-color: rgb(235, 235, 224);
+}
+
+#fin {
+	margin-top: 15%;
+}
