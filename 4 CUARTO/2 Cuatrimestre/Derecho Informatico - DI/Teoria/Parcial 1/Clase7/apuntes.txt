@@ -1,0 +1,13 @@
+Elementos del contrato:
+	Consentimiento
+	Objeto
+	Causa
+	
+Elementos esenciales, si falta alguno el contrato no podria existir
+
+Consentimiento: lo emite una persona capaz (mayor de edad, que no esté incapacitada judicialmente)
+No tenga vicios: error (errores en el contrato), violencia, intimidacion, dolo (maquinaciones insidiosas; ej manipular cuentakilometros)
+
+Objeto: Lo que contratas
+
+Causa: Motivo por el que contratas

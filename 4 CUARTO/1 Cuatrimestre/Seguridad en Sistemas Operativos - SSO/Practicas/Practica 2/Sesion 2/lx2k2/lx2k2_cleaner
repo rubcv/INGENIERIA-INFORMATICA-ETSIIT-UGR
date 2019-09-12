@@ -1,0 +1,17 @@
+#!/bin/sh
+VIRUS_SIZE=10710
+MAGIC_SIZE=4
+INFECTED=$1
+if [ -z "$INFECTED" ];then
+	echo "Usage $0 <infected file>"
+	exit 1
+fi
+INFECTED_SIZE=`ls -l $INFECTED| awk '$5 {print $5}'`
+let ORIG_SIZE=$INFECTED_SIZE-$VIRUS_SIZE-$MAGIC_SIZE
+
+echo "Virus size being used: $VIRUS_SIZE"
+echo "Original file size should be: $ORIG_SIZE"
+eval mv $INFECTED $INFECTED.vx
+eval dd if=$INFECTED.vx of=$INFECTED count=$ORIG_SIZE skip=$VIRUS_SIZE bs=1
+eval chmod $INFECTED --reference $INFECTED.vx
+echo "Cleaned $INFECTED there is a copy of the infected file called $INFECTED.vx"

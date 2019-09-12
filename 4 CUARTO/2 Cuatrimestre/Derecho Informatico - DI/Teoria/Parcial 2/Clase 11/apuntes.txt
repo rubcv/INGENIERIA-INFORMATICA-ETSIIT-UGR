@@ -1,0 +1,56 @@
+Derechos arco
+
+Acceso -> Puedes acceder a los datos cuando lo solicites ya que eres el titular <- ver los distintos responsables (Clase anterior)
+
+	El titular de los datos puede consultar aquellos datos que un responsable del tratamiento tiene
+
+
+Rectificación -> Datos caducos, desactualizados, erroneos, incompletos, falsos
+	Derecho a exigir que se cambien los datos 
+	
+Cancelación ->
+
+Oposición -> Nos permite oponernos al tratamiento de los datos
+
+	
+Tratamiento de datos: Operaciones y procedimientos técnicos de carácter automatizado o no, que permitan la recogida, grabación, conservación, elaboración, modificación, bloqueo y cancelación, así como las cesiones de datos que resulten de comunicaciones, consultas, interconexiones y transferencias.
+
+Datos masivos vs datos estructurados
+
+Datos estructurados -> motor de busqueda -> hay un tratamiento de los datos
+
+
+Derecho a la portabilidad de los datos -> Trasladar informacion de un responsable del tratamiento a otro
+
+
+
+################# MIRAR #################:
+
+Articulos 1-22 reglamento proteccion de datos
+
+Articulos 89 ley organica proteccion de datos
+
+Considerando 14 de la sentencia 
+Considerando 19 de la sentencia
+Considerando 20 apartado 2 -> 4 preguntas
+Considerandos 21 - 41, 43 (situacion de hecho)
+Considerandos 62 - 65
+Considerandos 71,72,76,77,80,81, 89 - 99
+
+Articulo 17 del reglamento
+Articulos 92,94 de la ley
+Articulo 23,24, reglamento
+
+Requisitos para no poder reclamar los datos en la fecha de la sentencia:
+Exacta 
+Cierta
+De conocimiento público
+
+
+Para el miercoles -> Aplicando la normativa de ahora resolver el caso STJUE 13/5/14
+
+
+
+
+
+

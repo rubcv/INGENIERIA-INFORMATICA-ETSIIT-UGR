@@ -1,0 +1,104 @@
+Articulos 97.4, 51.5
+
+Artículo 14.3
+
+Diferencia entre derechos morales y derechos de explotación
+
+
+En un programa de ordenador el creador tiene derecho a que se respete la integridad de ese programa de ordenador
+
+
+Tiempo que duran los derechos de explotacion de una obra intelectual:
+
+Muerte del autor + 70 años después de su muerte
+
+Derechos sobre una obra de propiedad intelectual:
+	Reproduccion ej: fotocopia -> Respetando la integridad de la obra
+	Distribución ej: articulo 19 ley propiedad intelectual, distribucion de una obra de prop. intelectual -> distribucion adherida a un soporte material
+	Com. Pública
+	Transformación -> Sacar una obra distinta a la anterior modificando ej: hacer una película de un libro
+	
+	
+La diferencia entre distribución y comunicacion publica implica que la distribucion está adherida a un soporte material y por lo tanto va a ser un objeto de consumo individual
+
+MIRAR: Ley del agotamiento del derecho de distribución:
+Una vez que una obra sea vendida por primera vez dentro del espacion de la UE, el autor pierde el control sobre los ejemplares ya vendidos
+	
+	
+Segunda consecuencia: Que significa distribuir una obra y que significa soporte material
+
+
+
+
+
+Patentabilidad de los programas de ordenador: No se patenta el programa de ordenador en si, sino una ventaja de aplicación industrial económica que produce el programa de ordenador que no podría existir sin la existencia del programa. El programa va a ser siempre una obra de propiedad intelectual
+
+
+Articulos 58 y siguientes propiedad ley intelectual
+Contrato de edición: Ultima via que tiene el autor de una obra de propiedad intelectual para aprovecharla economicamente salvo que quiera convertirse en autor y editor de dicha obra, cede los derechos de edicion a un editor por un tiempo determinado y a cambio de una prestacion economica
+
+Hay dos vias para sacar beneficio de una obra de prop. intelectual: 
+
+Contrato de edicion para obras creadas
+Contrato de encargo de obras de propiedad intelectual a obras no creadas
+
+
+-> Listado de paginas amarillas protegido?
+
+Las bases de datos no son obras de propiedad intelectual pues su contenido son cosas que existian antes
+
+
+Si quieres patentar una base de datos, decir que tiene una ventaja industrial en el orden en el que esta creada etc
+
+Limites para usar los datos: publicos, privados y de enseñanza
+
+Limite de copia privada: articulo 31 ley propiedad intelectual
+
+Un bien es una realidad autonoma y estatica con valor economica que por lo tanto tiene el derecho que reconocer su existencia
+
+Propiedad intelectual -> forma de expresion de la idea
+Propiedad industrial -> la idea misma
+
+Para patentar un programa de ordenador, patentar la idea que te llevó a ese programa de ordenador
+
+No es posible prorrogar el derecho de patente, quien patenta algo tiene oblicacion de explotarlo económicamente en los 3 primeros años
+
+Articulo 15
+
+Modelo de utilidad:
+
+Si intentas patentar algo y te dicen que no, lo pones como modelo de utilidad y durante 10 años puedes explotarlo económicamente
+
+
+
+Derecho de explotación de las patentes de 10 años
+
+
+Marca: Derecho distintivo que le permite diferenciar a una empresa con sus competidores, 10 años para aprovechar esa marcas
+
+PREGUNTAS DE CLASE:
+
+1. regla del agotamiento del derecho de distribucion, programa en la UE
+
+2. autor de un programa tiene derecho de acceso al ejemplar raro como dice el art 15 de pi
+
+3. en colectivo, identificar a los autores
+ 
+4. un trabajador asalariado si no dice nada el contrato tiene derechos de explotacion
+
+5. un programa es patentable ya que lo permite el art 104 de la ley de propo int
+
+6. una persona pide a otra que desarrolle un programa para su empresa, este contrato se llama de edicion
+
+7. coleccion de obras  clasicas ordenadas alfabeticamente no puede agarrarse al derecho de base de datos
+
+8. los datos pseudoanonimizados, son datos personales
+
+9. google es a efectos del reglamento de proteccion de datos, responsable del tratamiento
+
+10. si me condenan por homicidio tengo derecho a que pasado un tiempo esa informacion desaparezca por completo
+
+
+Respuestas: 
+
+F,F,V,F,F,F,V,V,V,F

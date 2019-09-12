@@ -1,0 +1,20 @@
+Contrato (ej comprar un telefono):
+	Consentimiento -> Pagar un dinero a cambio del telefono
+	Objeto -> El telefono
+	Causa -> Motivacion para llevar a cabo el contrato: gratuita, onerosa (intercambio patrimonial equivalente), remuneratoria
+Articulo 1261 codigo civil
+
+onerosa: tras el contrato, siguies igual de rico que estabas
+gratuita: regalos
+remuneratoria: pago por un trabajo previo
+
+Buscar leyes:
+Ley + Boe consolidado
+
+Buscar directivas reglamento union europea:
+directiva + eurlex
+
+Formas de aceptar un contrato:
+aceptacion expresa -> dices expresamente que lo quieres: ej boton acepto de cookies
+aceptacion implicita -> lleva una aceptacion: ej envialo a tal direcccion
+aceptacion tacita -> aceptar a traves de actos concluyentes: ej si continuas navegando en la pag aceptas las cookies

@@ -1,0 +1,86 @@
+Por lo que respecta a la actividad de los buscadores como proveedor de contenidos en relacióncon la [Directiva 95/46]:
+
+a) En relación con la actividad [de Google Search], como proveedor de contenidos,consistente  en  localizar  la  información  publicada  o  incluida  en  la  red  por  terceros,indexarla  de  forma  automática,  almacenarla  temporalmente  y  finalmente  ponerla  adisposición  de  los  internautas  con  un  cierto  orden  de  preferencia,  cuando  dicha información contenga datos personales de terceras personas, ¿Debe interpretarse una actividad  como  la  descrita  comprendida  en  el  concepto  de  “tratamiento  de  datos”,contenido en el art. 2.b de la [Directiva 95/46]?
+
+	Si porque de acuerdo con el articulo 2b de la directiva 95/46 se dice lo siguiente:
+	«tratamiento de datos personales» («tratamiento»): cualquier operación o conjunto de operaciones, efectuadas o no mediante 
+	procedimientos automatizados, y aplicadas a datos personales, como la recogida, registro, organización, conservación, elaboración o    
+    modificación, extracción, consulta, utilización, comunicación por transmisión, difusión o cualquier otra forma que facilite el acceso 
+    a los mismos, cotejo o interconexión, así como su bloqueo, supresión o destrucción;
+	
+
+
+b) En caso de que la respuesta anterior fuera afirmativa y siempre en relación con una actividad como la ya descrita:¿Debe interpretarse el artículo 2.d) de la [Directiva 95/46], en el sentido de considerar que la empresa que gestiona [Google Search] es “responsable del tratamiento” de los datos personales contenidos en las páginas web que indexa?
+
+	«responsable del tratamiento»: la persona física o jurídica, autoridad pública, servicio o cualquier otro organismo que sólo o 
+	conjuntamente con otros determine los fines y los medios del tratamiento de datos personales; en caso de que los fines y los medios 
+	del tratamiento estén determinados por disposiciones legislativas o reglamentarias nacionales o comunitarias, el responsable del 
+	tratamiento o los criterios específicos para su nombramiento podrán ser fijados por el Derecho nacional o comunitario;
+	(https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:31995L0046&from=EN)
+
+	-> Se mantiene con la ley actual (reglamento UE) 2016/679 Articulo 4. 2
+
+
+
+c) En el caso de que la respuesta anterior fuera afirmativa:¿Puede la [AEPD], tutelando los derechos contenidos en el art. 12.b) y 14.a) de la[Directiva 95/46], requerir directamente [a Google Search] para exigirle la retirada de sus índices de una información publicada por terceros, sin dirigirse previa o simultáneamente al titular de la página web en la que se ubica dicha información?
+		 
+		  en su caso, la rectificación, la supresión o el bloqueo de los datos cuyo tratamiento no se ajuste a las disposiciones de la 
+		  presente 
+		 Directiva, en particular a causa del carácter incompleto o inexacto de los datos;
+
+		oponerse, al menos en los casos contemplados en las letras e) y f) del artículo 7, en cualquier momento y por razones legítimas 
+		propias de su situación particular, a que los datos que le conciernan sean objeto de tratamiento, salvo cuando la legislación 
+		nacional disponga otra cosa. En caso de oposición justificada, el tratamiento que efectúe el responsable no podrá referirse ya a 
+		esos datos;
+
+		Antiguamente solo se podia reclamar si se cumple: 
+		Exacta 
+		Cierta
+		De conocimiento público
+
+		-> oposición justificada Art. 14 
+
+		Actualmente:
+
+		Si puede ya que en los articulos 17 y 18, el interesado puede retirar el consentimiento y oponerse al tratamiento.
+		Art 18. c: el responsable ya no necesite los datos personales para los fines del tratamiento, pero el interesado los necesite para
+		la formulación, el ejercicio o la defensa de reclamaciones;
+
+		Artículo 21:
+		1. - Derecho de oposicion
+
+		El interesado tendrá derecho a oponerse en cualquier momento, por motivos relacionados con su situación
+		particular, a que datos personales que le conciernan sean objeto de un tratamiento basado en lo dispuesto en el
+		artículo 6, apartado 1, letras e) o f), incluida la elaboración de perfiles sobre la base de dichas disposiciones. El
+		responsable del tratamiento dejará de tratar los datos personales, salvo que acredite motivos legítimos imperiosos para el
+		tratamiento que prevalezcan sobre los intereses, los derechos y las libertades del interesado, o para la formulación, el
+		ejercicio o la defensa de reclamaciones.
+
+		Articulo 15 Derecho de acceso del interesado e)
+
+		la existencia del derecho a solicitar del responsable la rectificación o supresión de datos personales o la limitación del
+		tratamiento de datos personales relativos al interesado, o a oponerse a dicho tratamiento;
+
+
+
+d) En el caso de que la respuesta a esta última pregunta fuera afirmativa: ¿Se  excluiría  la  obligación  de  los  buscadores  de  tutelar  estos  derechos  cuando  la información que contiene esos datos se haya publicado lícitamente por terceros y se mantenga en la página web de origen?
+		
+		Artículo 93. Derecho al olvido en búsquedas de Internet.
+		1. Toda persona tiene derecho a que los motores de búsqueda en Internet eliminen de
+		las listas de resultados que se obtuvieran tras una búsqueda efectuada a partir de su nombre
+		los enlaces publicados que contuvieran información relativa a esa persona cuando fuesen
+		inadecuados, inexactos, no pertinentes, no actualizados o excesivos o hubieren devenido
+		como tales por el transcurso del tiempo, teniendo en cuenta los fines para los que se
+		recogieron o trataron, el tiempo transcurrido y la naturaleza e interés público de la
+		información.
+		Del mismo modo deberá procederse cuando las circunstancias personales que en su
+		caso invocase el afectado evidenciasen la prevalencia de sus derechos sobre el
+		mantenimiento de los enlaces por el servicio de búsqueda en Internet.
+		Este derecho subsistirá aun cuando fuera lícita la conservación de la información
+		publicada en el sitio web al que se dirigiera el enlace y no se procediese por la misma a su
+		borrado previo o simultáneo.
+		
+
+
+
+

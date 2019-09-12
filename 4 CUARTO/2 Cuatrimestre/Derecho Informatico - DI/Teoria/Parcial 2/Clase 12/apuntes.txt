@@ -1,0 +1,79 @@
+
+Instancias judiciales:
+
+Cualquier sentencia tiene origen en un confrontamiento, composición: Derecho + Hechos
+-> hechos
+-> ley, interpretacion del derecho
+
+El juez tiene que resolverla
+
+Se acude a juzgados de primera instancia
+-> distintos ordenes procesales: civil, mercnatil, administrativo
+-> resuelven todo el caso
+
+La sentencia adquere firmeza -> las partes deben cumplir la sentencia
+
+1º Sentencia juez primera instancia -> 2º Audiencia provincial # examina de nuevo los hechos y el derecho (son generalistas, lo examinan todo)
+
+Despues de la audiencia provincial, solo se puede recurrir por cosas concretas
+
+3º Tribunal supremo -> Siguiente instancia, examine la interpretacion de una norma fundamental para el caso, pero no examina los hechos
+Solo se recurre si los hechos superan un determinado dinero
+
+Recurso de casación: Sirve para examinar la interpretación de una norma aplicable al caso
+Infraccion procesal: cuando presentar los papeles
+
+Tribunal constitucional
+
+Recurso de amparo de tribunal supremo -> tribunal de tratados internacionales
+
+Cuestión prejudicial:
+Cuando el juez en cualquiera de los casos anteriores necesita consultar una norma de la union europea, puede preguntar al 
+tribunal de justicia de la UE como interpretar esa norma que tiene que aplicar al caso, similar al recurso de casación
+
+
+Cuando el tribunal de justicia de la UE responde con una interpretacion, se inserta en los juzgados de primera instancia, no es propiamente una sentencia
+
+En cualquier momento, cualquier tribunal puede consultar con el de justicia de la UE
+
+
+
+#################################################
+
+
+Propiedad intelectual:
+
+La normativa de propiedad intelectual proteje la idea, no el codigo fuente, contenido visual, etc -> Obra de propiedad intelectual
+La de patentes proteje la obra (fisica)
+
+Obra de propiedad intelectual:
+Creacion original de un autor
+
+Ley propiedad intelectual BOE
+Articulo 10 -> Ejemplos de obras de propiedad intelectual
+Articulos 7,8 -> Obras en colaboracion / Obras colectivas
+
+Clasificaciones de obras que pertenecen a varios autores:
+
+En colaboracion: Cada autor tiene un trozo de esa obra, puedes ejercer derechos de explotación sobre tu parte
+Obras colectivas: No es posible dividir la obra, los derechos sobre la obra pertenecen a quien la edita y difunde, derechos de explotación
+
+Si la obra de propiedad intelectual no tiene nombre, pertenece a quien la haga pública hasta que salga su verdadero autor, tambien las que se publican con psuedonimo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

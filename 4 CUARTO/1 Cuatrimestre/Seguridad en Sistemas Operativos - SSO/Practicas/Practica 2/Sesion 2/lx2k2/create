@@ -1,0 +1,15 @@
+#!/bin/sh
+gcc -o lx2k2 lx2k2.c
+FILESIZE=`ls -l lx2k2|awk '$5 {print $5}'`
+PROGSIZE=`awk '/define PARASITE_LENGTH/ {print $3}' lx2k2.c`
+if [ "$FILESIZE" == "$PROGSIZE" ];then
+	echo File sizes are correct...Ready to Roll!
+else
+	echo File size do not match!
+	echo "Modifying source defines to PARASITE_LENGTH $FILESIZE."
+        awk ' {if(/define PARASITE_LENGTH/) print "#define PARASITE_LENGTH "'$FILESIZE'; else print $0}' lx2k2.c > lx2k2.c.new
+        mv lx2k2.c lx2k2.c.bak
+        mv lx2k2.c.new lx2k2.c
+	./create
+fi
+

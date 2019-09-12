@@ -1,0 +1,30 @@
+psudoanonimmización: Desasociar un dato a una persona, de forma provisional porque hay medios que permiten volver a asociarlo a dicha persona
+
+Dato no personal en origen: datos meteorológicos
+
+
+
+Componentes datos personales:
+1. Responsable del tratamiento -> Responde por esa actividad
+2. Encargado del tratamiento
+Estos son: Personas juridicas u organismos que realizan el tratamiento
+
+3. Destinatario: El que recibe los datos
+4. Titular de los datos/interesado
+5. El tercero: Organismo que no es ninguno de los anteriores
+El unico que puede ser tercero en el caso de los anteriores es el destinatario
+
+
+
+Consentimiento: Base para que se pueda realizar el tratamiento de los datos
+- Libre
+- Explicito
+- Informado
+- Inequívoco
+
+No puede estar coaccionado, no puede ser una interpretacion del comportamiento
+
+
+
+
+

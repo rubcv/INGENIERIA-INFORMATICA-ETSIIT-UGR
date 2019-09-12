@@ -1,0 +1,53 @@
+Servicios de la sociedad de la información: https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758
+
+a) "Servicios de la sociedad de la información" o "servicios": todo servicio prestado normalmente a título oneroso, a distancia, por vía electrónica y a petición individual del destinatario.
+
+El concepto de servicio de la sociedad de la información comprende también los servicios no remunerados por sus destinatarios, en la medida en que constituyan una actividad económica para el prestador de servicios.
+
+Son servicios de la sociedad de la información, entre otros y siempre que representen una actividad económica, los siguientes:
+
+1.º La contratación de bienes o servicios por vía electrónica.
+
+2.º La organización y gestión de subastas por medios electrónicos o de mercados y centros comerciales virtuales.
+
+3.º La gestión de compras en la red por grupos de personas.
+
+4.º El envío de comunicaciones comerciales.
+
+5.º El suministro de información por vía telemática.
+
+No tendrán la consideración de servicios de la sociedad de la información los que no reúnan las características señaladas en el primer párrafo de este apartado y, en particular, los siguientes:
+
+1.º Los servicios prestados por medio de telefonía vocal, fax o télex.
+
+2.º El intercambio de información por medio de correo electrónico u otro medio de comunicación electrónica equivalente para fines ajenos a la actividad económica de quienes lo utilizan.
+
+3.º Los servicios de radiodifusión televisiva (incluidos los servicios de cuasivídeo a la carta), contemplados en el artículo 3.ª) de la Ley 25/1994, de 12 de julio, por la que se incorpora al ordenamiento jurídico español la Directiva 89/552/CEE, del Consejo, de 3 de octubre, sobre la coordinación de determinadas disposiciones legales, reglamentarias y administrativas de los Estados miembros relativas al ejercicio de actividades de radiodifusión televisiva, o cualquier otra que la sustituya.
+
+4.º Los servicios de radiodifusión sonora, y
+
+5.º El teletexto televisivo y otros servicios equivalentes como las guías electrónicas de programas ofrecidas a través de las plataformas televisivas.
+
+
+
+##################################
+
+articulo 1124 codigo civil
+articulo 1262 codigo civil
+
+ley del comercio -> articulo 23-29 articulo 10
+
+principios de la contratación electronica
+	- equivalencia funcional ej firma electronica a firma
+	- no discriminacion 
+	- no alteracion del derecho persistente
+	- neutralidad tecnologica: normas duraderas
+
+
+
+
+
+
+
+
+

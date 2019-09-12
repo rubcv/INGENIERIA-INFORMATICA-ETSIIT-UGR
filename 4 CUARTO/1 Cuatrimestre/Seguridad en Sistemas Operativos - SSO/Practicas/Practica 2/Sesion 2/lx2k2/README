@@ -1,0 +1,13 @@
+The lx2k2 virus is for demonstration and academic purposes only.
+It is ment to explore the possibilities of a root kit/virus combination.
+Do not actually use this virus to hack a system.
+
+This virus was created for the Academic Underground.
+http://AcademicUnderground.org
+
+C0ded by Macabre
+
+Note: There is a really crappy cleaner included that will extract
+the original executible back out of an infected file.  Make sure
+the virus sizes are correct becuase the cleaner does no error
+checking.

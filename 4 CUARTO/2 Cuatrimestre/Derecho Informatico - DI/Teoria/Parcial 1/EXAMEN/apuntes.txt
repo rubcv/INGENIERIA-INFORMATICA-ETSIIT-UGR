@@ -1,0 +1,45 @@
+PREGUNTAS:
+
+El asesoramiento de un abogado a traves de correo electronico es un servicio de la información?:
+- solo cuando es honeroso
+- siempre
+- no es un servicio de la informacion
+-> no es un servicio de la informacion
+
+En el caso de compraventa e-comerce, donde se realiza el contrato?:
+- El pais donde está la empresa
+- El pais donde está el consumidor 
+- El pais de habla de ambos
+
+-> art. 29 se utilizara como lugar donde se realiza el contrato el lugar de residencia del consumidor
+
+Crear pagina web?
+
+- Un contrato de suministro de cont. digitales + servicio de socciedad de la inf
+- Un contrato de suministro de contenido digital pero no un servicio de sociedad de la informacion
+- Un servicio de sociedad de la informacion pero no un contrato de suministro digitales
+
+-> El 1º, un contrato de suministro digital es solo eso cuando se celebra con consumidores, sino es un servicio de la sociedad de la inf.
+Si se celebra entre empresarios no tiene por que ser un contrato de suministro digital
+
+Comprar pelicula de youtube, pueden devolverte el dinero?
+- No porque cumple el plazo y al ser digital en cuanto lo consumes, recibes, puedes hacer copias y demas luego no pueden devolvertelo,
+la empresa sin embargo puede poner clausulas a parte
+
+
+
+MIRAR:
+
+- Servicios de la sociedad de la informacion
+- Principio de equivalencia funcional:
+Es aquel que permite que todo aquello que se pueda realizar por un medio físico o tradicional pueda ser realizado por medios electrónicos con el mismo valor jurídico y probatorio. Relacionado con el principio de no discriminacion
+
+- Principio de no discriminación:
+Al contrato informático no se le puede tratar distinto que al contrato en papel
+
+- Principio de neutralidad tecnologica:
+Las leyes sobre tecnologia deben estar hechas para durar lo maximo posible
+
+- Envio de publicidad no solicitada permitido o no
+
+- 
