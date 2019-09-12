@@ -1,0 +1,3 @@
+1Grafo de escena
+2preguntas teóricas sobre iluminación
+3pseudocodigo algoritmo cullface
