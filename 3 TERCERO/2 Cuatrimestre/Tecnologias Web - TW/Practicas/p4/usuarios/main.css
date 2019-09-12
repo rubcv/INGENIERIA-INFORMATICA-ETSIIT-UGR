@@ -1,0 +1,24 @@
+html {
+    text-align: center;
+}
+
+
+#enviar {
+    width: 20%;
+    height: 20%;
+}
+
+#error_msg {
+    color: red;
+}
+
+#ok_msg {
+    color: green;
+}
+
+
+#close {
+    font-size: 1.5em;
+    color: lightskyblue;
+    text-decoration: none;
+}

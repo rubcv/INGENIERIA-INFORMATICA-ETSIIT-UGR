@@ -1,0 +1,20 @@
+html {
+    text-align: center;
+}
+
+#enviar {
+    width: 20%;
+    height: 20%;
+}
+
+#error_msg {
+    color: red;
+}
+
+#ok_msg{
+    color: green;
+}
+
+#error_borde {
+    border-color: red;
+}

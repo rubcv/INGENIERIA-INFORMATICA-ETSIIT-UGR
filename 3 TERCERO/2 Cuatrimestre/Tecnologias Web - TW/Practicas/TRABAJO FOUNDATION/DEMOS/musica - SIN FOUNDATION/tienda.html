@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+ 		<meta charset="UTF-8">
+	
+		<title>
+			Snoop Dogg - Official
+		</title>
+	</head>
+	<body>
+		<section>
+			<img src="imagenes/snoop.jpeg" alt="Snoop">
+			<header>
+			<h1> 
+				Snoop Dogg - Official Site
+			</h1>
+			</header>
+		</section>
+			
+			<section> 
+				<nav>
+					<a href="musica.html"> Inicio </a>  | 
+					<a href="biografia.html"> Biografía </a> |					
+					<a href="discografia.html"> Discografía </a> |					
+					<a href="tienda.html"> Tienda </a>					
+				</nav>
+			</section>
+			
+			
+			<!-- ---------------------------------------------------------- -->
+				<section>
+					<h4> Seleccione disco(s) a comprar </h4>
+					<form action="comprar.php" method="POST">
+						<a href="doggystyle.html"> <h2> Doggystyle (1993) </h2> 
+						<img src="imagenes/doggystyle.jpg" alt="Doggystyle"> </a>
+						<section>
+							<input type="checkbox" name="album1" value="doggystyle"> Comprar Doggystyle
+						</section>
+						
+						<a href="last-meal.html"> <h2> Tha Last Meal (2000) </h2> 
+						<img src="imagenes/last-meal.jpg" alt="Tha Last Meal"> </a>
+						<section>
+							<input type="checkbox" name="album2" value="lastmeal"> Comprar Tha Last Meal 
+						</section>
+						
+						<a href="neva-left.html"> <h2> Neva Left (2017) </h2> 
+						<img src="imagenes/neva-left.jpg" alt="Neva Left"> </a>
+						<section>
+							<input type="checkbox" name="album3" value="nevaleft"> Comprar Neva Left
+						</section>
+						
+						<br><br>
+						Nombre: <br>
+						<input type="text" name="nombre">
+						<br><br>
+						Apellidos: <br>
+						<input type="text" name="apellido">
+						<br><br>
+						Correo: <br>
+						<input type="email" name="email">
+						<br><br>
+						Sexo:
+						<select> 
+							<option value="hombre"> Hombre </option>
+							<option value="mujer"> Mujer </option> 
+						</select>
+						<br><br>
+						Edad:
+						<input type="number" name="edad">
+						<br><br>
+						Teléfono:
+						<input type="number" name="telefono">
+						<br><br>
+						<h4> Datos de pago: </h4>
+						Número de cuenta: <br>
+						<input type="text" name="cuenta">
+						<br><br>
+						Fecha de caducidad:
+						<input type="date" name="caducidad">
+						<br><br>
+						Pago:
+						<input type="radio" name="pago" value="visa"> Visa 
+						<input type="radio" name="pago" value="mastercard"> Mastercard
+						<h4> Datos de envío: </h4>
+						Dirección: <br>
+						<input type="text" name="direccion"> <br><br>
+						Población: <br>
+						<input type="text" name="poblacion"> <br><br>
+						Provinica: <br>
+						<input type="text" name="provincia"> <br><br>
+						Código Postal: <br>
+						<input type="number" name="codpostal"> 
+						<br><br>
+						<input type="submit" value="Comprar"> <br>
+					</form>
+				</section>
+			<!-- ---------------------------------------------------------- -->
+	
+	<br><hr>
+	<footer>
+		<nav> 
+			 <a href="musica.html"> Inicio </a> | 
+			 <a href=""> Copyright 2018 </a> |
+			 <a href=""> Mapa del sitio </a> 
+		</nav>
+	</footer>
+	</body>
+
+</html>

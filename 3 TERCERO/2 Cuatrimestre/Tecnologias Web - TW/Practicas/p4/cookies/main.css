@@ -1,0 +1,16 @@
+html {
+    text-align: center;
+}
+
+h1 {
+    color: orangered;
+}
+
+#enviar {
+    width: 20%;
+    height: 20%;
+}
+
+#error_msg {
+    color: red;
+}
