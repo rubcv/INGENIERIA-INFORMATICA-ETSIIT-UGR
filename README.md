@@ -3,17 +3,15 @@
 
 Recopilación de **Prácticas**, **Exámenes** y **Teoría** que se ha llevado a cabo durante mi paso por la carrera.
 
-[1º PRIMERO](https://github.com/rubcv/INGENIERIA-INFORMATICA-ETSIIT-UGR/tree/master/1%20PRIMERO) - 2015-2016 <br>
-[2º SEGUNDO](https://github.com/rubcv/INGENIERIA-INFORMATICA-ETSIIT-UGR/tree/master/2%20SEGUNDO) - 2016-2017 <br>
-[3º TERCERO](https://github.com/rubcv/INGENIERIA-INFORMATICA-ETSIIT-UGR/tree/master/3%20TERCERO) - 2017-2018 <br>
-[4º CUARTO](https://github.com/rubcv/INGENIERIA-INFORMATICA-ETSIIT-UGR/tree/master/4%20CUARTO) - 2018-2019 <br>
+[1º PRIMERO](https://github.com/rubcv/INGENIERIA-INFORMATICA-ETSIIT-UGR/tree/master/1%20PRIMERO) (2015-2016) <br>
+[2º SEGUNDO](https://github.com/rubcv/INGENIERIA-INFORMATICA-ETSIIT-UGR/tree/master/2%20SEGUNDO) (2016-2017) <br>
+[3º TERCERO](https://github.com/rubcv/INGENIERIA-INFORMATICA-ETSIIT-UGR/tree/master/3%20TERCERO) (2017-2018) <br>
+[4º CUARTO](https://github.com/rubcv/INGENIERIA-INFORMATICA-ETSIIT-UGR/tree/master/4%20CUARTO) (2018-2019) <br>
 
 <br>
 
 * [Examenes de varias asignaturas.](https://github.com/rubcv/INGENIERIA-INFORMATICA-ETSIIT-UGR/tree/master/EXAMENES%20ETSIIT)
 * Máquinas virtuales de **ISE** (Ingeniería de Servidores):  
-<br>
-
 * Si encuentro más exámenes o apuntes los iré subiendo, también puedes enviar los tuyos al correo de mi biografía.
 
 <br><br>
@@ -21,7 +19,7 @@ Si eres el propietario de algún material y deseas que lo retire no dudes en esc
 
 <br>
 
-* **Palabras clave:** 
+**Palabras clave:** 
 
 Álgebra Lineal y Estructuras Matemáticas <br>
 Cálculo <br>
