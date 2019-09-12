@@ -1,0 +1,5 @@
+docker swarm join --token SWMTKN-1-5javvbgl4wcwiwj7fj3x67v9mfwasygo4089o0iqbudkvyavmv-4y2lqf3a6h15e6aytc0lotb6i 192.168.99.100:2377
+
+
+
+docker service create --name web2  --replicas 3 --mount type=bind,src=/etc/hostname,dst=/usr/share/nginx/html/index.html,readonly --publish published=8081,target=80 nginx --cpu-limit=0.5

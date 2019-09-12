@@ -1,0 +1,33 @@
+
+
+
+
+CAPTURAS:
+
+
+- Launch a multi-node cluster using Kubeadm - ** HECHO ** 
+	II.a) Captura del Dashboard.
+
+
+- Deploy Containers Using Kubectl - ** HECHO **
+	II.b) Captura donde aparece el puerto modificado.
+
+
+- Deploy Containers Using YAML - ** HECHO **
+	II.c) Captura donde se muestran los Deployment y Services.
+
+
+- Kubernetes - Networking Introduction - ** HECHO **
+	II.d) Captura donde aparece personalizado el NodePort.
+
+
+- Create Ingress Routing - ** HECHO **
+	II.e) Captura donde personalizamos el enrutamiento de nivel 4.
+
+
+- Running Stateful Services on Kubernetes - ** HECHO **
+	II.f) Captura donde personalizamos el mensaje de salida en el almacenamiento persistente.
+
+
+- Deploying a service from source onto Kubernetes - ** HECHO **
+	II.g) Captura de la ejecución de la automatización con forge

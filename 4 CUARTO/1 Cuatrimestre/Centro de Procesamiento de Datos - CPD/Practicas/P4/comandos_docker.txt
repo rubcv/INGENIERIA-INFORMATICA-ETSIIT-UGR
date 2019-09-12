@@ -1,0 +1,11 @@
+docker build -f dockerfile /root/CPD/P4/
+docker build -t my-apache .
+docker run -dit --name my-apache -p 8080:80 my-apache
+Pass: )^ZrAG6p$$oApD3!*B
+
+
+https://docs.docker.com/docker-cloud/builds/push-images/
+
+docker login
+docker tag my_image $DOCKER_ID_USER/my_image
+docker push $DOCKER_ID_USER/my_image

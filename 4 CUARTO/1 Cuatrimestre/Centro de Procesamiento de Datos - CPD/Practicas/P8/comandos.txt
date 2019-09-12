@@ -1,0 +1,9 @@
+-las múltiples instancias de servidores
+-Los volúmenes persistentes creados
+-Cómo se ha realizado el reencaminamiento de nivel 4
+-Cómo están activos los Pods y el servicios
+-Respuestas de curl donde se muestra el balanceo entre los diversos servidores.
+-Capturas con el dashboard del entorno creado
+
+
+

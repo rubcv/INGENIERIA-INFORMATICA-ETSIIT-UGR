@@ -1,0 +1,75 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
+#          Descripcion:
+
+#       Vagrantfile que crea un cluster con 5 servidores/nodos
+
+#       3 Nodos dedicados al servicio
+#       1 Nodo balanceador
+#       1 Nodo monitor
+
+
+## Cluster de servidores
+
+identificadores = [ 'server1', 'server2', 'server3', 'loadbalancer', 'monitor'] # Añadir/Quitar nombres
+servidores = []
+num_servers = 5 # Cambiar si se añaden/quitan nodos (de forma dinamica)
+
+dir_red = '192.168.10.' # 192.168.2. Para que no colapse con ninguna otra red WLAN
+ip_inicial = 10 # Primera IP: 192.168.2.10
+
+
+for i in 0..num_servers-1 do 
+  name = identificadores[i]
+  ip = dir_red + (ip_inicial + i).to_s
+  servidores << {'name' => name,
+                 'ip' => ip,
+                }
+end
+
+Vagrant::Config.run do |config|
+  servidores.each do |server|
+    config.vm.define server['name'] do |config_server|
+      config_server.vm.box = "ubuntu/trusty64"
+      config_server.vm.host_name = server['name']
+      config_server.vm.network :hostonly, server['ip']
+     
+      if server['name'] == 'monitor'   # Si el nodo es monitor, instalamos ansible (monitorizar)
+        config_server.vm.provision :shell, :inline => "
+        echo 'SOY EL MONITOR'"
+        # apt install software-properties-common
+        # apt-add-repository --yes --update ppa:ansible/ansible
+        # apt install ansible" 
+      else
+                
+        # DESCOMENTAR ESTAS LINEAS PARA PROVISIONAR LAS MAQUINAS (TARDA MAS)
+        config_server.vm.provision :shell, :inline => "
+        
+        echo 'INSTALANDO: FAIL2BAN, NGINX, RSYNC'"
+
+
+        # echo vagrant | sudo su -S ; 
+        # apt update; apt install fail2ban -y ; 
+        # apt install nginx -y;
+        # apt install rsync -y;
+
+        
+        # apt install rkhunter -y;  # Descomentar para añadir mas funcionalidad
+        # apt install chrootkit -y;
+        # apt install lynis -y;      
+        #"
+      end
+      
+      
+
+      # NOTA:
+      # Aqui solo realizamos las instalaciones, no configuramos nada porque un solo fallo en configuracion de
+      # una maquina ya evita que se lancen y configuren las demas
+
+      # Ejecutar scripts o configurar manualmente cada maquina
+    
+    end
+  end
+end
