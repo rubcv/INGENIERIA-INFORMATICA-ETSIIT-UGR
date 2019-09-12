@@ -1,0 +1,51 @@
+Examen cuia entra:
+De los sistemas distribuidos lo de la caracteristica de que son sincronizados
+
+Que pueden serlo independientemente de si los nodos se comunican de forma sincrona o asincrona
+
+----------------------------------------------
+Pregunta tipo test foto:
+
+ Sensibilidad activa el sistema recoje informacion y toma una decision, sensibilidad pasiva recoje informacion y te la muestra. Respuesta correcta a) pueden coexistir ambas para tener un cambio gradual entre la pasiva y la activa
+ 
+ 
+-------------------------------------------------------------
+
+
+Un sistema puede ser sincronizado de forma sincrona o asincrona (esto ultimo se refiere a la existencia o no de un ciclo de reloj para las comunicaciones entre entidades pero no elimina la sincronizacion en el sistema)
+
+
+La otra pregunta es del tema de consciencia del contexto en el apartado de aprendizaje automatico que dice: 
+ - Aún es necesario inferir la situación a partir del contexto
+      - Podría usarse aprendizaje automático para determinar el          propósito directamente del contexto
+      - El aprendizaje puede ser muy lento y necesitar muchos            datos
+       - Las relaciones aprendidas pueden ser muy difíciles de             depurar
+       - Los resultados pueden no ser intuitivos para el                        desarrollador o el usuario final
+Y él dijo:
+con aprendizaje automático podemos inferir el propósito mediante una situación aunque se podría inferir el propósito directamente desde un contexto
+
+
+--------------------------------------------------------------
+
+Exámen 2016
+
+1º- Características sistema computación ubicua # HECHO
+2º- Diferencias interacción Hombre-Máquina implícita-explícita. Poner ejemplo. 
+3º- Amenazas de seguridad en un sistema de computación ubicua.
+4º- ¿Qué papel juega la inteligencia Artificial en un sistema de computación ubicua? # HECHO
+5º- Define contexto y situación. Pon un ejemplo. # HECHO
+6º- ¿Qué perjuicios provoca un diseño pobre de interfaz de usuario? # HECHO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
