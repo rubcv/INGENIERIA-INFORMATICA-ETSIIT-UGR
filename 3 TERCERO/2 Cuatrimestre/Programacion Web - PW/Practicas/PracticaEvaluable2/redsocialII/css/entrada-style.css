@@ -1,0 +1,303 @@
+html {
+  background: url(http://hdwallpaperbackgrounds.net/wp-content/uploads/2016/07/white-background-5.jpg) no-repeat center;
+  background-size: cover;
+  text-align: center;
+  color: black;
+  font-family: fantasy;
+
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+sup {
+    color: olivedrab;
+}
+
+.top-header{
+  transition: all 0.3s ease;
+  background-color: rgba(255, 0, 0, 0.8);
+  color: black;
+  font-size: 1.6em;
+  padding: 0.5rem;
+  border-radius: 0.7rem;
+  text-align: center;
+}
+
+.top-header img{
+  position: relative;
+  float: left;
+  border-radius: 0.7rem;
+  width: 150px; 
+  height: 120px;
+  margin-top: -5px;
+  background: rgba(220, 215, 69, 0.5);
+}
+
+.header-letters {
+  color: black;
+}
+
+#header-with-transition {
+  transition: all 0.3s ease;
+}
+
+#zoom-text:hover {
+  -webkit-transform: scale(2);
+  -ms-transform: scale(2);
+  transform: scale(2);
+  border-radius: 0.5rem;
+  background: rgba(46, 242, 163, 0.7);
+  transition: all 0.3s ease;
+}
+
+body img.user-image {
+  position: relative;
+  float: right;
+  border-radius: 0.7rem;
+  width: 80px;
+  height: 80px;
+  margin-top: -90px;
+  background: rgba(220, 215, 69, 0.5);
+
+}
+
+.back-to-index {
+    float: right;
+    font-size: 1rem;
+    margin-top: -10px;
+    font-size: 15px;
+}
+
+
+
+.username {
+    font-size: 1rem;
+    float: right;
+    margin-right: 20px;
+    margin-top: -110px;
+}
+
+.portada-menu {
+  font-size: 1.5rem;
+  color: #a0ed80;
+  text-align: center;
+}
+
+.portada-menu hr {
+  margin-top: -1px;
+}
+
+
+.friends-menu {
+  overflow: auto;
+  max-height: 150px;
+  text-align: center;
+  margin-top: -12px;
+}
+
+.main {
+    margin: 0 auto;
+    text-align:left;
+    width: 750px;
+}
+
+#column {
+   float:left;
+   padding-left: 10px;
+}
+
+.column{
+   padding-left: 0px;
+}
+
+#user-name {
+  font-size: 0.7em;
+  margin-bottom: -40px;
+  text-align: center;
+  margin-left: 50px;
+}
+
+.users-menu {
+  overflow: auto;
+  max-height: 200px;
+}
+
+#user-picture {
+  width: 80px;
+  height: 80px;
+  margin-left: 50px;
+  margin-top: 27px;
+  border-radius: 0.7rem;
+}
+
+.recent-users {
+  width: 120px;
+  height: 500px;
+  border: 3px solid burlywood;
+    border-radius: 0.7em;
+  color: firebrick;
+  background-color: rgba(46, 242, 163, 0.7);
+  margin-left: 90%;
+  overflow: auto;
+}
+
+.recent-users img {
+  max-height: 60px;
+  max-width: 60px;
+}
+
+.recent-users h3 {
+  text-align: center;
+}
+
+#recent-user-name {
+  font-size: 1em;
+  margin-bottom: -40px;
+  margin-top: -20px;
+  text-align: center;
+}
+
+#recent-user-picture {
+  width: 80px;
+  height: 80px;
+  margin-left: 0px;
+  margin-top: 20px;
+  border-radius: 0.7rem;
+}
+
+.entradas {
+  height: 1100px;
+  width: 1190px;
+  border: darksalmon double;
+  border-radius: 0.7em;
+  margin-top: -507px;
+}
+
+#entry-time {
+  text-align: center;
+}
+
+#entrada-box {
+  height: 400px;
+  width: 1000px;
+  border: lightgreen dashed;
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-bottom: -10px; 
+}
+
+
+#entry-text {
+  font-size: 11px;
+  width: 900px;
+  text-align: left;
+  margin-top: 50px;
+  margin-left: 5px;
+}
+
+#entry-user-picture {
+   width: 80px;
+  height: 80px;
+  border-radius: 0.7rem;
+  margin-top: 20px;
+  margin-left: -950px;
+}
+
+#entry-user-name {
+  font-size: 1em;
+  margin-bottom: -40px;
+  margin-top: -20px;
+  margin-left: -900px;
+  text-align: center;
+}
+
+#entry-img {
+  width: 350px;
+  height: 150px;
+  margin-left: -50px;
+  border-radius: 0.7rem;
+  border: 2px lightcoral dotted;
+  position: relative; 
+  right: -10px;
+  margin-top: 10px;
+  margin-left: 0px;
+  float: left; 
+}
+
+#comentario-box {
+  height: 300px;
+  width: 1000px;
+  border: lightgreen dashed;
+  float: left;
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-bottom: -10px;  
+}
+
+
+#comentario-box h3 {
+  margin-top: 80px;
+  font-size: 1.1em;
+  float: left;
+}
+
+#comentario-text {
+  margin-top: 80px;
+  font-size: 11px;
+  width: 900px;
+}
+
+#comment-user-picture {
+   width: 80px;
+  height: 80px;
+  border-radius: 0.7rem;
+  margin-top: 20px;
+  margin-left: 10px;
+  float: left;
+}
+
+#comment-user-name {
+  font-size: 1em;
+  margin-bottom: -40px;
+  margin-top: -20px;
+  margin-left: -900px;
+}
+
+.separation {
+  margin-top: 50px;
+}
+
+.nuevo-user-name {
+  margin-top: 10px;
+  margin-left: -730px;
+  margin-bottom: -20px;
+}
+
+.nuevo-user-picture {
+  width: 80px;
+  height: 80px;
+  border-radius: 0.7rem;
+  margin-top: -20px;
+  margin-right: 20px;
+  margin-bottom: 80px;
+
+}
+
+.nuevo-comentario {
+  text-align: center;
+  margin-top: 40px;
+  height: 150px;
+  width: 800px;
+}
+
+.bottom-sections {
+  color: rgb(128, 0, 128);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  display: block;
+  font-size: 1.5em;
+  margin-top: -12px;
+  text-align: center;
+}
