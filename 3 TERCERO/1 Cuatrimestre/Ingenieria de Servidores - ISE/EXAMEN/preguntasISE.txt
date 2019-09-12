@@ -1,0 +1,32 @@
+ ise kahoot
+
+Pregunta 1: Es verdadero o falso?
+N0=N1+N2+...+Nk
+Es verdadera
+
+Pregunta 2: Es verdadero o falso?
+Di=Bi/Ci
+Es falso
+La verdadera es Di=Bi/Co, La otra es Si=Bi/Ci
+Definicion teorica de Di y Si
+
+Pregunta 3: Es verdadero o falso?
+Ni=Li*Ri es valida, en general, aunque el servidor este saturado.
+Es verdadera
+
+Pregunta 4: Verdadero o falso?
+La razón de visita media debe ser un número entero
+Es falso
+Vi=Ci/Co
+
+Pregunta 5: Verdadero o falso?
+Si reemplazamos un dispositivo por otro el doble de rapido, su razón de visita será menor
+Es falso
+La razón de visita en el dispositivo no va a cambiarlo. Lo que cambia es el Tiempo de Servicio
+Esto es si tienes que acceder 
+
+Pregunta 6: Para un servidor no saturado, ¿que respuesta es correcta?
+
+Ro=R1*V1+R2*V2+R3*V3+...+Rk*Vk
+Es esta
+
