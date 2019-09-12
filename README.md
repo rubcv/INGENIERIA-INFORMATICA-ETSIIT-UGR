@@ -10,7 +10,7 @@ Recopilación de **Prácticas**, **Exámenes** y **Teoría** que se ha llevado a
 
 <br>
 
-* [Examenes de varias asignaturas.](https://github.com/rubcv/INGENIERIA-INFORMATICA-ETSIIT-UGR/tree/master/EXAMENES%20ETSIIT)
+* [Exámenes de varias asignaturas.](https://github.com/rubcv/INGENIERIA-INFORMATICA-ETSIIT-UGR/tree/master/EXAMENES%20ETSIIT)
 * Máquinas virtuales de **ISE** (Ingeniería de Servidores):  
 * Si encuentro más exámenes o apuntes los iré subiendo, también puedes enviar los tuyos al correo de mi biografía.
 * También puedes echarle un vistazo a mi [TFG](https://github.com/rubcv/TFG)
