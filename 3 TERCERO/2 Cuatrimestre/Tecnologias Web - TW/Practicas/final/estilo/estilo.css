@@ -1,0 +1,351 @@
+
+html{
+	background: linear-gradient(
+		rgba(0, 0, 0, 0.7), 
+		rgba(0, 0, 0, 0.7)
+		),
+		url("../imagenes/bg6.jpg");
+	background-attachment: fixed;
+    background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+ul {
+	list-style-type: none;
+}
+
+
+a {
+	text-decoration: none;
+}
+.parallax {
+	
+	background-image: url("../imagenes/neva-left.jpg");
+	border-radius: 100%;
+	width: 100%;
+	height: 100%;
+	margin-top: 50px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+
+
+#cabecera h1{
+	font-size: 3em;
+	color: white;
+}
+
+#comprar_inner1, #comprar_inner2{
+	color: rgba(75, 80, 235, 0.801);
+}
+.centrado {
+	text-align: center;
+}
+
+.slides , .slides_disco {
+	height: 300px;
+}
+.slides_tienda{
+	height: 200px;
+}
+
+#nombre_articulo {
+	font-size: 2em;
+	text-decoration: underline;
+	color: white;
+}
+
+#comprar_articulo {
+	font-size: 2em;
+	color: white;
+	float: right;
+	margin-top: 100px;
+	margin-right: 400px;
+}
+
+
+input[type=checkbox]
+{
+  transform: scale(2);
+  -ms-transform: scale(2); 
+  -moz-transform: scale(2); 
+  -webkit-transform: scale(2); 
+  -o-transform: scale(2); 
+  padding: 10px;
+}
+
+
+
+#buyBtt, .buyBtt{
+	border: none;
+    color: #564caf;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size: 16px;
+	cursor: pointer;
+	-webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+#buyBtt:hover, .buyBtt:hover {
+	background-color: #564caf; 
+    color: white;
+}
+
+#a_tienda {
+	font-size: 2em;
+	color: white;
+	float: left;
+	margin-top: -300px;
+	margin-left: 600px;
+}
+
+#llenarCanciones {
+	text-decoration: none;
+	color: white;
+	font-size: 1.5em;
+}
+
+#canciones_lista {
+	color: white;
+	font-size: 1.2em;
+	float: right;
+	margin-right: 300px;
+	margin-top: -500px;
+}
+.canciones {
+	text-decoration: underline; 
+}
+.canciones_lista_disco {
+	color: white;
+	font-size: 1.2em;
+	float: right;
+	margin-top: -300px;
+	margin-right: 300px;
+}
+
+
+#opciones_l {
+	list-style: none;
+	text-align: center;
+	padding: 1px;
+	background-color:  rgba(50, 51, 77, 0.89);
+	background-size: auto;
+}
+
+#opciones_l button{
+	color: white;
+	border: none;
+	padding: 15px 32px;
+	text-align: center;
+	cursor: pointer;
+	background-color: #4563a580;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 1.1em;
+	text-decoration: none;
+}
+
+#opciones_l button:hover {
+	color: #212133;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#nombre_conc{
+	font-size: 2em;
+	margin-top: -5px;
+}
+
+.descripcion_conc{
+	width: 500px;
+	margin-right: -300px;
+}
+
+#disco_artista {
+	color: white;
+	margin-top: 50px;
+	text-decoration: navajowhite;
+}
+#promo {
+	font-size: 2em;
+	color: white;
+	float: left;
+	margin-top: -200px;
+	margin-left: 600px;
+}
+
+#a_tienda a {
+	text-decoration: none;
+	color: white;
+}
+
+#biografia {
+	color: white;
+}
+
+.login_form{
+	color: white;
+	text-align: center;
+	padding: 5px;
+}
+
+.giras_desc {
+	font-size: 1.1em;
+	margin-left: 300px;
+	margin-top: -300px;
+}
+
+.giras_scope{
+	margin-bottom: 200px;
+}
+
+.color_azul{
+	color: rgba(75, 80, 235, 0.801);
+}
+
+.giras_desc h4 {
+	font-size: 1.5em;
+}
+
+#giras img{
+	width: 20%;
+	height: 40%;
+	display: block;
+	margin-top: 5%;
+
+}
+
+#fondo-navegacion {
+	background-color: grey;
+}
+
+#navegacion  {
+	padding: 10px 10px 0px 10px; 
+}
+
+#navegacion p {
+	color: rgba(26, 28, 79, 0.6);
+	text-decoration: none;
+}
+
+#sesion_header {
+	margin-top: -5px;
+	margin-bottom: -10px;
+	padding: 10px;	
+	background: #ebebe0;
+	color: rgba(26, 28, 79, 0.8);
+}
+.contenido {
+	cursor: pointer;
+	margin-top: -5px;
+	margin-bottom: -10px;
+	padding: 10px;	
+	background: #ebebe0;
+}
+
+.contenido2 {
+	margin-top: -5px;
+	margin-bottom: -10px;
+	padding: 10px;	
+	background: #ebebe0;
+}
+
+.delete input{
+	color: darkslategray;
+	float: left;
+	border-color: red;
+	margin-top: -30px;
+	margin-left: 1100px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.opcion {
+	color: white;
+}
+.contenido:hover {
+	color: white;
+	background-color: rgba(26, 28, 79, 0.8);
+}
+
+
+.titulo_info {
+	color: white;
+}
+
+#sinopsis {
+	color: white;	
+	font-size: 1.1em;
+}
+
+.titulo_info h2 {
+	background-color: rgba(26, 28, 79, 0.8);
+}
+
+.style_sep {
+	color: white;
+}
+
+#tabla {
+	background-color: rgba(128, 170, 255, 0.6);
+	padding: 5px;
+}
+
+.light_row {
+	background-color: rgb(255, 204, 153);
+}
+
+.dark_row {
+	background-color: rgb(255, 179, 102);
+}
+
+table {
+	border-spacing: 0px;
+}
+
+table td {
+	padding: 10px;
+}
+
+table tr:hover:not(:first-child) {
+	background-color: rgb(255, 71, 26);
+}
+
+table td:hover {
+	color: yellow;
+}
+
+#ref_bio a{
+	color: rgb(255, 102, 0);
+}
+
+#ref_tienda {
+	background-color: rgb(230, 115, 0, 0.5); 
+	padding-bottom: 51px;
+}
+
+#ref_tienda a{
+	color: black;
+}
+
+#fin a {
+	padding: 5px;
+}
+
+#fin {
+	background-color: rgba(128, 170, 255, 1);
+	padding: 5px;
+	margin-top: -15px;
+}
+
+#fin a:hover {
+	background-color: rgba(26, 28, 79, 0.8);
+	color: white;
+}
+
+
