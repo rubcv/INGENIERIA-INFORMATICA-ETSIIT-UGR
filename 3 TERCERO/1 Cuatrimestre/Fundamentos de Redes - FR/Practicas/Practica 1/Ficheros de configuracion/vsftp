@@ -1,0 +1,10 @@
+service ftp
+{
+	disable		= yes
+	socket_type	= stream
+	wait		= no
+	user		= root
+	server		= /usr/sbin/vsftpd
+#	nice		= 10
+	log_on_failure	+= USERID
+}
