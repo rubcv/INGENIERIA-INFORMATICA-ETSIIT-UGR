@@ -12,6 +12,8 @@ Recopilación de **Prácticas**, **Exámenes** y **Teoría** que se ha llevado a
 
 * [Exámenes de varias asignaturas.](https://github.com/rubcv/INGENIERIA-INFORMATICA-ETSIIT-UGR/tree/master/EXAMENES%20ETSIIT)
 * Máquinas virtuales de **ISE** (Ingeniería de Servidores):  
+  * Centos: https://mega.nz/#!0IBwhIgD!oXdWD3t591KrJE7OWa3f9Il79dXde-35X5gi6awwSoM
+  * Ubuntu: https://mega.nz/#!5UAgSCAR!02zmMrLO9QHf5AuToHbui_EDKBIlJifM6_psn0LG4AI
 * Si encuentro más exámenes o apuntes los iré subiendo, también puedes enviar los tuyos al correo de mi biografía.
 * También puedes echarle un vistazo a mi [TFG](https://github.com/rubcv/TFG)
 <br><br>
